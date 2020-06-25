@@ -20,7 +20,7 @@ Much of the development of OpenSHA would not have been possible without dedicate
 
 ## Contact Us
 
-Please let us know if you encounter any problems with this website, have suggestions for improving it, or would like to suggest or contribute additional content (e.g. tutorials, publications). You can reach the primary developers via e-mail at:
+Please let us know if you encounter any problems with this website, have suggestions for improving it, or would like to suggest or contribute additional content (e.g., tutorials, publications). You can reach the primary developers via e-mail at:
 
 * Ned Field: field `at` usgs `dot` gov
 * Kevin Milner: kmilner `at` usc `dot` edu
