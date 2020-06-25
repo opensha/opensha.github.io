@@ -1,4 +1,4 @@
-OpenSHA desktop applications are available [at the opensha-apps release page HERE](https://github.com/opensha/opensha-apps/releases). The applications are all written in Java and are bundled as JAR files. To run them, you need to have a 64-bit version of Java installed, 8 (AKA 1.8) or higher.
+OpenSHA desktop applications are available [at the opensha-apps release page HERE](https://github.com/opensha/opensha-apps/releases).
 
 Please use the following citation when publishing results generated using OpenSHA:
 
@@ -6,9 +6,19 @@ Please use the following citation when publishing results generated using OpenSH
 Field, E.H., T.H. Jordan, and C.A. Cornell (2003), OpenSHA: A Developing Community-Modeling Environment for Seismic Hazard Analysis, Seismological Research Letters, 74, no. 4, p. 406-419.
 ```
 
-*Note that all applications are being continually developed and that the project provides [no guarantees](License) as to their serviceability.*
+*Note that all applications are being continually developed and that the project provides [no guarantees](License-Disclaimer) as to their serviceability.*
 
 If you encounter an issue with our applications, please submit a [ticket here](https://github.com/opensha/opensha-apps/issues).
+
+### Requirements
+
+Our apps are written in [Java](https://www.oracle.com/java/technologies/) and are cross-platform. The OpenSHA developers use Linux and Mac OSX, but apps should run on Windows as well. Basic requirements are as follows:
+
+* Java 8 (aka 1.8) or above
+* 64-bit version of Java
+* At least 4 GB of RAM (8 GB or greater recommended)
+
+Check that you have the correct version installed with the `java -version` command in a terminal (make sure that it says '64-Bit' and that the version is appropriate).
 
 ### Launching applications
 
