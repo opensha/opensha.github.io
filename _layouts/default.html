@@ -60,12 +60,10 @@
 
         {% capture foot_include %}{% include_relative _Footer.md %}{% endcapture %}
 	<p><small>{{ foot_include | markdownify }}</small></p>
+	<p><small>This website is generated automatically from the <a href="https://github.com/opensha/opensha-commons/wiki">OpenSHA wiki on GitHub</a>, and is powered by GitHub Pages and Jekyll</small></p>
 
       </section>
       <footer>
-        {% if site.github.is_project_page %}
-        <p>This project is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></p>
-        {% endif %}
 	<!--
         <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
 	-->
