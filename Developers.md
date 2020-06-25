@@ -2,7 +2,7 @@ OpenSHA has an active and growing developer community. It's use by various group
 
 ### Getting the Source
 
-OpenSHA source code is hosted on GitHub. The starting point for documentation is the [opensha-commons README](https://github.com/opensha/opensha-commons/blob/master/README.md#opensha-commons). Once you have downloaded the source, you can compile the project or build jar files for use in external projects. We typically develop OpenSHA code with [Eclipse](https://www.eclipse.org).
+OpenSHA source code is [hosted on GitHub](https://github.com/opensha/). The starting point for documentation is the [opensha-commons README](https://github.com/opensha/opensha-commons/blob/master/README.md#opensha-commons). Once you have downloaded the source, you can compile the project or build jar files for use in external projects. We typically develop OpenSHA code with [Eclipse](https://www.eclipse.org).
 
 If, at some future time, you have made changes or enhancements that warrant inclusion in the project, please submit a pull request, or [contact](Home#contact-us) the project to see about getting them integrated.
 
