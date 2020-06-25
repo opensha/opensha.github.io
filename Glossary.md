@@ -130,8 +130,7 @@ See entry on [Earthquake Rupture](#earthquake-rupture) for definition of terms: 
 
 
 
-[![](resources/eq_rupture_sm.png)\
-(click to enlarge)](resources/eq_rupture_lg.png)
+[![](resources/eq_rupture_sm.png)(click to enlarge)](resources/eq_rupture_lg.png)
 
 
 
@@ -159,8 +158,7 @@ An **Earthquake Rupture** with an associated probability of occurrence. See also
 
 
 
-[![](resources/erf_diagram_sm.jpg)\
-(click to enlarge)](resources/erf_diagram_lg.jpg)
+[![](resources/erf_diagram_sm.jpg)(click to enlarge)](resources/erf_diagram_lg.jpg)
 
 
 
@@ -201,8 +199,7 @@ These other fault types may also be [gridded](#gridded-surface).
 
 
 
-[![](resources/frankel_fault_sm.jpg)\
-(click to enlarge)](resources/frankel_fault_lg.jpg)
+[![](resources/frankel_fault_sm.jpg)(click to enlarge)](resources/frankel_fault_lg.jpg)
 
 
 
@@ -216,8 +213,7 @@ A **Frankel Fault Surface** is one representation of a [Gridded Surface](#gridde
 
 
 
-[![](resources/fault_gridding_sm.png)\
-(click to enlarge)](resources/fault_gridding_lg.png)
+[![](resources/fault_gridding_sm.png)(click to enlarge)](resources/fault_gridding_lg.png)
 
 
 
@@ -232,7 +228,7 @@ This is synonymous with [Attenuation Relationship](#attenuation-relationship) (O
 ## Hanging Wall & Foot Wall
 *[(top)](#table-of-contents)*
 
-For a dipping fault, the **Hanging Wall** is the block positioned over the fault, the **Foot Wall** is the block positioned under it. See the cross-sections below and the [Wikipedia](http://en.wikipedia.org/wiki/Fault_(geology)) entry on faults for more information.\
+For a dipping fault, the **Hanging Wall** is the block positioned over the fault, the **Foot Wall** is the block positioned under it. See the cross-sections below and the [Wikipedia](http://en.wikipedia.org/wiki/Fault_(geology)) entry on faults for more information.
 
 
 ![](http://upload.wikimedia.org/wikipedia/commons/2/2c/Nor_rev.png)
@@ -299,8 +295,7 @@ An **Intensity Measure Relationship (IMR)** is one of the two main modeling comp
 
 
 
-[![](resources/imr_multi_diagram_sm.jpg)\
-(click to enlarge)](resources/imr_multi_diagram_lg.jpg)
+[![](resources/imr_multi_diagram_sm.jpg)(click to enlarge)](resources/imr_multi_diagram_lg.jpg)
 
 
 
@@ -466,8 +461,7 @@ A Probabilistic Earthquake Source is also always defined in the context of an [E
 
 
 
-[![](resources/rupture_surface_sm.png)\
-(click to enlarge)](resources/rupture_surface_lg.png)
+[![](resources/rupture_surface_sm.png)(click to enlarge)](resources/rupture_surface_lg.png)
 
 
 
@@ -587,8 +581,7 @@ Truncation of both upper and lower sides of distribution.
 
 
 
-[![](resources/fault_data_sm.png)\
-(click to enlarge)](resources/fault_data_lg.png)
+[![](resources/fault_data_sm.png)(click to enlarge)](resources/fault_data_lg.png)
 
 
 
@@ -657,8 +650,7 @@ Assumes no variability.
 
 
 
-[![](resources/stirling_fault_sm.jpg)\
-(click to enlarge)](resources/stirling_fault_lg.jpg)
+[![](resources/stirling_fault_sm.jpg)(click to enlarge)](resources/stirling_fault_lg.jpg)
 
 
 
