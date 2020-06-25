@@ -12,7 +12,7 @@ As an object-oriented framework, OpenSHA can accomodate arbitrarily complex (e.g
 
 ### About
 
-Like many open-source projects (see [license](License)), OpenSHA is a [work in progress](Goals). Over twenty years in development, the project has been touched by [numerous](Contributors) scientists, developers, and technical experts in the fields of seismology, computer science, and earthquake engineering.
+Like many open-source projects (see [license](License-Disclaimer)), OpenSHA is a [work in progress](Goals). Over twenty years in development, the project has been touched by [numerous](Contributors) scientists, developers, and technical experts in the fields of seismology, computer science, and earthquake engineering.
 
 Although primarily focused on California at inception, OpenSHA is now seeing broader, national use via incorporation in the National Sesmic Hazard Mapping (NSHMP) at the USGS, and it is receiving global exposure via the GEM project.
 

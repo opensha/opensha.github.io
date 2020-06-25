@@ -1,6 +1,6 @@
 [![OpenSHA](resources/opensha_logo_small.png)](Home)
 
-*Open-Source Seismic Hazard Analysis (OpenSHA)*
+**Open**-Source **S**eismic **H**azard **A**nalysis (**OpenSHA**)
 
 * **[Applications](Applications)**
 * **Documentation**
@@ -13,5 +13,5 @@
   * **[Goals](Goals)**
   * **[Sponsors](Sponsors)**
   * **[Contributors](Contributors)**
-  * **[License&mdash;Disclaimer](License)**
+  * **[License&mdash;Disclaimer](License-Disclaimer)**
   * **[Contact](Home#contact-us)**
