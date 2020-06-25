@@ -20,7 +20,7 @@ The components and the probabilistic SHA calculation are depicted graphically in
 
 | Basic Components | Computation Details |
 | --- | --- |
-| ![Basic Components](resources/BasicComps.jpg) | ![Computation Details](resources/CompSequence.jpg) |
+| [![Basic Components](resources/BasicComps.jpg)](resources/BasicComps.jpg) | [![Computation Details](resources/CompSequence.jpg)](resources/CompSequence.jpg) |
 
 Note that the definition of an [IMR](Glossary#intensity-measure-relationship-imr) is flexible enough to accommodate both empirical [Attenuation Relationships](Glossary#attenuation-relationship), and more complex models based on, for example, 3D waveform modeling from first principles of physics coupled with nonlinear dynamic structural response calculations. Such generality is an underpinning of OpenSHA, the intent being to accommodate both near- and long-term goals.
 

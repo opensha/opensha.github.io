@@ -1,4 +1,4 @@
-# OpenSHA is an open-source, Java-based platform for conducting Seismic Hazard Analysis (SHA).
+# OpenSHA is an open-source, Java-based platform for conducting Seismic Hazard Analysis (SHA)
 
 As an object-oriented framework, OpenSHA can accomodate arbitrarily complex (e.g., physics based) earthquake rupture forecasts (ERFs), ground-motion models, and engineering-response models, which narrows the gap between cutting-edge geophysics and state-of-the-art hazard and risk evaluations.
 
