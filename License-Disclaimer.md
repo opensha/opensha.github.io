@@ -1,4 +1,5 @@
 LICENSE
+
 Copyright &copy;2020 OpenSHA.org and the University of Southern California (USC). This copyright applies to the OpenSHA codebase as a whole, or any individual distributed application. The individual contributions of government employees, which may be identified on a per-file basis using GitHub (see developer site), are in the public domain.
 
 The software and content provided on this website are made available under the terms of the Apache License, Version 2.0. A copy of the License is available at:
