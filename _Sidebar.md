@@ -9,6 +9,7 @@
   * **[Glossary](Glossary)**
   * **[Publications](Publications)**
 * **[For Developers](Developers)**
+  * **[GitHub](https://github.com/opensha/)**
 * **[About](Home)**
   * **[Goals](Goals)**
   * **[Sponsors](Sponsors)**
