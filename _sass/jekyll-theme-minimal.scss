@@ -206,7 +206,7 @@ footer {
   header, section, footer {
     float:none;
     position:static;
-    height:auto;
+    height:400px;
     width:auto;
   }
 
@@ -228,7 +228,7 @@ footer {
 
 
   header ul {
-    position:relative;
+    position:absolute;
     right:50px;
     top:52px;
     height:auto;
