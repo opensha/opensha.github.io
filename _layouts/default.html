@@ -45,7 +45,7 @@
       <section>
 
 	{% unless page.path contains "Home" %}
-  	  <h1>{{ page.path }}</h1>
+  	  <h1>{{ page.path | remove: ".md" }}</h1>
 	{% endunless %}
 	
         {{ content }}
