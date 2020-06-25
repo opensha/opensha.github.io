@@ -44,6 +44,10 @@
       </header>
       <section>
 
+	{% unless page.path contains "Home" %}
+  	  <h1>{{ page.path }}</h1>
+	{% endunless %}
+	
         {{ content }}
 
         {% capture foot_include %}{% include_relative _Footer.md %}{% endcapture %}
