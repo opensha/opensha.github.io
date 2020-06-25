@@ -30,6 +30,7 @@ The following is a list of terms commonly used in OpenSHA and in seismic hazard 
 * [Stirling Fault Surface](#stirling-fault-surface)
 * [Strike, Dip, & Rake (Focal Mechanism)](#strike-dip--rake-focal-mechanism)
 * [Wills Site Classification](#wills-site-classification)
+
 ## Attenuation Relationship
 *[(top)](#table-of-contents)*
 
