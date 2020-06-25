@@ -701,6 +701,7 @@ See also the [Wikipedia](http://en.wikipedia.org/wiki/Strike_and_dip) and USGS e
 *[(top)](#table-of-contents)*
 
 This is the site-type classification scheme developed by Wills et al. (2000, *Bull. Seism. Soc. Am.*, vol. 90, p. 187-208). The categories and their **[Vs30](#vs30)** equivalents are:
+
 |  Site Class  | [Vs30](#vs30) range (m/sec) |
 |  ------------ | ------------------------------------------------------- |
 |  B           | &gt;760 |
