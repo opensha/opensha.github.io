@@ -18,7 +18,7 @@ This gives the conditional probability that an [IMT](Glossary#intensity-measure-
 
 The components and the probabilistic SHA calculation are depicted graphically in the following:
 
-| Basic Components | Computation Details |
+| [Basic Components](resources/BasicComps.jpg) | [Computation Details](resources/CompSequence.jpg) |
 | --- | --- |
 | [![Basic Components](resources/BasicComps.jpg)](resources/BasicComps.jpg) | [![Computation Details](resources/CompSequence.jpg)](resources/CompSequence.jpg) |
 
