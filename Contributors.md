@@ -1,4 +1,4 @@
-OpenSHA was originally conceived by Ned Field and is a work in progress that keeps pace with new developments in seismic hazard assessment. Much of the initial work was performed by [ISTI](http://www.isti.com/), under contract with [SCEC](http://opensha.org/sponsors). Over the years, numerous others (listed below) have contributed to the project in both advisory and technical capacities.
+OpenSHA was originally conceived by Ned Field and is a work in progress that keeps pace with new developments in seismic hazard assessment. Much of the initial work was performed by [ISTI](http://www.isti.com/), under contract with [SCEC](Sponsors). Over the years, numerous others (listed below) have contributed to the project in both advisory and technical capacities.
 
 ## Primary Developers
 
