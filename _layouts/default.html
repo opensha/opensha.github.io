@@ -12,7 +12,11 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
 
-    <title>{{ page.path | remove: ".md" }} | OpenSHA</title>
+    {% if page.path contains "index" %}
+      <title>Home | OpenSHA</title>
+    {% else %}
+      <title>{{ page.path | remove: ".md" }} | OpenSHA</title>
+    {% endif %}
 {% seo %}
     <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
     <!--[if lt IE 9]>
