@@ -61,7 +61,7 @@
       </header>
       <section>
 
-	{% unless page.path contains "Home" %}
+	{% unless page.path contains "index" %}
   	  <h1>{{ page.path | remove: ".md" }}</h1>
 	{% endunless %}
 	
