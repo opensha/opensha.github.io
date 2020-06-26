@@ -19,6 +19,8 @@ OpenSHA is split into multiple projects with the following dependencies:
 | [dev](https://github.com/opensha/opensha-dev)        | apps       | Development sandbox for shared prototyping       |
 | [cybershake](https://github.com/opensha/opensha-cybershake) | dev       | CyberShake interface code and calculators        |
 
+The 'releases' pages of the above repositories contain pre-built jar files which can be referenced from external projects.
+
 ### Bugs? Technical issues?
 
 You can submit a ticket on the 'Issues' page of each OpenSHA sub-project. For example, to submit a bug related to our applications, go [here](https://github.com/opensha/opensha-apps/issues).
