@@ -277,7 +277,7 @@ OpenSHA was designed so that virtually any other IMT may be defined and implemen
 
 
 
-An IML specifies the level, or value, of the IMT that one is concerned about exceeding. For example, one might want to know that probability that [Peak Ground Velocity](#peak-ground-velocity) (the IMT) will exceed a level of 100 cm/sec (the IML).
+An IML specifies the level, or value, of the IMT that one is concerned about exceeding. For example, one might want to know that probability that [Peak Ground Velocity](#peak-ground-velocity-pgv) (the IMT) will exceed a level of 100 cm/sec (the IML).
 
 ## Intensity Measure Relationship (IMR)
 *[(top)](#table-of-contents)*
