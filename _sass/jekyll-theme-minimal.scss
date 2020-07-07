@@ -109,7 +109,10 @@ header {
   float:left;
   position:fixed;
   -webkit-font-smoothing:subpixel-antialiased;
-  list-style-type: none;
+}
+
+ul.header {
+  list-style:none;
 }
 
 ul.downloads {
@@ -212,7 +215,6 @@ footer {
 
   header {
     padding-right:320px;
-    list-style-type: none;
     //padding:0;
   }
 
@@ -245,7 +247,6 @@ footer {
 
   header {
     padding:0;
-    list-style-type: none;
   }
 
   header ul, header p.view {
