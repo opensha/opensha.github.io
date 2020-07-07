@@ -107,6 +107,10 @@ img {
 header {
   ul {
     list-style:none;
+    margin-left:0px;
+    ul {
+      margin-left:20px;
+    }
   }
   width:200px;
   float:left;
