@@ -105,7 +105,9 @@ img {
 }
 
 header {
-  ul.list-style:none;
+  ul {
+    list-style:none;
+  }
   width:200px;
   float:left;
   position:fixed;
