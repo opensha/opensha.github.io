@@ -105,14 +105,11 @@ img {
 }
 
 header {
+  ul.list-style:none;
   width:200px;
   float:left;
   position:fixed;
   -webkit-font-smoothing:subpixel-antialiased;
-}
-
-ul.header {
-  list-style:none;
 }
 
 ul.downloads {
