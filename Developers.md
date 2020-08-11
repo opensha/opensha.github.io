@@ -19,8 +19,12 @@ OpenSHA is split into multiple projects with the following dependencies:
 | [dev](https://github.com/opensha/opensha-dev)        | apps       | Development sandbox for shared prototyping       |
 | [cybershake](https://github.com/opensha/opensha-cybershake) | dev       | CyberShake interface code and calculators        |
 
-The 'releases' pages of the above repositories contain pre-built jar files which can be referenced from external projects.
+The 'releases' pages of the above repositories (except 'dev' and 'cybershake') contain pre-built jar files which can be referenced from external projects.
 
 ### Bugs? Technical issues?
 
 You can submit a ticket on the 'Issues' page of each OpenSHA sub-project. For example, to submit a bug related to our applications, go [here](https://github.com/opensha/opensha-apps/issues).
+
+### Nightly Builds
+
+The latest nightly builds of OpenSHA applications and libray jar files can be downloaded [here](http://opensha.usc.edu/apps/opensha/nightlies/latest). These versions are less stable and may also include models which are under development in applications. Prior nightly builds can be found [here](http://opensha.usc.edu/apps/opensha/nightlies).
