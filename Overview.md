@@ -2,6 +2,8 @@
 
 The goal of Seismic Hazard Analysis (SHA) is to state the probability that something of concern will occur given one or more earthquakes. More specifically, SHA states the probability that an [Intensity Measure Type (IMT)](Glossary#intensity-measure-type-imt) will exceed some [Intensity Measure Level (IML)](Glossary#intensity-measure-level-iml). For example, one might want to know the probability that [Peak Ground Acceleration](Glossary#peak-ground-acceleration-pga) (the IMT) will exceed 0.5 g (the IML).
 
+More information is available in [this short primer on PSHA](resources/PSHA_Primer_v2_0.pdf) (although this uses old nomenclature).
+
 ## Basic Model Components
 
 There are two main types of model components in OpenSHA:
