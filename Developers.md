@@ -2,28 +2,26 @@ OpenSHA has an active and growing developer community. It's use by various group
 
 ### Getting the Source
 
-OpenSHA source code is [hosted on GitHub](https://github.com/opensha/). The starting point for documentation is the [opensha-commons README](https://github.com/opensha/opensha-commons/blob/master/README.md#opensha-commons). Once you have downloaded the source, you can compile the project or build jar files for use in external projects. We typically develop OpenSHA code with [Eclipse](https://www.eclipse.org).
+OpenSHA source code is [hosted on GitHub](https://github.com/opensha/). The starting point for documentation is the [opensha README](https://github.com/opensha/opensha#opensha). Once you have downloaded the source, you can compile the project or build jar files for use in external projects. We typically develop OpenSHA code with [Eclipse](https://www.eclipse.org).
 
 If, at some future time, you have made changes or enhancements that warrant inclusion in the project, please submit a pull request, or [contact](Home#contact-us) the project to see about getting them integrated.
 
 ### OpenSHA Project Structure
 
-OpenSHA is split into multiple projects with the following dependencies:
+The primary opensha code and model implementations are stored in the [opensha repository](https://github.com/opensha/opensha). There are a few additional projects, such as our shared development sandbox ([opensha-dev](https://github.com/opensha/opensha-dev)) and separate repositories for [CyberShake](https://github.com/opensha/opensha-cybershake) and [operational aftershock forecast](https://github.com/opensha/opensha-oaf) codes:
 
 | Name       | Depends On | Description                                      |
 |------------|------------|--------------------------------------------------|
-| [commons](https://github.com/opensha/opensha-commons)    | -          | Base commons library                             |
-| [core](https://github.com/opensha/opensha-core)       | commons    | Core OpenSHA library with calculators and models |
-| [ucerf3](https://github.com/opensha/opensha-ucerf3)     | core       | UCERF3 model code and data                       |
-| [apps](https://github.com/opensha/opensha-apps)       | ucerf3     | GUI applications                                 |
-| [dev](https://github.com/opensha/opensha-dev)        | apps       | Development sandbox for shared prototyping       |
-| [cybershake](https://github.com/opensha/opensha-cybershake) | dev       | CyberShake interface code and calculators        |
+| [opensha](https://github.com/opensha/opensha)    | - | Primary OpenSHA repository |
+| [opensha-dev](https://github.com/opensha/opensha-dev)        | opensha | Development sandbox for shared prototyping |
+| [opensha-cybershake](https://github.com/opensha/opensha-cybershake) | opensha-dev | CyberShake interface code and calculators |
+| [opensha-oaf](https://github.com/opensha/opensha-cybershake) | opensha | Operational Aftershock Forecasting codes and GUI applications |
 
-The 'releases' pages of the above repositories (except 'dev' and 'cybershake') contain pre-built jar files which can be referenced from external projects.
+The [releases page of the primary repository](https://github.com/opensha/opensha/releases) contains pre-built jar files that can be referenced from external projects.
 
 ### Bugs? Technical issues?
 
-You can submit a ticket on the 'Issues' page of each OpenSHA sub-project. For example, to submit a bug related to our applications, go [here](https://github.com/opensha/opensha-apps/issues).
+You can submit a ticket on the [Issues page of the OpenSHA project](https://github.com/opensha/opensha/issues).
 
 ### Nightly Builds
 
