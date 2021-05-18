@@ -1,4 +1,4 @@
-OpenSHA has an active and growing developer community. It's use by various groups ranging from the [WGCEP](https://www.wgcep.org) to GEM has brought together developers from all over the world. Code contributions related to these projects, as well as those by individuals in the public, academic, and private sector have been significant. As an open source project, OpenSHA welcomes any additional involvement and contributions.
+OpenSHA has an active and growing developer community. It's use by various groups ranging from the [WGCEP](https://www.wgcep.org) to the [New Zealand NSHM](https://www.gns.cri.nz/Home/Our-Science/Natural-Hazards-and-Risks/Earthquakes/National-Seismic-Hazard-Model-Programme) has brought together developers from all over the world. Code contributions related to these projects, as well as those by individuals in the public, academic, and private sector have been significant. As an open source project, OpenSHA welcomes any additional involvement and contributions.
 
 ### Getting the Source
 
