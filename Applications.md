@@ -1,4 +1,4 @@
-OpenSHA desktop applications are available [at the opensha-apps release page HERE](https://github.com/opensha/opensha-apps/releases). Information on nightly development builds, which may include additional models and features, can be found [here](Developers#nightly-builds).
+OpenSHA desktop applications are available [at the opensha release page HERE](https://github.com/opensha/opensha/releases). Information on nightly development builds, which may include additional models and features, can be found [here](Developers#nightly-builds).
 
 Please use the following citation when publishing results generated using OpenSHA:
 
@@ -8,13 +8,13 @@ Field, E.H., T.H. Jordan, and C.A. Cornell (2003), OpenSHA: A Developing Communi
 
 *Note that all applications are being continually developed and that the project provides [no guarantees](License-Disclaimer) as to their serviceability.*
 
-If you encounter an issue with our applications, please submit a [ticket here](https://github.com/opensha/opensha-apps/issues).
+If you encounter an issue with our applications, please submit a [ticket here](https://github.com/opensha/opensha/issues).
 
 ## Requirements
 
 Our apps are written in [Java](https://www.oracle.com/java/technologies/) and are cross-platform. The OpenSHA developers use Linux and Mac OSX, but apps should run on Windows as well. Basic requirements are as follows:
 
-* Java 8 (aka 1.8) or above
+* Java 8 (aka 1.8) or above *(NOTE: The next OpenSHA release will require Java 11 or greater, consider upgrading now)*
 * 64-bit version of Java
 * At least 4 GB of RAM (8 GB or greater recommended)
 
@@ -22,7 +22,7 @@ Check that you have the correct version installed with the `java -version` comma
 
 ## Launching applications
 
-First download the jar file[s] of interest [from the latest release](https://github.com/opensha/opensha-apps/releases) (expand the 'assets' section to see a list of application jar files). Some users may be able to launch them by simply double clicking on the jar file in a file browser. If this doesn't work, you will need to launch it in a terminal:
+First download the jar file[s] of interest [from the latest release](https://github.com/opensha/opensha/releases) (expand the 'assets' section to see a list of application jar files). Some users may be able to launch them by simply double clicking on the jar file in a file browser. If this doesn't work, you will need to launch it in a terminal:
 
 `java -jar /path/to/jarFile.jar`
 
