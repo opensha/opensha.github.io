@@ -12,3 +12,5 @@ Field, E. H, H. A. Seligson, N. Gupta, V. Gupta, T. H. Jordan, and K. Campbell (
 Maechling, P., V. Gupta, N. Gupta1, E.H. Field, D. Okaya, and T.H. Jordan, 2005a, Seismic Hazard Analysis Using Distributed Computing in the SCEC Community Modeling Environment, Seismological Research Letters, 76, no. 2, p. 177-181, DOI: 10.1785/gssrl.76.2.177.
 
 Maechling, P., V. Gupta, N. Gupta1, E.H. Field, D. Okaya, and T.H. Jordan, 2005b, Grid Computing In The SCEC Community Modeling Environment, Seismological Research Letters, 76, no. 5, p. 581-587, DOI: 10.1785/gssrl.76.5.581-a.
+
+Milner, K. R., Shaw, B. E., Goulet, C. A., Richards‐Dinger, K. B., Callaghan, S., Jordan, T. H., Dieterich, J. H., & Field, E. H. (2021). Toward physics‐based nonergodic PSHA: A prototype fully deterministic seismic hazard model for Southern California. Bulletin of the Seismological Society of America, 111(2), 898-915.
