@@ -10,6 +10,10 @@ Field, E.H., T.H. Jordan, and C.A. Cornell (2003), OpenSHA: A Developing Communi
 
 If you encounter an issue with our applications, please submit a [ticket here](https://github.com/opensha/opensha/issues).
 
+Some features (e.g., ShakeMap, Disaggregation, site data web services) require an internet connection; make sure that your firewall allows connections to ports `80` and `8080` on `opensha.usc.edu`. We run an automated test every 6 hours to ensure that our server is up and working, current results of that test can be seen below. If the badge below says "failing" then we have already been notified and will correct the issue as soon as possible, in which case please try again later.
+
+![Server Status](https://github.com/opensha/opensha/actions/workflows/operational_tests.yml/badge.svg)
+
 ## Requirements
 
 Our apps are written in [Java](https://www.oracle.com/java/technologies/) and are cross-platform. The OpenSHA developers use Linux and Mac OSX, but apps should run on Windows as well. Basic requirements are as follows:
@@ -33,8 +37,6 @@ For example, if I'm in a directory containing `HazardCurveGUI-1.5.0.jar` and wan
 If you see any error messages related to "OutOfMemoryException" or java "heap size", **or the app stalls when loading a large model (e.g., UCERF3)**, you'll need to allocate more memory to java. You can do this most easily with the -Xmx argument which is detailed [here](https://www.ibm.com/support/knowledgecenter/en/SSYKE2_8.0.0/com.ibm.java.vm.80.doc/docs/xmx.html). For example, to run with 4 GB of memory:
 
 `java -Xmx4G -jar HazardCurveGUI-1.5.0.jar`
-
-**Firewall information:** Some of the applications need to access remote servers. For ShakeMap, Disaggregation, and site data capabilities, make sure that your firewall allows connections to port 8080 on opensha.usc.edu.
 
 ## Application Descriptions
 
