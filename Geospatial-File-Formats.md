@@ -306,11 +306,11 @@ _[(return to top)](#opensha-geospatial-file-formats)_
 
 | Name | JSON Type | Description |
 | --- | --- | --- |
-| `Anchor` | Array of Numbers | Lon,Lat of the anchor (lower left) point of the grid |
-| `LatNodes` | Array of Numbers | Latitude nodes in increasing order |
-| `LatSpacing` | Numbers | Latitude grid spacing in decimal degrees |
-| `LonNodes` | Array of Numbers | Longitude nodes in increasing order |
-| `LonSpacing` | Numbers | Longitude grid spacing in decimal degrees |
+| `Anchor` | Array of Number | Lon,Lat of the anchor (lower left) point of the grid |
+| `LatNodes` | Array of Number | Latitude nodes in increasing order |
+| `LatSpacing` | Number | Latitude grid spacing in decimal degrees |
+| `LonNodes` | Array of Number | Longitude nodes in increasing order |
+| `LonSpacing` | Number | Longitude grid spacing in decimal degrees |
 
 #### Gridded Region Example
 _[(return to top)](#opensha-geospatial-file-formats)_
