@@ -8,11 +8,14 @@ OpenSHA stores geospatial data in [GeoJSON](https://geojson.org/), which is spec
   * [Requirements](#fault-data-requirements)
   * [Optional](#fault-data-optional-extensions)
   * [Example](#example-fault-data-geojson)
+* [Regions](#regions)
+  * [Example](#region-example)
+  * [Example With a Hole](#region-example-with-a-hole)
 
 ### Fault Data
 _[(return to top)](#opensha-geospatial-file-formats)_
 
-Fault data are stored as GeoJSON `Feature` objects, and a collection of faults (e.g., a fault model or fault subsection list) are stored in a `FeatureCollection`.
+[Fault data](https://github.com/opensha/opensha/blob/master/src/main/java/org/opensha/sha/faultSurface/FaultSection.java) are stored as GeoJSON `Feature` objects, and a collection of faults (e.g., a fault model or fault subsection list) are stored in a `FeatureCollection`. See [GeoJSONFaultSection](https://github.com/opensha/opensha/blob/master/src/main/java/org/opensha/sha/faultSurface/GeoJSONFaultSection.java) for the OpenSHA implementation of this format.
 
 #### Fault data requirements
 _[(return to top)](#opensha-geospatial-file-formats)_
@@ -120,42 +123,6 @@ _[(return to top)](#opensha-geospatial-file-formats)_
                   36.092946
                 ],
                 [
-                  -117.796123,
-                  35.902927
-                ],
-                [
-                  -117.791146,
-                  35.824104
-                ],
-                [
-                  -117.764981,
-                  35.771588
-                ],
-                [
-                  -117.758346,
-                  35.738759
-                ],
-                [
-                  -117.749531,
-                  35.740542
-                ],
-                [
-                  -117.63705499999999,
-                  35.613076
-                ],
-                [
-                  -117.52537900000002,
-                  35.67657
-                ],
-                [
-                  -117.600685,
-                  35.901426
-                ],
-                [
-                  -117.64800599999998,
-                  36.058664
-                ],
-                [
                   -117.73341200000002,
                   36.16374
                 ]
@@ -213,3 +180,111 @@ Here is an example `FeatureCollection` that contains a single fault, represented
 
 ### Regions
 _[(return to top)](#opensha-geospatial-file-formats)_
+
+OpenSHA [Region's](https://github.com/opensha/opensha/blob/master/src/main/java/org/opensha/commons/geo/Region.java) are stored as GeoJSON `Feature` elements that include a `Polygon` or `MultiPolygon`. `MultiPolygon`'s are supported to increase compatibility, but must consist of a single `Polygon`.
+
+A Region can have a name, which is stored in the `id` field of the `Feature` as a JSON string.
+
+Polygons should follow the GeoJSON specification, notably that they shall contain at least one linear ring (a closed path). The first path shall be the exterior ring (should be ordered counterclockwise according to the RFC, but we don't check) and subsequent rings are considered interiors (paths) and should be clockwise (though again, we don't check).
+
+#### Region Example
+_[(return to top)](#opensha-geospatial-file-formats)_
+
+Here is an example region that is a simple rectangle with minLat=34, maxLat=36, minLon=-120, and maxLon=-118:
+
+```json
+{
+  "type": "Feature",
+  "id": "Simple region",
+  "properties": {},
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          -120.0,
+          34.0
+        ],
+        [
+          -118.0,
+          34.0
+        ],
+        [
+          -118.0,
+          36.0
+        ],
+        [
+          -120.0,
+          36.0
+        ],
+        [
+          -120.0,
+          34.0
+        ]
+      ]
+    ]
+  }
+}
+```
+
+#### Region Example With a Hole
+_[(return to top)](#opensha-geospatial-file-formats)_
+
+Here is an example region that is a rectangle with minLat=34, maxLat=36, minLon=-120, and maxLon=-118, with an interior (hole) cut out with minLat=34.5, maxLat=35.5, minLon=-119.5, and maxLon=-118.5:
+
+```json
+{
+  "type": "Feature",
+  "id": "Region with a hole",
+  "properties": {},
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          -120.0,
+          34.0
+        ],
+        [
+          -118.0,
+          34.0
+        ],
+        [
+          -118.0,
+          36.0
+        ],
+        [
+          -120.0,
+          36.0
+        ],
+        [
+          -120.0,
+          34.0
+        ]
+      ],
+      [
+        [
+          -119.5,
+          34.5
+        ],
+        [
+          -119.5,
+          35.5
+        ],
+        [
+          -118.5,
+          35.5
+        ],
+        [
+          -118.5,
+          34.5
+        ],
+        [
+          -119.5,
+          34.5
+        ]
+      ]
+    ]
+  }
+}
+```
