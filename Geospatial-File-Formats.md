@@ -14,12 +14,12 @@ OpenSHA stores geospatial data in [GeoJSON](https://geojson.org/), which is spec
   * [Example](#gridded-region-example)
 
 ### Fault Data
-_[(return to top)](#opensha-geospatial-file-formats)_
+_[(return to top)](#table-of-contents)_
 
 [Fault data](https://github.com/opensha/opensha/blob/master/src/main/java/org/opensha/sha/faultSurface/FaultSection.java) are stored as GeoJSON `Feature` objects, and a collection of faults (e.g., a fault model or fault subsection list) are stored in a `FeatureCollection`. See [GeoJSONFaultSection](https://github.com/opensha/opensha/blob/master/src/main/java/org/opensha/sha/faultSurface/GeoJSONFaultSection.java) for the OpenSHA implementation of this format.
 
 #### Fault data requirements
-_[(return to top)](#opensha-geospatial-file-formats)_
+_[(return to top)](#table-of-contents)_
 
 At a minimum, a GeoJSON fault must contain the following:
 
@@ -55,7 +55,7 @@ Example fault trace as a `LineString` with 2 points:
 * A unique integer ID. This can be specified either as the `id` field of the `Feature` itself (must be an integer), or via the optional `FaultID` property. If both exist, the `id` field is used.
 
 #### Fault data optional extensions
-_[(return to top)](#opensha-geospatial-file-formats)_
+_[(return to top)](#table-of-contents)_
 
 * The following optional properties will be parsed by OpenSHA (other properties may be present and will be ignored):
 
@@ -135,7 +135,7 @@ _[(return to top)](#opensha-geospatial-file-formats)_
 ```
 
 #### Example Fault Data GeoJSON
-_[(return to top)](#opensha-geospatial-file-formats)_
+_[(return to top)](#table-of-contents)_
 
 Here is an example `FeatureCollection` that contains a single fault, represented as a `Feature`:
 
@@ -180,7 +180,7 @@ Here is an example `FeatureCollection` that contains a single fault, represented
 ```
 
 ### Regions
-_[(return to top)](#opensha-geospatial-file-formats)_
+_[(return to top)](#table-of-contents)_
 
 OpenSHA [Region's](https://github.com/opensha/opensha/blob/master/src/main/java/org/opensha/commons/geo/Region.java) are stored as GeoJSON `Feature` elements that include a `Polygon` or `MultiPolygon`. `MultiPolygon`'s are supported to increase compatibility, but must consist of a single `Polygon`.
 
@@ -189,7 +189,7 @@ A Region can have a name, which is stored in the `id` field of the `Feature` as 
 Polygons should follow the GeoJSON specification, notably that they shall contain at least one linear ring (a closed path). The first path shall be the exterior ring (should be ordered counterclockwise according to the RFC, but we don't check) and subsequent rings are considered interiors (paths) and should be clockwise (though again, we don't check).
 
 #### Region Example
-_[(return to top)](#opensha-geospatial-file-formats)_
+_[(return to top)](#table-of-contents)_
 
 Here is an example region that is a simple rectangle with minLat=34, maxLat=36, minLon=-120, and maxLon=-118:
 
@@ -229,7 +229,7 @@ Here is an example region that is a simple rectangle with minLat=34, maxLat=36, 
 ```
 
 #### Region Example With a Hole
-_[(return to top)](#opensha-geospatial-file-formats)_
+_[(return to top)](#table-of-contents)_
 
 Here is an example region that is a rectangle with minLat=34, maxLat=36, minLon=-120, and maxLon=-118, with an interior (hole) cut out with minLat=34.5, maxLat=35.5, minLon=-119.5, and maxLon=-118.5:
 
@@ -291,7 +291,7 @@ Here is an example region that is a rectangle with minLat=34, maxLat=36, minLon=
 ```
 
 ### Gridded Regions
-_[(return to top)](#opensha-geospatial-file-formats)_
+_[(return to top)](#table-of-contents)_
 
 OpenSHA [Gridded Region's](https://github.com/opensha/opensha/blob/master/src/main/java/org/opensha/commons/geo/GriddedRegion.java) are stored as GeoJSON `Feature` elements that include a `Polygon` or `MultiPolygon` to specify the region boundary, and a `PointCollection` to specify grid nodes. Grid node locations must be evenly discretized in latitude in longitude, though the latitude and longitude spacing can be different. They can be irregular for non-rectangular regions.
 
@@ -300,7 +300,7 @@ Like a Region, a Gridded Region can have a name, which is stored in the `id` fie
 OpenSHA will store and read the following data as optional properties. If omitted, it will attempt to infer them from the supplied grid nodes.
 
 #### Gridded Region Optional Properties
-_[(return to top)](#opensha-geospatial-file-formats)_
+_[(return to top)](#table-of-contents)_
 
 | Name | JSON Type | Description |
 | --- | --- | --- |
@@ -311,7 +311,7 @@ _[(return to top)](#opensha-geospatial-file-formats)_
 | `LonSpacing` | Number | Longitude grid spacing in decimal degrees |
 
 #### Gridded Region Example
-_[(return to top)](#opensha-geospatial-file-formats)_
+_[(return to top)](#table-of-contents)_
 
 ```json
 {
