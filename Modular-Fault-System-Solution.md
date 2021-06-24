@@ -111,11 +111,13 @@ Here is an example fault section data file 9 subsections spanning two faults:
 ### Rupture Data
 _[(return to top)](#table-of-contents)_
 
-Rupture data is stored in `ruptures/ruptures.csv` and gives the magnitude, rake, area, length, and participating subsections for each rupture. It is stored in a CSV file. The participating subsections are indicated by their (0-based) index, so for the example below, rupture 0 consists of subsections 0 and 1, and rupture 1 consists of subsections 0, 1, and 2. Ruptures should be listed in order, and the first rupture shall be index 0.
+Rupture data is stored in `ruptures/ruptures.csv` and gives the magnitude, rake, area, length, and participating subsections for each rupture. It is stored in a CSV file. Ruptures should be listed in order, and the first rupture shall be index 0.
+
+The participating subsections are indicated by their (0-based) index, so for the example below, rupture 0 consists of subsections 0 and 1, and rupture 1 consists of subsections 0, 1, and 2. The total number of columns in the CSV file depends on the section count of the largest rupture, and each line may have different column counts.
 
 An example is given below with 28 ruptures on the 9 previously defined fault subsections:
 
-|Rupture Index|Magnitude         |Average Rake (degrees)|Area (m^2)          |Length (m)        |Num Sections|Section Index 1|Section Index N|  |  |  |  |  |  |  |
+|Rupture Index|Magnitude         |Average Rake (degrees)|Area (m^2)          |Length (m)        |Num Sections|# 1|# 2|# 3|# 4|# 5|# 6|# 7|# 8|# 9|
 |-------------|------------------|----------------------|--------------------|------------------|------------|---------------|---------------|------|-------|-------|-------|-------|-------|-------|
 |0            |6.105266709525443 |180.0                 |1.3343406276990956E8|11119.505230825796|2           |0              |1              |      |       |       |       |       |       |       |
 |1            |6.329025510667691 |180.0                 |2.0015109415486434E8|16679.257846238695|3           |0              |1              |2     |       |       |       |       |       |       |
