@@ -11,6 +11,9 @@ OpenSHA stores geospatial data in [GeoJSON](https://geojson.org/), which is spec
 * [Regions](#regions)
   * [Example](#region-example)
   * [Example With a Hole](#region-example-with-a-hole)
+* [Gridded Regions](#gridded-regions)
+  * [Optional Properties](#gridded-region-optional-properties)
+  * [Example](#gridded-region-example)
 
 ### Fault Data
 _[(return to top)](#opensha-geospatial-file-formats)_
@@ -22,7 +25,7 @@ _[(return to top)](#opensha-geospatial-file-formats)_
 
 At a minimum, a GeoJSON fault must contain the following:
 
-1. The fault trace must be present in the `geometry` object in the form of a `LineString` or `MultiLineString`. Although `MultiLineString` is supported for convenience (GIS softwares may output single lines in this format), they should only contain a single `LineString`; if multiple lines are encountered, the code will print a warning and stitch them into a single fault trace.
+* The fault trace must be present in the `geometry` object in the form of a `LineString` or `MultiLineString`. Although `MultiLineString` is supported for convenience (GIS softwares may output single lines in this format), they should only contain a single `LineString`; if multiple lines are encountered, the code will print a warning and stitch them into a single fault trace.
 
 Example fault trace as a `LineString` with 2 points:
 
@@ -42,7 +45,7 @@ Example fault trace as a `LineString` with 2 points:
       }
 ```
 
-2. The following `properties` are required:
+* The following `properties` are required:
 
 | Name | JSON Type | Description |
 | --- | --- | --- |
@@ -51,12 +54,12 @@ Example fault trace as a `LineString` with 2 points:
 | Rake | Number | Rake of the fault in decimal degrees, see [the glossary](Glossary#strike-dip--rake-focal-mechanism) for more information. |
 | UpDepth | Number | Upper depth of the fault in kilometers, not including any aseismicity. See [simple fault](Glossary#simple-fault) for more information. |
 
-3. A unique integer ID. This can be specified either as the `id` field of the `Feature` itself (must be an integer), or via the optional `FaultID` property. If both exist, the `id` field is used.
+* A unique integer ID. This can be specified either as the `id` field of the `Feature` itself (must be an integer), or via the optional `FaultID` property. If both exist, the `id` field is used.
 
 #### Fault data optional extensions
 _[(return to top)](#opensha-geospatial-file-formats)_
 
-1. The following optional properties will be parsed by OpenSHA (other properties may be present and will be ignored):
+* The following optional properties will be parsed by OpenSHA (other properties may be present and will be ignored):
 
 | Name | JSON Type | Description | Default Value |
 | --- | --- | --- | --- |
@@ -75,7 +78,7 @@ _[(return to top)](#opensha-geospatial-file-formats)_
 | `SlipRate` | Number | Average long-term slip rate of this fault in mm/yr. | _(none)_ |
 | `SlipRateStdDev` | Number | Standard deviation of the average long-term slip rate of this fault in mm/yr. | _(none)_ |
 
-2. You can optionally supply a polygon geometry that this fault represents. In this case, the `geometry` object must be a `GeometryCollection` that contains both a fault trace (as either a `LineString` or `MultiLineString`) and a polygon as either a `Polygon` or `MultiPolygon`. For example:
+* You can optionally supply a polygon geometry that this fault represents. In this case, the `geometry` object must be a `GeometryCollection` that contains both a fault trace (as either a `LineString` or `MultiLineString`) and a polygon as either a `Polygon` or `MultiPolygon`. For example:
 
 ```json
       "geometry": {
@@ -284,6 +287,195 @@ Here is an example region that is a rectangle with minLat=34, maxLat=36, minLon=
           34.5
         ]
       ]
+    ]
+  }
+}
+```
+
+### Gridded Regions
+_[(return to top)](#opensha-geospatial-file-formats)_
+
+OpenSHA [Gridded Region's](https://github.com/opensha/opensha/blob/master/src/main/java/org/opensha/commons/geo/GriddedRegion.java) are stored as GeoJSON `Feature` elements that include a `Polygon` or `MultiPolygon` to specify the region boundary, and a `PointCollection` to specify grid nodes. Grid node locations must be evenly discretized in latitude in longitude, though the latitude and longitude spacing can be different. They can be irregular for non-rectangular regions.
+
+Like a Region, a Gridded Region can have a name, which is stored in the `id` field of the `Feature` as a JSON string.
+
+OpenSHA will store and read the following data as optional properties. If omitted, it will attempt to infer them from the supplied grid nodes.
+
+#### Gridded Region Optional Properties
+_[(return to top)](#opensha-geospatial-file-formats)_
+
+| Name | JSON Type | Description |
+| --- | --- | --- |
+| `Anchor` | Array of Numbers | Lon,Lat of the anchor (lower left) point of the grid |
+| `LatNodes` | Array of Numbers | Latitude nodes in increasing order |
+| `LatSpacing` | Numbers | Latitude grid spacing in decimal degrees |
+| `LonNodes` | Array of Numbers | Longitude nodes in increasing order |
+| `LonSpacing` | Numbers | Longitude grid spacing in decimal degrees |
+
+#### Gridded Region Example
+_[(return to top)](#opensha-geospatial-file-formats)_
+
+```json
+{
+  "type": "Feature",
+  "id": "Example gridded region",
+  "properties": {
+    "LatNodes": [
+      34.0,
+      34.5,
+      35.0,
+      35.5,
+      36.0
+    ],
+    "LonNodes": [
+      -120.0,
+      -119.5,
+      -119.0,
+      -118.5,
+      -118.0
+    ],
+    "LatSpacing": 0.5,
+    "LonSpacing": 0.5,
+    "Anchor": [
+      -120.0,
+      34.0
+    ]
+  },
+  "geometry": {
+    "type": "GeometryCollection",
+    "geometries": [
+      {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -120.0,
+              34.0
+            ],
+            [
+              -118.0,
+              34.0
+            ],
+            [
+              -118.0,
+              36.0
+            ],
+            [
+              -120.0,
+              36.0
+            ],
+            [
+              -120.0,
+              34.0
+            ]
+          ]
+        ]
+      },
+      {
+        "type": "MultiPoint",
+        "coordinates": [
+          [
+            -120.0,
+            34.0
+          ],
+          [
+            -119.5,
+            34.0
+          ],
+          [
+            -119.0,
+            34.0
+          ],
+          [
+            -118.5,
+            34.0
+          ],
+          [
+            -118.0,
+            34.0
+          ],
+          [
+            -120.0,
+            34.5
+          ],
+          [
+            -119.5,
+            34.5
+          ],
+          [
+            -119.0,
+            34.5
+          ],
+          [
+            -118.5,
+            34.5
+          ],
+          [
+            -118.0,
+            34.5
+          ],
+          [
+            -120.0,
+            35.0
+          ],
+          [
+            -119.5,
+            35.0
+          ],
+          [
+            -119.0,
+            35.0
+          ],
+          [
+            -118.5,
+            35.0
+          ],
+          [
+            -118.0,
+            35.0
+          ],
+          [
+            -120.0,
+            35.5
+          ],
+          [
+            -119.5,
+            35.5
+          ],
+          [
+            -119.0,
+            35.5
+          ],
+          [
+            -118.5,
+            35.5
+          ],
+          [
+            -118.0,
+            35.5
+          ],
+          [
+            -120.0,
+            36.0
+          ],
+          [
+            -119.5,
+            36.0
+          ],
+          [
+            -119.0,
+            36.0
+          ],
+          [
+            -118.5,
+            36.0
+          ],
+          [
+            -118.0,
+            36.0
+          ]
+        ]
+      }
     ]
   }
 }
