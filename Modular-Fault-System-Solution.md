@@ -6,18 +6,21 @@ Data are stored in a zip file consisting primarily of JSON, GeoJSON, and CSV fil
 
 Example files presented here are often shortened for brevity, indicated by `...`.
 
-TODO: post link to demo file when added to repo
+TODO: post link to full demo file when added to repository
 
 ### Table of Contents
 
 * [Fault System Rupture Set](#fault-system-rupture-set)
   * [Fault Section Data](#fault-section-data)
   * [Rupture Data](#rupture-data)
+* [Fault System Solution](#fault-system-solution)
+  * [Rate Data](#rate-data)
+  * [Gridded Seismicity Data](#gridded-seismicity-data)
 
 ## Fault System Rupture Set
 _[(return to top)](#table-of-contents)_
 
-Fault System Rupture Sets define a set of fault sections and supra-seismogenic ruptures (and their properties) on those sections. Its data are stored in the `ruptures` sub-directory of a zip file.
+Fault System Rupture Sets define a set of fault sections and supra-seismogenic ruptures (and their properties) on those sections. Their data are stored in the `ruptures` sub-directory of a zip file.
 
 Here is a summary of files likely to be in a rupture set zip file:
 
@@ -132,3 +135,71 @@ An example is given below with 28 ruptures on the 9 previously defined fault sub
 |10           |6.624827540968674 |180.0                 |3.335851569247824E8 |27798.7630770652  |5           |1              |2              |3     |4      |5      |       |       |       |       |
 |...|...|...|...|...|...|...|...|...|...|...|...|...|...|...|
 |27           |6.366683191306253 |90.0                  |2.4360331351004884E8|14354.462908539002|2           |7              |8              |      |       |       |       |       |       |       |
+
+## Fault System Solution
+_[(return to top)](#table-of-contents)_
+
+Fault System Solutions define the rate of each rupture from a Rupture Set (called a 'solution' because those rates are usually the result of an inversion). They may optionally also include gridded seismicity data. Their data are stored in the `solution` sub-directory of a zip file.
+
+A solution must also contain a rupture set (in the `ruptures` top-level sub-directory). In addition to the standard rupture set files, here is a summary of files likely to be in a solution set zip file:
+
+| File Name | Required? | Format | Description |
+| --- | --- | --- |
+| `solution/rates.csv` | **YES** | CSV | Annual rates for each rupture |
+| `solution/grid_mech_weights.csv` | _(no)_ | CSV | Focal mechanism weights for each gridded seismicity location |
+| `solution/grid_region.geojson` | _(no)_ | GeoJSON | Gridded seismicity region |
+| `solution/grid_sub_seis_mfds.csv` | _(no)_ | CSV | Sub-seismogenic MFDs for gridded seismicity |
+| `solution/grid_unassociated_mfds.csv` | _(no)_ | CSV | Gridded seismicity MFDs that are not associated with any fault |
+| `solution/modules.json` | _(no)_ | JSON | Manifest of Solution modules, used by OpenSHA |
+
+### Rate Data
+_[(return to top)](#table-of-contents)_
+
+Solution annual rate data for each rupture is stored in a simple 2-column CSV file, `solution/rates.csv`. An example is below:
+
+|Rupture Index|Annual Rate       |
+|-------------|------------------|
+|0            |0.005945154768686478|
+|1            |0.003682167938763965|
+|2            |0.0013887602507831813|
+|3            |6.093719896843293E-7|
+|4            |0.002910087376438242|
+|5            |4.2499659967491776E-8|
+|6            |5.174497714174348E-4|
+|7            |9.428854043022628E-9|
+|8            |1.573894353848514E-7|
+|9            |8.950994452062988E-8|
+|10           |3.05526615405503E-7|
+|...|...|
+|27           |1.8591053170058727E-7|
+
+### Gridded Seismicity Data
+_[(return to top)](#table-of-contents)_
+
+Solutions may optionally provided gridded seismicity information. For a fault system solution, gridded seismicity can refer to either off-fault earthquakes (those 'unassociated' with any fault) or sub-seismogenic ruptures on a fault (see UCERF3 reports for additional information). This data is stored in 4 files, each of which is summarized below.
+
+#### Gridded Seismicity Region
+_[(return to top)](#table-of-contents)_
+
+The gridded region used to define the set of gridded seismicity locations is stored in `solution/grid_region.geojson`. It follows the OpenSHA [Gridded Region File Format](Geospatial-File-Formats#gridded-regions), and is omitted here for brevity, but the region used for the examples below has 81 grid nodes.
+
+#### Gridded Seismicity Focal Mechanism Rates
+_[(return to top)](#table-of-contents)_
+
+Each gridded seismicity node can have ruptures of various focal mechanisms: strike-slip, normal, and reverse. This file gives the fraction of seismicity associated with each node that corresponds to each of those focal mechanisms. This data is stored in `solution/grid_mech_weights.csv` and the format is as shown:
+
+|Node Index|Latitude          |Longitude          |Fraction Strike-Slip|Fraction Reverse|Fraction Normal|
+|----------|------------------|-------------------|--------------------|----------------|---------------|
+|0         |34.0              |-119.99999999999999|0.5                 |0.25            |0.25           |
+|1         |34.0              |-119.75            |0.5                 |0.25            |0.25           |
+|2         |34.0              |-119.5             |0.5                 |0.25            |0.25           |
+|3         |34.0              |-119.25000000000001|0.5                 |0.25            |0.25           |
+|4         |34.0              |-119.0             |0.5                 |0.25            |0.25           |
+|5         |34.0              |-118.74999999999999|0.5                 |0.25            |0.25           |
+|6         |34.0              |-118.50000000000001|0.5                 |0.25            |0.25           |
+|7         |34.0              |-118.25            |0.5                 |0.25            |0.25           |
+|8         |34.0              |-118.00000000000001|0.5                 |0.25            |0.25           |
+|9         |34.25             |-119.99999999999999|0.5                 |0.25            |0.25           |
+|10        |34.25             |-119.75            |0.5                 |0.25            |0.25           |
+|...|...|...|...|...|...|
+|80        |36.0              |-118.00000000000001|0.5                 |0.25            |0.25           |
