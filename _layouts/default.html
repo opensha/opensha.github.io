@@ -15,7 +15,7 @@
     {% if page.path contains "index" %}
       <title>Open-Source Seismic Hazard Analysis | OpenSHA</title>
     {% else %}
-      <title>{{ page.path | remove: ".md" }} | OpenSHA</title>
+      <title>{{ page.path | remove: ".md" | replace: "-", " " }} | OpenSHA</title>
     {% endif %}
 {% seo %}
     <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
