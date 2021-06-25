@@ -1,3 +1,5 @@
+_NOTE: This is the format used in UCERF3 and is currently being redesigned to be more user friendly. When this format was developed, disk space was at a premium and Java did not yet support >2 GB zip files, so the binary formats were necessary in order to be able to store the entire UCERF3 model in a single compound solution zip file. We understand that these files are complicated, and hope that the forthcoming newer file format is easier for the user community to use. See [this page for a draft of the new format](Modular-Fault-System-Solution). If you need to parse UCERF3 fault system solutions, consider waiting until the new and easier format is available or [contact us](Home#contact-us) for more information._
+
 UCERF3 (and potentially other forecast) data is stored in a zip file format, this page describes how to parse these zip files. If you are using Java, a parser is already written in OpenSHA via the scratch.UCERF3.utils.FaultSystemIO class.
 
 ## Zip File Contents
