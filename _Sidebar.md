@@ -7,6 +7,7 @@
   * **[What is SHA?](Overview)**
   * **[Tutorials & Guides](Tutorials)**
   * **[Glossary](Glossary)**
+  * **[File Formats](File-Formats)**
   * **[Publications](Publications)**
 * **[For Developers](Developers)**
   * **[GitHub](https://github.com/opensha/)**
