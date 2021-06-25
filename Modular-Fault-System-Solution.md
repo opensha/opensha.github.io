@@ -25,7 +25,7 @@ Fault System Rupture Sets define a set of fault sections and supra-seismogenic r
 Here is a summary of files likely to be in a rupture set zip file:
 
 | File Name | Required? | Format | Description |
-| --- | --- | --- |
+| --- | --- | --- | --- |
 | `ruptures/fault_sections.geojson` | **YES** | GeoJSON | Fault section geometries |
 | `ruptures/ruptures.csv` | **YES** | CSV | Rupture definitions and properties |
 | `ruptures/ave_slips.csv` | _(no)_ | CSV | Average slip information for each rupture |
@@ -144,7 +144,7 @@ Fault System Solutions define the rate of each rupture from a Rupture Set (calle
 A solution must also contain a rupture set (in the `ruptures` top-level sub-directory). In addition to the standard rupture set files, here is a summary of files likely to be in a solution set zip file:
 
 | File Name | Required? | Format | Description |
-| --- | --- | --- |
+| --- | --- | --- | --- |
 | `solution/rates.csv` | **YES** | CSV | Annual rates for each rupture |
 | `solution/grid_mech_weights.csv` | _(no)_ | CSV | Focal mechanism weights for each gridded seismicity location |
 | `solution/grid_region.geojson` | _(no)_ | GeoJSON | Gridded seismicity region |
