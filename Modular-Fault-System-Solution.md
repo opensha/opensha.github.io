@@ -12,7 +12,8 @@ A small but complete Fault System Solution (that, by definition, also contains a
 
 * [Fault System Rupture Set](#fault-system-rupture-set)
   * [Fault Section Data](#fault-section-data)
-  * [Rupture Data](#rupture-data)
+  * [Rupture Section Indices](#rupture-section-indices)
+  * [Rupture Properties](#rupture-properties)
 * [Fault System Solution](#fault-system-solution)
   * [Rate Data](#rate-data)
   * [Gridded Seismicity Data](#gridded-seismicity-data)
@@ -27,7 +28,8 @@ Here is a summary of files likely to be in a rupture set zip file:
 | File Name | Required? | Format | Description |
 | --- | --- | --- | --- |
 | `ruptures/fault_sections.geojson` | **YES** | GeoJSON | Fault section geometries |
-| `ruptures/ruptures.csv` | **YES** | CSV | Rupture definitions and properties |
+| `ruptures/rupture_section_indices.csv` | **YES** | CSV | Lists of section indices that comprise each rupture |
+| `ruptures/rupture_properties.csv` | **YES** | CSV | Rupture properties (mag, rake, length, area) |
 | `ruptures/ave_slips.csv` | _(no)_ | CSV | Average slip information for each rupture |
 | `ruptures/modules.json` | _(no)_ | JSON | Manifest of Rupture Set modules, used by OpenSHA |
 
@@ -111,30 +113,54 @@ Here is an example fault section data file 9 subsections spanning two faults:
 }
 ```
 
-### Rupture Data
+### Rupture Section Indices
 _[(return to top)](#table-of-contents)_
 
-Rupture data is stored in `ruptures/ruptures.csv` and gives the magnitude, rake, area, length, and participating subsections for each rupture. It is stored in a CSV file. Ruptures should be listed in order, and the first rupture shall be index 0.
+The `ruptures/rupture_section_indices.csv` file lists the participating subsections for each rupture. It is stored in a CSV file. Ruptures should be listed in order, and the first rupture shall be index 0.
 
-The participating subsections are indicated by their (0-based) index, so for the example below, rupture 0 consists of subsections 0 and 1, and rupture 1 consists of subsections 0, 1, and 2. The total number of columns in the CSV file depends on the section count of the largest rupture, and each line may have different column counts.
+The participating subsections are indicated by their (0-based) index, so for the example below, rupture 0 consists of subsections 0 and 1, and rupture 1 consists of subsections 0, 1, and 2. The total number of columns in the CSV file is equal to the number of sections in the largest rupture plus 2, and each line may have different column counts.
 
 An example is given below with 28 ruptures on the 9 previously defined fault subsections:
 
-|Rupture Index|Magnitude         |Average Rake (degrees)|Area (m^2)|Length (m)|Num Sections|# 1                 |# 2                  |# 3                  |# 4                  |# 5                  |# 6|# 7|# 8|# 9|
-|-------------|------------------|----------------------|----------|----------|------------|--------------------|---------------------|---------------------|---------------------|---------------------|---|---|---|---|
-|0            |6.105266709525443 |180.0                 |1.3343406276990956E8|11119.505230825796|2           |0                   |1                    |                     |                     |                     |   |   |   |   |
-|1            |6.329025510667691 |180.0                 |2.0015109415486434E8|16679.257846238695|3           |0                   |1                    |2                    |                     |                     |   |   |   |   |
-|2            |6.495612575124367 |180.0                 |2.6686812553981912E8|22239.010461651593|4           |0                   |1                    |2                    |3                    |                     |   |   |   |   |
-|3            |6.624827540968673 |180.0                 |3.335851569247824E8|27798.763077065196|5           |0                   |1                    |2                    |3                    |4                    |   |   |   |   |
-|4            |6.730403855386272 |180.0                 |4.003021883097372E8|33358.5156924781|6           |0                   |1                    |2                    |3                    |4                    |5  |   |   |   |
-|5            |6.971648251003217 |148.67745759827315    |6.439055018198104E8|47712.97860101853|8           |0                   |1                    |2                    |3                    |4                    |5  |6  |7  |   |
-|6            |7.06238164883405  |137.60945800641775    |7.657071585748093E8|54890.21005528653|9           |0                   |1                    |2                    |3                    |4                    |5  |6  |7  |8  |
-|7            |6.105266709525443 |180.0                 |1.3343406276990956E8|11119.505230825796|2           |1                   |2                    |                     |                     |                     |   |   |   |   |
-|8            |6.329025510667691 |180.0                 |2.0015109415486434E8|16679.257846238695|3           |1                   |2                    |3                    |                     |                     |   |   |   |   |
-|9            |6.495612575124387 |180.0                 |2.6686812553982762E8|22239.010461652302|4           |1                   |2                    |3                    |4                    |                     |   |   |   |   |
-|10           |6.624827540968674 |180.0                 |3.335851569247824E8|27798.7630770652|5           |1                   |2                    |3                    |4                    |5                    |   |   |   |   |
-|...|...|...|...|...|...|...|...|...|...|...|...|...|...|...|
-|27           |6.366683191306253 |90.0                  |2.4360331351004884E8|14354.462908539002|2           |7                   |8                    |                     |                     |                     |   |   |   |   |
+|Rupture Index|Num Sections|# 1|# 2|# 3|# 4|# 5|# 6|# 7|# 8|# 9|
+|-------------|------------|---|---|---|---|---|---|---|---|---|
+|0            |2           |0  |1  |   |   |   |   |   |   |   |
+|1            |3           |0  |1  |2  |   |   |   |   |   |   |
+|2            |4           |0  |1  |2  |3  |   |   |   |   |   |
+|3            |5           |0  |1  |2  |3  |4  |   |   |   |   |
+|4            |6           |0  |1  |2  |3  |4  |5  |   |   |   |
+|5            |8           |0  |1  |2  |3  |4  |5  |6  |7  |   |
+|6            |9           |0  |1  |2  |3  |4  |5  |6  |7  |8  |
+|7            |2           |1  |2  |   |   |   |   |   |   |   |
+|8            |3           |1  |2  |3  |   |   |   |   |   |   |
+|9            |4           |1  |2  |3  |4  |   |   |   |   |   |
+|10           |5           |1  |2  |3  |4  |5  |   |   |   |   |
+|...          |...         |...|...|...|...|...|...|...|...|...|
+|27           |2           |7  |8  |   |   |   |   |   |   |   |
+
+### Rupture Properties
+_[(return to top)](#table-of-contents)_
+
+Rupture properties are stored in `ruptures/rupture_properties.csv` which gives the magnitude, rake, area, and length of each rupture. It is stored in a CSV file. Ruptures should be listed in order, and the first rupture shall be index 0.
+
+An example is given below with 28 ruptures on the 9 previously defined fault subsections:
+
+|Rupture Index|Magnitude|Average Rake (degrees)|Area (m^2)|Length (m)|
+|-------------|---------|----------------------|----------|----------|
+|0            |6.105266709525443|180.0                 |1.3343406276990956E8|11119.505230825796|
+|1            |6.329025510667691|180.0                 |2.0015109415486434E8|16679.257846238695|
+|2            |6.495612575124367|180.0                 |2.6686812553981912E8|22239.010461651593|
+|3            |6.624827540968673|180.0                 |3.335851569247824E8|27798.763077065196|
+|4            |6.730403855386272|180.0                 |4.003021883097372E8|33358.5156924781|
+|5            |6.971648251003217|148.67745759827315    |6.439055018198104E8|47712.97860101853|
+|6            |7.06238164883405|137.60945800641775    |7.657071585748093E8|54890.21005528653|
+|7            |6.105266709525443|180.0                 |1.3343406276990956E8|11119.505230825796|
+|8            |6.329025510667691|180.0                 |2.0015109415486434E8|16679.257846238695|
+|9            |6.495612575124387|180.0                 |2.6686812553982762E8|22239.010461652302|
+|10           |6.624827540968674|180.0                 |3.335851569247824E8|27798.7630770652|
+|...          |...      |...                   |...       |...       |
+|27           |6.366683191306253|90.0                  |2.4360331351004884E8|14354.462908539002|
+
 
 ## Fault System Solution
 _[(return to top)](#table-of-contents)_
