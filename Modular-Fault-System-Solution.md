@@ -28,8 +28,8 @@ Here is a summary of files likely to be in a rupture set zip file:
 | File Name | Required? | Format | Description |
 | --- | --- | --- | --- |
 | `ruptures/fault_sections.geojson` | **YES** | GeoJSON | Fault section geometries |
-| `ruptures/rupture_section_indices.csv` | **YES** | CSV | Lists of section indices that comprise each rupture |
-| `ruptures/rupture_properties.csv` | **YES** | CSV | Rupture properties (mag, rake, length, area) |
+| `ruptures/section_indices.csv` | **YES** | CSV | Lists of section indices that comprise each rupture |
+| `ruptures/properties.csv` | **YES** | CSV | Rupture properties (mag, rake, length, area) |
 | `ruptures/ave_slips.csv` | _(no)_ | CSV | Average slip information for each rupture |
 | `ruptures/modules.json` | _(no)_ | JSON | Manifest of Rupture Set modules, used by OpenSHA |
 
@@ -116,7 +116,7 @@ Here is an example fault section data file 9 subsections spanning two faults:
 ### Rupture Section Indices
 _[(return to top)](#table-of-contents)_
 
-The `ruptures/rupture_section_indices.csv` file lists the participating subsections for each rupture. It is stored in a CSV file. Ruptures should be listed in order, and the first rupture shall be index 0.
+The `ruptures/section_indices.csv` file lists the participating subsections for each rupture. It is stored in a CSV file. Ruptures should be listed in order, and the first rupture shall be index 0.
 
 The participating subsections are indicated by their (0-based) index, so for the example below, rupture 0 consists of subsections 0 and 1, and rupture 1 consists of subsections 0, 1, and 2. The total number of columns in the CSV file is equal to the number of sections in the largest rupture plus 2, and each line may have different column counts.
 
@@ -141,7 +141,7 @@ An example is given below with 28 ruptures on the 9 previously defined fault sub
 ### Rupture Properties
 _[(return to top)](#table-of-contents)_
 
-Rupture properties are stored in `ruptures/rupture_properties.csv` which gives the magnitude, rake, area, and length of each rupture. It is stored in a CSV file. Ruptures should be listed in order, and the first rupture shall be index 0.
+Rupture properties are stored in `ruptures/properties.csv` which gives the magnitude, rake, area, and length of each rupture. It is stored in a CSV file. Ruptures should be listed in order, and the first rupture shall be index 0.
 
 An example is given below with 28 ruptures on the 9 previously defined fault subsections:
 
