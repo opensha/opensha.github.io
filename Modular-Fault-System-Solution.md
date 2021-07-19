@@ -28,9 +28,9 @@ Here is a summary of files likely to be in a rupture set zip file:
 | File Name | Required? | Format | Description |
 | --- | --- | --- | --- |
 | `ruptures/fault_sections.geojson` | **YES** | GeoJSON | Fault section geometries |
-| `ruptures/section_indices.csv` | **YES** | CSV | Lists of section indices that comprise each rupture |
+| `ruptures/indices.csv` | **YES** | CSV | Lists of section indices that comprise each rupture |
 | `ruptures/properties.csv` | **YES** | CSV | Rupture properties (mag, rake, length, area) |
-| `ruptures/ave_slips.csv` | _(no)_ | CSV | Average slip information for each rupture |
+| `ruptures/average_slips.csv` | _(no)_ | CSV | Average slip information for each rupture |
 | `ruptures/modules.json` | _(no)_ | JSON | Manifest of Rupture Set modules, used by OpenSHA |
 
 ### Fault Section Data
@@ -116,7 +116,7 @@ Here is an example fault section data file 9 subsections spanning two faults:
 ### Rupture Section Indices
 _[(return to top)](#table-of-contents)_
 
-The `ruptures/section_indices.csv` file lists the participating subsections for each rupture. It is stored in a CSV file. Ruptures should be listed in order, and the first rupture shall be index 0.
+The `ruptures/indices.csv` file lists the participating subsections for each rupture. It is stored in a CSV file. Ruptures should be listed in order, and the first rupture shall be index 0.
 
 The participating subsections are indicated by their (0-based) index, so for the example below, rupture 0 consists of subsections 0 and 1, and rupture 1 consists of subsections 0, 1, and 2. The total number of columns in the CSV file is equal to the number of sections in the largest rupture plus 2, and each line may have different column counts.
 
@@ -147,20 +147,19 @@ An example is given below with 28 ruptures on the 9 previously defined fault sub
 
 |Rupture Index|Magnitude|Average Rake (degrees)|Area (m^2)|Length (m)|
 |-------------|---------|----------------------|----------|----------|
-|0            |6.105266709525443|180.0                 |1.3343406276990956E8|11119.505230825796|
-|1            |6.329025510667691|180.0                 |2.0015109415486434E8|16679.257846238695|
-|2            |6.495612575124367|180.0                 |2.6686812553981912E8|22239.010461651593|
-|3            |6.624827540968673|180.0                 |3.335851569247824E8|27798.763077065196|
-|4            |6.730403855386272|180.0                 |4.003021883097372E8|33358.5156924781|
-|5            |6.971648251003217|148.67745759827315    |6.439055018198104E8|47712.97860101853|
-|6            |7.06238164883405|137.60945800641775    |7.657071585748093E8|54890.21005528653|
-|7            |6.105266709525443|180.0                 |1.3343406276990956E8|11119.505230825796|
-|8            |6.329025510667691|180.0                 |2.0015109415486434E8|16679.257846238695|
-|9            |6.495612575124387|180.0                 |2.6686812553982762E8|22239.010461652302|
-|10           |6.624827540968674|180.0                 |3.335851569247824E8|27798.7630770652|
+|0            |6.105    |180.0                 |1.33434E8 |11119.5   |
+|1            |6.329    |180.0                 |2.00151E8 |16679.3   |
+|2            |6.496    |180.0                 |2.66868E8 |22239.0   |
+|3            |6.625    |180.0                 |3.33585E8 |27798.8   |
+|4            |6.73     |180.0                 |4.00302E8 |33358.5   |
+|5            |6.972    |148.7                 |6.43906E8 |47713.0   |
+|6            |7.062    |137.6                 |7.65707E8 |54890.2   |
+|7            |6.105    |180.0                 |1.33434E8 |11119.5   |
+|8            |6.329    |180.0                 |2.00151E8 |16679.3   |
+|9            |6.496    |180.0                 |2.66868E8 |22239.0   |
+|10           |6.625    |180.0                 |3.33585E8 |27798.8   |
 |...          |...      |...                   |...       |...       |
-|27           |6.366683191306253|90.0                  |2.4360331351004884E8|14354.462908539002|
-
+|27           |6.367    |90.0                  |2.43603E8 |14354.5   |
 
 ## Fault System Solution
 _[(return to top)](#table-of-contents)_
@@ -183,21 +182,21 @@ _[(return to top)](#table-of-contents)_
 
 Solution annual rate data for each rupture is stored in a simple 2-column CSV file, `solution/rates.csv`. An example is below:
 
-|Rupture Index|Annual Rate       |
-|-------------|------------------|
-|0            |0.004557008898170912|
-|1            |0.006147943144848745|
-|2            |5.52179640057068E-4|
-|3            |4.279434356649868E-7|
-|4            |0.0026159678814425035|
-|5            |1.7629342361803746E-8|
-|6            |5.78051085579677E-4|
-|7            |6.305592933062744E-8|
-|8            |2.865482448602668E-7|
-|9            |3.77428890089215E-8|
-|10           |8.701321712129223E-7|
-|...|...|
-|27           |1.773233326535879E-7|
+|Rupture Index|Annual Rate|
+|-------------|-----------|
+|0            |0.005320239194616782|
+|1            |0.005298660169966246|
+|2            |7.834210706407277E-4|
+|3            |1.8703779639406976E-7|
+|4            |0.0026397968587955787|
+|5            |1.4234970401212632E-8|
+|6            |5.675850061305903E-4|
+|7            |9.987701252958843E-9|
+|8            |3.866169289703722E-7|
+|9            |3.636288131991794E-7|
+|10           |4.219820930141324E-7|
+|...          |...                 |
+|27           |3.7916393801626976E-7|
 
 ### Gridded Seismicity Data
 _[(return to top)](#table-of-contents)_
@@ -239,19 +238,19 @@ The format for each file is identical, with empty rows (following the node index
 
 Here is an example file that contains MFDs for some nodes and omits them for others:
 
-|Node Index|Latitude          |Longitude|5.05|5.1499999999999995|5.25|5.35                |...                  |8.4                  |
-|----------|------------------|---------|----|------------------|----|--------------------|---------------------|---------------------|
-|0         |34                |-120     |    |                  |    |                    |...                  |                     |
-|...       |...               |...      |... |...               |... |...                 |...                  |...                  |
-|70        |35.75             |-118.25  |    |                  |    |                    |...                  |                     |
-|71        |35.75             |-118     |0.037568417595224446|0.029841654829799287|0.02370406900220577|0.018828811286304686|...                  |0.0                  |
-|72        |36                |-120     |    |                  |    |                    |...                  |                     |
-|73        |36                |-119.75  |    |                  |    |                    |...                  |                     |
-|74        |36                |-119.5   |    |                  |    |                    |...                  |                     |
-|75        |36                |-119.25  |0.009258725277749838|0.007354466905672116|0.005841860714520674|0.00464035490887034 |...                  |0.0                  |
-|76        |36                |-119     |0.009257845300799273|0.007353767915134376|0.005841305486600742|0.004639913875656832|...                  |0.0                  |
-|77        |36                |-118.75  |    |                  |    |                    |...                  |                     |
-|78        |36                |-118.5   |    |                  |    |                    |...                  |                     |
-|79        |36                |-118.25  |    |                  |    |                    |...                  |                     |
-|80        |36                |-118     |0.037568417595224446|0.029841654829799287|0.02370406900220577|0.018828811286304686|...                  |0.0                  |
+|Node Index|Latitude|Longitude|5.05     |5.15      |5.25      |5.35      |...|8.45|
+|----------|--------|---------|---------|----------|----------|----------|---|----|
+|0         |34      |-120     |         |          |          |          |...|    |
+|...       |...     |...      |...      |...       |...       |...       |...|... |
+|70        |35.75   |-118.25  |         |          |          |          |...|    |
+|71        |35.75   |-118     |0.03798  |0.0301685 |0.0239637 |0.0190351 |...|0   |
+|72        |36      |-120     |         |          |          |          |...|    |
+|73        |36      |-119.75  |         |          |          |          |...|    |
+|74        |36      |-119.5   |         |          |          |          |...|    |
+|75        |36      |-119.25  |0.0103926|0.00825517|0.00655731|0.00520866|...|0   |
+|76        |36      |-119     |0.0103924|0.00825497|0.00655716|0.00520853|...|0   |
+|77        |36      |-118.75  |         |          |          |          |...|    |
+|78        |36      |-118.5   |         |          |          |          |...|    |
+|79        |36      |-118.25  |         |          |          |          |...|    |
+|80        |36      |-118     |0.03798  |0.0301685 |0.0239637 |0.0190351 |...|0   |
 
