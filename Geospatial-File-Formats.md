@@ -1,5 +1,7 @@
 OpenSHA stores geospatial data in [GeoJSON](https://geojson.org/), which is specified in [RFC 7946](https://datatracker.ietf.org/doc/html/rfc7946). OpenSHA code for (de)serializing GeoJSON can be found in the _[org.opensha.commons.geo.json](https://github.com/opensha/opensha/tree/master/src/main/java/org/opensha/commons/geo/json)_ package.
 
+_Note on depths/elevations: OpenSHA stores depth/elevation data in km, positive down. For example, a value of `3.0` in the third column of a coordinate array indicates that the given point is 3 km below the surface. This differs from the [GeoJSON specification](https://datatracker.ietf.org/doc/html/rfc7946), but is in-line with the [USGS Event Web Service](https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson_detail.php) and general treatment of 3D location data in OpenSHA and other PSHA codes._
+
 ### Table of Contents
 
 * [Fault Data](#fault-data)
