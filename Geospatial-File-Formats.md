@@ -65,7 +65,7 @@ The notion of a fault trace is complicated for buried dipping faults (i.e., thos
 
 Modelers may wish to, instead, specify the top of the (buried) surface as the fault trace rather than the up-dip extension (as pictured). To accommodate this, we adopt the following convention when reading fault section data from GeoJSON:
 
-If locations are specified without depths in the GeoJSON file, e.g.,:
+If trace locations are specified without depths in the GeoJSON file, e.g.,:
 
 ```json
 "coordinates": [ [ -120.7585, 36.79945 ], [ -120.70175, 36.71373 ], [ -120.64514, 36.62798 ] ]
@@ -77,7 +77,7 @@ If locations are specified without depths in the GeoJSON file, e.g.,:
 "coordinates": [ [ -120.7585, 36.79945, 0.0 ], [ -120.70175, 36.71373, 0.0 ], [ -120.64514, 36.62798, 0.0 ] ]
 ```
 
-, or:
+or:
 
 ```json
 "coordinates": [ [ -120.7585, 36.79945, 3.0 ], [ -120.70175, 36.71373, 3.0 ], [ -120.64514, 36.62798, 3.0 ] ]
