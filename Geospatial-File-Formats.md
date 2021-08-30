@@ -25,7 +25,10 @@ _[(return to top)](#table-of-contents)_
 
 At a minimum, a GeoJSON fault must contain the 3 following items:
 
-1. The fault trace must be present in the `geometry` object in the form of a `LineString` or `MultiLineString`. Although `MultiLineString` is supported for convenience (GIS softwares may output single lines in this format), they should only contain a single `LineString`; if multiple lines are encountered, the code will print a warning and stitch them into a single fault trace.
+##### 1. Fault Trace
+_[(return to top)](#table-of-contents)_
+
+The fault trace must be present in the `geometry` object in the form of a `LineString` or `MultiLineString`. Although `MultiLineString` is supported for convenience (GIS softwares may output single lines in this format), they should only contain a single `LineString`; if multiple lines are encountered, the code will print a warning and stitch them into a single fault trace.
 
 Example fault trace as a `LineString` with 2 points:
 
@@ -45,7 +48,10 @@ Example fault trace as a `LineString` with 2 points:
       }
 ```
 
-2. The following `properties` are required:
+##### 2. Required properties
+_[(return to top)](#table-of-contents)_
+
+The following `properties` are required:
 
 | Name | JSON Type | Description |
 | --- | --- | --- |
@@ -54,7 +60,10 @@ Example fault trace as a `LineString` with 2 points:
 | Rake | Number | Rake of the fault in decimal degrees, see [the glossary](Glossary#strike-dip--rake-focal-mechanism) for more information. |
 | UpDepth | Number | Upper depth of the fault in kilometers, not including any aseismicity. See [simple fault](Glossary#simple-fault) for more information. |
 
-3. A unique integer ID. This can be specified either as the `id` field of the `Feature` itself (must be an integer), or via the optional `FaultID` property. If both exist, the `id` field is used.
+##### 3. Unique ID
+_[(return to top)](#table-of-contents)_
+
+A unique integer ID is required. This can be specified either as the `id` field of the `Feature` itself (must be an integer), or via the optional `FaultID` property. If both exist, the `id` field is used.
 
 #### Fault traces for buried, dipping faults
 _[(return to top)](#table-of-contents)_
