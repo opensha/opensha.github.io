@@ -24,7 +24,7 @@ _[(return to top)](#table-of-contents)_
 ### Fault data requirements
 _[(return to top)](#table-of-contents)_
 
-At a minimum, a GeoJSON fault must contain the 3 following items:
+At a minimum, a GeoJSON fault must contain the **3 following items**:
 
 #### 1. Fault Trace
 _[(return to top)](#table-of-contents)_
