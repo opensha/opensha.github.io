@@ -153,7 +153,7 @@ The notion of a fault trace is complicated for buried dipping faults (i.e., thos
 
 ![Simple fault example](resources/fault_data_sm.png)
 
-Modelers may wish to, instead, specify the top of the (buried) surface as the fault trace rather than the up-dip extension (as pictured). To accommodate this, we adopt the following convention when reading fault section data from GeoJSON:
+Modelers may wish to, instead, specify the top of the (buried) surface as the fault trace rather than the up-dip extension at the earth's surface (as pictured). To accommodate this, we adopt the following convention when reading fault section data from GeoJSON:
 
 If trace locations are specified without depths in the GeoJSON file, e.g.,:
 
