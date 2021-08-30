@@ -34,7 +34,7 @@ For example, if I'm in a directory containing `HazardCurveGUI-1.5.0.jar` and wan
 
 `java -jar HazardCurveGUI-1.5.0.jar`
 
-If you see any error messages related to "OutOfMemoryException" or java "heap size", **or the app stalls when loading a large model (e.g., UCERF3)**, you'll need to allocate more memory to java. You can do this most easily with the -Xmx argument, or search for ['increase java heap space'](https://www.google.com/search?q=increase+java+heap+space) for more information and alternative methods. For example, to run with 4 GB of memory:
+If you see any error messages related to "OutOfMemoryException" or java "heap size", **or the app stalls when loading a large model (e.g., UCERF3)**, you'll need to allocate more memory to java. You can do this most easily with the `-Xmx` argument, or search for ['increase java heap space'](https://www.google.com/search?q=increase+java+heap+space) for more information and alternative methods. For example, to run with 4 GB of memory:
 
 `java -Xmx4G -jar HazardCurveGUI-1.5.0.jar`
 
