@@ -161,7 +161,13 @@ If trace locations are specified without depths in the GeoJSON file, e.g.,:
 "coordinates": [ [ -120.7585, 36.79945 ], [ -120.70175, 36.71373 ], [ -120.64514, 36.62798 ] ]
 ```
 
-...then the depth of the fault trace is assumed to be at the upper seismogenic depth. If the locations are specified with depths, e.g.,:
+...then the depth of the fault trace is assumed to be at the upper seismogenic depth. So, for example, if the "UpDepth" property (upper seismogenic depth) is set to 5 km, then that fault trace would be interpreted as:
+
+```json
+"coordinates": [ [ -120.7585, 36.79945, 5.0 ], [ -120.70175, 36.71373, 5.0 ], [ -120.64514, 36.62798, 5.0 ] ]
+```
+
+If the locations are specified with depths, e.g.,:
 
 ```json
 "coordinates": [ [ -120.7585, 36.79945, 0.0 ], [ -120.70175, 36.71373, 0.0 ], [ -120.64514, 36.62798, 0.0 ] ]
