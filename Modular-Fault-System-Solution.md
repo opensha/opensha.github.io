@@ -38,7 +38,7 @@ _[(return to top)](#table-of-contents)_
 
 Rupture sets usually contain a large number of fault _subsections_, which are small equal-length subdivisions of each parent fault section (typically with length approximately equal to half the siesmogenic thickness of the fault). Those _subsections_ are stored in the [Fault Section GeoJSON format](Geospatial-File-Formats#fault-data) with the added requirement that each section be listed in order of their `id`s, starting with `id=0` and ending with `id=(numSections-1)`. The GeoJSON will be stored in `ruptures/fault_sections.geojson`.
 
-Here is an example fault section data file 9 subsections spanning two faults:
+Here is an example fault section data file with 9 subsections spanning two faults:
 
 ```json
 {
@@ -116,7 +116,7 @@ Here is an example fault section data file 9 subsections spanning two faults:
 ### Rupture Section Indices
 _[(return to top)](#table-of-contents)_
 
-The `ruptures/indices.csv` file lists the participating subsections for each rupture. It is stored in a CSV file. Ruptures should be listed in order, and the first rupture shall be index 0.
+The `ruptures/indices.csv` file lists the participating subsections for each rupture. It is stored in a CSV file. The first row of the CSV file shall contain column headings, but the content of the header is not checked and need not exactly match the example given below (for example, the '# 1', '# 2', etc., columns are included here for readability but can be omitted). Ruptures should then be listed in order, and the first rupture shall be index 0.
 
 The participating subsections are indicated by their (0-based) index, so for the example below, rupture 0 consists of subsections 0 and 1, and rupture 1 consists of subsections 0, 1, and 2. The total number of columns in the CSV file is equal to the number of sections in the largest rupture plus 2, and each line may have different column counts.
 
@@ -141,7 +141,7 @@ An example is given below with 28 ruptures on the 9 previously defined fault sub
 ### Rupture Properties
 _[(return to top)](#table-of-contents)_
 
-Rupture properties are stored in `ruptures/properties.csv` which gives the magnitude, rake, area, and length of each rupture. It is stored in a CSV file. Ruptures should be listed in order, and the first rupture shall be index 0.
+Rupture properties are stored in `ruptures/properties.csv` which gives the magnitude, rake, area, and length of each rupture. It is stored in a CSV file. The first row of the CSV file shall contain column headings, but the content of the header is not checked and need not exactly match the example given below. Ruptures should then be listed in order, and the first rupture shall be index 0.
 
 An example is given below with 28 ruptures on the 9 previously defined fault subsections:
 
@@ -180,7 +180,7 @@ A solution must also contain a rupture set (in the `ruptures` top-level sub-dire
 ### Rate Data
 _[(return to top)](#table-of-contents)_
 
-Solution annual rate data for each rupture is stored in a simple 2-column CSV file, `solution/rates.csv`. An example is below:
+Solution annual rate data for each rupture is stored in a simple 2-column CSV file, `solution/rates.csv`. The first row of the CSV file shall contain column headings, but the content of the header is not checked and need not exactly match the example given below. Ruptures should then be listed in order, and the first rupture shall be index 0. An example is below:
 
 |Rupture Index|Annual Rate|
 |-------------|-----------|
@@ -208,10 +208,12 @@ _[(return to top)](#table-of-contents)_
 
 The gridded region used to define the set of gridded seismicity locations is stored in `solution/grid_region.geojson`. It follows the OpenSHA [Gridded Region File Format](Geospatial-File-Formats#gridded-regions), and is omitted here for brevity, but the region used for the examples below has 81 grid nodes.
 
+This file is optional. If omitted, the region will be inferred from grid nodes supplied in the focal mechanisms CSV file, but note that the grid nodes must be evenly spaced in latitude and longitude and not contain any holes (though it can be irregularly shaped)
+
 #### Gridded Seismicity Focal Mechanism Rates
 _[(return to top)](#table-of-contents)_
 
-Each gridded seismicity node can have ruptures of various focal mechanisms: strike-slip, normal, and reverse. This file gives the fraction of seismicity associated with each node that corresponds to each of those focal mechanisms. This data is stored in `solution/grid_mech_weights.csv` and the format is as shown:
+Each gridded seismicity node can have ruptures of various focal mechanisms: strike-slip, normal, and reverse. This file gives the fraction of seismicity associated with each node that corresponds to each of those focal mechanisms. This data is stored in `solution/grid_mech_weights.csv` and the format is given below. The first row of the CSV file shall contain column headings, but the content of the header is not checked and need not exactly match the example given below. Grid nodes should then be listed in order, and the first node shall be index 0.
 
 |Node Index|Latitude          |Longitude|Fraction Strike-Slip|Fraction Reverse|Fraction Normal|
 |----------|------------------|---------|--------------------|----------------|---------------|
@@ -232,25 +234,29 @@ Each gridded seismicity node can have ruptures of various focal mechanisms: stri
 #### Gridded Seismicity MFDs
 _[(return to top)](#table-of-contents)_
 
-Magnitude-Frequency distributions (MFDs) for each grid node are stored in a CSV file format. Each grid node can have 2 MFDs, one for sub-seimogenic ruptures associated with a fault (`solution/grid_sub_seis_mfds.csv`), and another for ruptures unassociated with any fault (`solution/grid_unassociated_mfds.csv`), but many grid nodes will only have 1 of those types.
+Magnitude-Frequency distributions (MFDs) for each grid node are stored in a CSV file format. Each grid node can have 2 MFDs, one for sub-seismogenic ruptures associated with a fault (`solution/grid_sub_seis_mfds.csv`), and another for ruptures unassociated with any fault (`solution/grid_unassociated_mfds.csv`), but many grid nodes will only have 1 of those types.
 
-The format for each file is identical, with empty rows (following the node index and location header) indicating that a given node doesn't have that MFD type. X-values are given in the header, and may vary from model to model.
+The format for each file is identical, and the first row of each CSV file shall contain column headings which are used to define the X-values of the MFD (this may vary from model to model). Grid nodes need not be listed in order and can be skipped if no MFD exists for a particular node (or, alternatively, rows can be left blank after the 3-column row header to indicate that no MFD exists for a node).
 
 Here is an example file that contains MFDs for some nodes and omits them for others:
 
-|Node Index|Latitude|Longitude|5.05     |5.15      |5.25      |5.35      |...|8.45|
-|----------|--------|---------|---------|----------|----------|----------|---|----|
-|0         |34      |-120     |         |          |          |          |...|    |
-|...       |...     |...      |...      |...       |...       |...       |...|... |
-|70        |35.75   |-118.25  |         |          |          |          |...|    |
-|71        |35.75   |-118     |0.03798  |0.0301685 |0.0239637 |0.0190351 |...|0   |
-|72        |36      |-120     |         |          |          |          |...|    |
-|73        |36      |-119.75  |         |          |          |          |...|    |
-|74        |36      |-119.5   |         |          |          |          |...|    |
-|75        |36      |-119.25  |0.0103926|0.00825517|0.00655731|0.00520866|...|0   |
-|76        |36      |-119     |0.0103924|0.00825497|0.00655716|0.00520853|...|0   |
-|77        |36      |-118.75  |         |          |          |          |...|    |
-|78        |36      |-118.5   |         |          |          |          |...|    |
-|79        |36      |-118.25  |         |          |          |          |...|    |
-|80        |36      |-118     |0.03798  |0.0301685 |0.0239637 |0.0190351 |...|0   |
+|   |Latitude|Longitude|5.05      |5.15      |5.25      |5.35      |5.45      |5.55      |...       |8.4       |
+|---|--------|---------|----------|----------|----------|----------|----------|----------|----------|----------|
+|8  |34      |-118     |0.0381873 |0.0303332 |0.0240946 |0.019139  |0.0152026 |0.0120759 |...       |0.0       |
+|17 |34.25   |-118     |0.0311113 |0.0247126 |0.0196299 |0.0155926 |0.0123856 |0.00983827|...       |0.0       |
+|26 |34.5    |-118     |0.0381873 |0.0303332 |0.0240946 |0.019139  |0.0152026 |0.0120759 |...       |0.0       |
+|35 |34.75   |-118     |0.0381873 |0.0303332 |0.0240946 |0.019139  |0.0152026 |0.0120759 |...       |0.0       |
+|44 |35      |-118     |0.0381873 |0.0303332 |0.0240946 |0.019139  |0.0152026 |0.0120759 |...       |0.0       |
+|52 |35.25   |-118.25  |0.00806943|0.00640978|0.00509147|0.0040443 |0.0032125 |0.00255178|...       |0.0       |
+|53 |35.25   |-118     |0.0381873 |0.0303332 |0.0240946 |0.019139  |0.0152026 |0.0120759 |...       |0.0       |
+|59 |35.5    |-118.75  |0.00806943|0.00640978|0.00509147|0.0040443 |0.0032125 |0.00255178|...       |0.0       |
+|60 |35.5    |-118.5   |0.00807135|0.0064113 |0.00509268|0.00404526|0.00321326|0.00255239|...       |0.0       |
+|62 |35.5    |-118     |0.0381873 |0.0303332 |0.0240946 |0.019139  |0.0152026 |0.0120759 |...       |0.0       |
+|67 |35.75   |-119     |0.00806943|0.00640978|0.00509147|0.0040443 |0.0032125 |0.00255178|...       |0.0       |
+|68 |35.75   |-118.75  |0.00807135|0.0064113 |0.00509268|0.00404526|0.00321326|0.00255239|...       |0.0       |
+|71 |35.75   |-118     |0.0381873 |0.0303332 |0.0240946 |0.019139  |0.0152026 |0.0120759 |...       |0.0       |
+|75 |36      |-119.25  |0.00806943|0.00640978|0.00509147|0.0040443 |0.0032125 |0.00255178|...       |0.0       |
+|76 |36      |-119     |0.00807135|0.0064113 |0.00509268|0.00404526|0.00321326|0.00255239|...       |0.0       |
+|80 |36      |-118     |0.0381873 |0.0303332 |0.0240946 |0.019139  |0.0152026 |0.0120759 |...       |0.0       |
+
 
