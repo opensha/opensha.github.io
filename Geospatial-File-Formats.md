@@ -1,6 +1,6 @@
 OpenSHA stores geospatial data in [GeoJSON](https://geojson.org/), which is specified in [RFC 7946](https://datatracker.ietf.org/doc/html/rfc7946). OpenSHA code for (de)serializing GeoJSON can be found in the _[org.opensha.commons.geo.json](https://github.com/opensha/opensha/tree/master/src/main/java/org/opensha/commons/geo/json)_ package.
 
-_**Important note on depths/elevations:** OpenSHA stores depth data in km, positive down. For example, a value of `3.0` in the third column of a coordinate array indicates that the given point is 3 km below the surface. This differs from the [GeoJSON specification](https://datatracker.ietf.org/doc/html/rfc7946), but is in-line with the [USGS Event Web Service](https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson_detail.php) and general treatment of 3D location data in OpenSHA and other PSHA codes._
+_**Important note on depths/elevations:** OpenSHA stores depth data in km, positive down. For example, a value of `3.0` in the third column of a coordinate array indicates that the given point is 3 km below the surface. This differs from the [GeoJSON specification](https://datatracker.ietf.org/doc/html/rfc7946), but is in-line with the [USGS Event Web Service](https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson_detail.php) and general treatment of 3D location data in OpenSHA and other PSHA codes. You can load a file that uses a different depth standard with the `buildGson(DepthSerializationType)` method of [FeatureCollection](https://github.com/opensha/opensha/blob/master/src/main/java/org/opensha/commons/geo/json/FeatureCollection.java)._
 
 ## Table of Contents
 
@@ -153,7 +153,7 @@ The notion of a fault trace is complicated for buried dipping faults (i.e., thos
 
 ![Simple fault example](resources/fault_data_sm.png)
 
-Modelers may wish to, instead, specify the top of the (buried) surface as the fault trace rather than the up-dip extension at the earth's surface (as pictured). To accommodate this, we adopt the following convention when reading fault section data from GeoJSON:
+Modelers may wish, instead, to specify the top of the (buried) surface as the fault trace rather than the up-dip extension at the earth's surface (as pictured). To accommodate this, we adopt the following convention when reading fault section data from GeoJSON:
 
 If trace locations are specified without depths in the GeoJSON file, e.g.,:
 
