@@ -249,26 +249,11 @@ Here is an example region that is a simple rectangle with minLat=34, maxLat=36, 
     "type": "Polygon",
     "coordinates": [
       [
-        [
-          -120.0,
-          34.0
-        ],
-        [
-          -118.0,
-          34.0
-        ],
-        [
-          -118.0,
-          36.0
-        ],
-        [
-          -120.0,
-          36.0
-        ],
-        [
-          -120.0,
-          34.0
-        ]
+        [ -120.0, 34.0 ],
+        [ -118.0, 34.0 ],
+        [ -118.0, 36.0 ],
+        [ -120.0, 36.0 ],
+        [ -120.0, 34.0 ]
       ]
     ]
   }
@@ -289,48 +274,18 @@ Here is an example region that is a rectangle with minLat=34, maxLat=36, minLon=
     "type": "Polygon",
     "coordinates": [
       [
-        [
-          -120.0,
-          34.0
-        ],
-        [
-          -118.0,
-          34.0
-        ],
-        [
-          -118.0,
-          36.0
-        ],
-        [
-          -120.0,
-          36.0
-        ],
-        [
-          -120.0,
-          34.0
-        ]
+        [ -120.0, 34.0 ],
+        [ -118.0, 34.0 ],
+        [ -118.0, 36.0 ],
+        [ -120.0, 36.0 ],
+        [ -120.0, 34.0 ]
       ],
       [
-        [
-          -119.5,
-          34.5
-        ],
-        [
-          -119.5,
-          35.5
-        ],
-        [
-          -118.5,
-          35.5
-        ],
-        [
-          -118.5,
-          34.5
-        ],
-        [
-          -119.5,
-          34.5
-        ]
+        [ -119.5, 34.5 ],
+        [ -119.5, 35.5 ],
+        [ -118.5, 35.5 ],
+        [ -118.5, 34.5 ],
+        [ -119.5, 34.5 ]
       ]
     ]
   }
@@ -344,47 +299,90 @@ OpenSHA [Gridded Region's](https://github.com/opensha/opensha/blob/master/src/ma
 
 Like a Region, a Gridded Region can have a name, which is stored in the `id` field of the `Feature` as a JSON string.
 
-OpenSHA will store and read the following data as optional properties. If omitted, it will attempt to infer them from the supplied grid nodes.
-
 ### Gridded Region Optional Properties
 _[(return to top)](#table-of-contents)_
+
+The following are optional properties, used primarily for OpenSHA bookkeeping, and can be safely omitted so long as the Gridded Region does not contain any holes. If omitted, they will be inferred from the supplied grid nodes.
 
 | Name | JSON Type | Description |
 | --- | --- | --- |
 | `Anchor` | Array of Number | Lon,Lat of the anchor (lower left) point of the grid |
-| `LatNodes` | Array of Number | Latitude nodes in increasing order |
+| `LatNodes` | Array of Number | List of unique grid node latitudes in increasing order |
 | `LatSpacing` | Number | Latitude grid spacing in decimal degrees |
-| `LonNodes` | Array of Number | Longitude nodes in increasing order |
+| `LonNodes` | Array of Number | List of unique grid node longitudes in increasing order |
 | `LonSpacing` | Number | Longitude grid spacing in decimal degrees |
 
 ### Gridded Region Example
 _[(return to top)](#table-of-contents)_
+
+Simple example: 
+
+```json
+{
+  "type": "Feature",
+  "id": "Example gridded region",
+  "geometry": {
+    "type": "GeometryCollection",
+    "geometries": [
+      {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [ -120.0, 34.0 ],
+            [ -118.0, 34.0 ],
+            [ -118.0, 36.0 ],
+            [ -120.0, 36.0 ],
+            [ -120.0, 34.0 ]
+          ]
+        ]
+      },
+      {
+        "type": "MultiPoint",
+        "coordinates": [
+          [ -120.0, 34.0 ],
+          [ -119.5, 34.0 ],
+          [ -119.0, 34.0 ],
+          [ -118.5, 34.0 ],
+          [ -118.0, 34.0 ],
+          [ -120.0, 34.5 ],
+          [ -119.5, 34.5 ],
+          [ -119.0, 34.5 ],
+          [ -118.5, 34.5 ],
+          [ -118.0, 34.5 ],
+          [ -120.0, 35.0 ],
+          [ -119.5, 35.0 ],
+          [ -119.0, 35.0 ],
+          [ -118.5, 35.0 ],
+          [ -118.0, 35.0 ],
+          [ -120.0, 35.5 ],
+          [ -119.5, 35.5 ],
+          [ -119.0, 35.5 ],
+          [ -118.5, 35.5 ],
+          [ -118.0, 35.5 ],
+          [ -120.0, 36.0 ],
+          [ -119.5, 36.0 ],
+          [ -119.0, 36.0 ],
+          [ -118.5, 36.0 ],
+          [ -118.0, 36.0 ]
+        ]
+      }
+    ]
+  }
+}
+```
+
+Example with full optional OpenSHA metadata properties:
 
 ```json
 {
   "type": "Feature",
   "id": "Example gridded region",
   "properties": {
-    "LatNodes": [
-      34.0,
-      34.5,
-      35.0,
-      35.5,
-      36.0
-    ],
-    "LonNodes": [
-      -120.0,
-      -119.5,
-      -119.0,
-      -118.5,
-      -118.0
-    ],
+    "LatNodes": [ 34.0, 34.5, 35.0, 35.5, 36.0 ],
+    "LonNodes": [ -120.0, -119.5, -119.0, -118.5, -118.0 ],
     "LatSpacing": 0.5,
     "LonSpacing": 0.5,
-    "Anchor": [
-      -120.0,
-      34.0
-    ]
+    "Anchor": [ -120.0, 34.0 ]
   },
   "geometry": {
     "type": "GeometryCollection",
@@ -393,132 +391,42 @@ _[(return to top)](#table-of-contents)_
         "type": "Polygon",
         "coordinates": [
           [
-            [
-              -120.0,
-              34.0
-            ],
-            [
-              -118.0,
-              34.0
-            ],
-            [
-              -118.0,
-              36.0
-            ],
-            [
-              -120.0,
-              36.0
-            ],
-            [
-              -120.0,
-              34.0
-            ]
+            [ -120.0, 34.0 ],
+            [ -118.0, 34.0 ],
+            [ -118.0, 36.0 ],
+            [ -120.0, 36.0 ],
+            [ -120.0, 34.0 ]
           ]
         ]
       },
       {
         "type": "MultiPoint",
         "coordinates": [
-          [
-            -120.0,
-            34.0
-          ],
-          [
-            -119.5,
-            34.0
-          ],
-          [
-            -119.0,
-            34.0
-          ],
-          [
-            -118.5,
-            34.0
-          ],
-          [
-            -118.0,
-            34.0
-          ],
-          [
-            -120.0,
-            34.5
-          ],
-          [
-            -119.5,
-            34.5
-          ],
-          [
-            -119.0,
-            34.5
-          ],
-          [
-            -118.5,
-            34.5
-          ],
-          [
-            -118.0,
-            34.5
-          ],
-          [
-            -120.0,
-            35.0
-          ],
-          [
-            -119.5,
-            35.0
-          ],
-          [
-            -119.0,
-            35.0
-          ],
-          [
-            -118.5,
-            35.0
-          ],
-          [
-            -118.0,
-            35.0
-          ],
-          [
-            -120.0,
-            35.5
-          ],
-          [
-            -119.5,
-            35.5
-          ],
-          [
-            -119.0,
-            35.5
-          ],
-          [
-            -118.5,
-            35.5
-          ],
-          [
-            -118.0,
-            35.5
-          ],
-          [
-            -120.0,
-            36.0
-          ],
-          [
-            -119.5,
-            36.0
-          ],
-          [
-            -119.0,
-            36.0
-          ],
-          [
-            -118.5,
-            36.0
-          ],
-          [
-            -118.0,
-            36.0
-          ]
+          [ -120.0, 34.0 ],
+          [ -119.5, 34.0 ],
+          [ -119.0, 34.0 ],
+          [ -118.5, 34.0 ],
+          [ -118.0, 34.0 ],
+          [ -120.0, 34.5 ],
+          [ -119.5, 34.5 ],
+          [ -119.0, 34.5 ],
+          [ -118.5, 34.5 ],
+          [ -118.0, 34.5 ],
+          [ -120.0, 35.0 ],
+          [ -119.5, 35.0 ],
+          [ -119.0, 35.0 ],
+          [ -118.5, 35.0 ],
+          [ -118.0, 35.0 ],
+          [ -120.0, 35.5 ],
+          [ -119.5, 35.5 ],
+          [ -119.0, 35.5 ],
+          [ -118.5, 35.5 ],
+          [ -118.0, 35.5 ],
+          [ -120.0, 36.0 ],
+          [ -119.5, 36.0 ],
+          [ -119.0, 36.0 ],
+          [ -118.5, 36.0 ],
+          [ -118.0, 36.0 ]
         ]
       }
     ]
