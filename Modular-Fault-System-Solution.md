@@ -27,9 +27,9 @@ Here is a summary of files likely to be in a rupture set zip file:
 
 | File Name | Required? | Format | Description |
 | --- | --- | --- | --- |
-| `ruptures/fault_sections.geojson` | **YES** | GeoJSON | Fault section geometries |
-| `ruptures/indices.csv` | **YES** | CSV | Lists of section indices that comprise each rupture |
-| `ruptures/properties.csv` | **YES** | CSV | Rupture properties (mag, rake, length, area) |
+| `ruptures/fault_sections.geojson` | **YES** | [GeoJSON](#fault-section-data) | Fault section geometries |
+| `ruptures/indices.csv` | **YES** | [CSV](#rupture-section-indices) | Lists of section indices that comprise each rupture |
+| `ruptures/properties.csv` | **YES** | [CSV](#rupture-properties) | Rupture properties (mag, rake, length, area) |
 | `ruptures/average_slips.csv` | _(no)_ | CSV | Average slip information for each rupture |
 | `ruptures/modules.json` | _(no)_ | JSON | Manifest of Rupture Set modules, used by OpenSHA |
 
@@ -170,11 +170,11 @@ A solution must also contain a rupture set (in the `ruptures` top-level sub-dire
 
 | File Name | Required? | Format | Description |
 | --- | --- | --- | --- |
-| `solution/rates.csv` | **YES** | CSV | Annual rates for each rupture |
-| `solution/grid_mech_weights.csv` | _(no)_ | CSV | Focal mechanism weights for each gridded seismicity location |
-| `solution/grid_region.geojson` | _(no)_ | GeoJSON | Gridded seismicity region |
-| `solution/grid_sub_seis_mfds.csv` | _(no)_ | CSV | Sub-seismogenic MFDs for gridded seismicity |
-| `solution/grid_unassociated_mfds.csv` | _(no)_ | CSV | Gridded seismicity MFDs that are not associated with any fault |
+| `solution/rates.csv` | **YES** | [CSV](#rate-data) | Annual rates for each rupture |
+| `solution/grid_mech_weights.csv` | _(no)_ | [CSV](#gridded-seismicity-focal-mechanism-rates) | Focal mechanism weights for each gridded seismicity location |
+| `solution/grid_region.geojson` | _(no)_ | [GeoJSON](#gridded-seismicity-region) | Gridded seismicity region |
+| `solution/grid_sub_seis_mfds.csv` | _(no)_ | [CSV](#gridded-seismicity-mfds) | Sub-seismogenic MFDs for gridded seismicity |
+| `solution/grid_unassociated_mfds.csv` | _(no)_ | [CSV](#gridded-seismicity-mfds) | Gridded seismicity MFDs that are not associated with any fault |
 | `solution/modules.json` | _(no)_ | JSON | Manifest of Solution modules, used by OpenSHA |
 
 ### Rate Data
