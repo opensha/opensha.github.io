@@ -1,4 +1,4 @@
-_PREVIEW: This is a preview of the proposed file format. UCERF3 files are still stored in the [Legacy Fault System Solution](Legacy-Fault-System-Solution) format, and will be converted when this format is finalized._
+_**PREVIEW**: This is a preview of the proposed file format. UCERF3 files are still stored in the [Legacy Fault System Solution](Legacy-Fault-System-Solution) format, and will be converted when this format is finalized._
 
 The [UCERF3](https://wgcep.org/UCERF3) model introduced Fault System Rupture Sets and Solutions as data containers for earthquake rupture forecasts. A [Rupture Set](#fault-system-rupture-set) defines all of the on-fault supra-seismogenic ruptures in a fault system, and their properties (magnitude, rake, etc). A [Solution](#fault-system-solution) defines the annual rate of occurrence of each rupture, and may also supply information about gridded seismicity.
 
