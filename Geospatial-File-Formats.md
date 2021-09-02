@@ -140,7 +140,7 @@ If, instead, the locations are specified with depths, e.g.,:
 "coordinates": [ [ -120.7585, 36.79945, 0.0 ], [ -120.70175, 36.71373, 0.0 ], [ -120.64514, 36.62798, 0.0 ] ]
 ```
 
-or another example with non-zero depths:
+Or another example, this time with non-zero depths:
 
 ```json
 "coordinates": [ [ -120.7585, 36.79945, 3.0 ], [ -120.70175, 36.71373, 3.0 ], [ -120.64514, 36.62798, 3.0 ] ]
