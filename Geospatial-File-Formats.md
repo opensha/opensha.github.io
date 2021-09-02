@@ -37,14 +37,8 @@ Example fault trace as a `LineString` with 2 points:
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [
-            -117.74953000000001,
-            35.74054
-          ],
-          [
-            -117.76365068593667,
-            35.81037829696144
-          ]
+          [ -117.74953000000001, 35.74054 ],
+          [ -117.76365068593667, 35.81037829696144 ]
         ]
       }
 ```
@@ -97,48 +91,21 @@ You can optionally supply a polygon geometry that this fault represents. In this
           {
             "type": "LineString",
             "coordinates": [
-              [
-                -117.76365068593667,
-                35.81037829696144
-              ],
-              [
-                -117.76492000000002,
-                35.81665
-              ],
-              [
-                -117.7758769984411,
-                35.880450900949334
-              ]
+              [ -117.76365068593667, 35.81037829696144 ],
+              [ -117.76492000000002, 35.81665 ],
+              [ -117.7758769984411, 35.880450900949334 ]
             ]
           },
           {
             "type": "Polygon",
             "coordinates": [
               [
-                [
-                  -117.73341200000002,
-                  36.16374
-                ],
-                [
-                  -117.75440599999999,
-                  36.158123
-                ],
-                [
-                  -117.76325900000002,
-                  36.159714
-                ],
-                [
-                  -117.77182599999999,
-                  36.112068
-                ],
-                [
-                  -117.779052,
-                  36.092946
-                ],
-                [
-                  -117.73341200000002,
-                  36.16374
-                ]
+                [ -117.73341200000002, 36.16374 ],
+                [ -117.75440599999999, 36.158123 ],
+                [ -117.76325900000002, 36.159714 ],
+                [ -117.77182599999999, 36.112068 ],
+                [ -117.779052, 36.092946 ],
+                [ -117.73341200000002, 36.16374 ]
               ]
             ]
           }
@@ -161,19 +128,19 @@ If trace locations are specified without depths in the GeoJSON file, e.g.,:
 "coordinates": [ [ -120.7585, 36.79945 ], [ -120.70175, 36.71373 ], [ -120.64514, 36.62798 ] ]
 ```
 
-...then the trace is assumed to be an _upper edge_ and the depths are set to the upper seismogenic depth. So, for example, if the "UpDepth" property (upper seismogenic depth) is set to 5 km, then that supplied trace would be interpreted as:
+...then the trace is assumed to be an _upper edge_ and the depths are set to the upper seismogenic depth. So, for example, if the "UpDepth" property (upper seismogenic depth) is set to 5 km, then the above supplied trace would be interpreted as:
 
 ```json
 "coordinates": [ [ -120.7585, 36.79945, 5.0 ], [ -120.70175, 36.71373, 5.0 ], [ -120.64514, 36.62798, 5.0 ] ]
 ```
 
-If the locations are specified with depths, e.g.,:
+If, instead, the locations are specified with depths, e.g.,:
 
 ```json
 "coordinates": [ [ -120.7585, 36.79945, 0.0 ], [ -120.70175, 36.71373, 0.0 ], [ -120.64514, 36.62798, 0.0 ] ]
 ```
 
-or:
+or another example with non-zero depths:
 
 ```json
 "coordinates": [ [ -120.7585, 36.79945, 3.0 ], [ -120.70175, 36.71373, 3.0 ], [ -120.64514, 36.62798, 3.0 ] ]
@@ -211,14 +178,8 @@ Here is an example `FeatureCollection` that contains a single fault, represented
       "geometry": {
         "type": "LineString",
         "coordinates": [
-          [
-            -117.74953000000001,
-            35.74054
-          ],
-          [
-            -117.76365068593667,
-            35.81037829696144
-          ]
+          [ -117.74953000000001, 35.74054 ],
+          [ -117.76365068593667, 35.81037829696144 ]
         ]
       }
     }
