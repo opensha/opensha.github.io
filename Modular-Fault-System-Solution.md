@@ -2,7 +2,7 @@ _**PREVIEW**: This is a preview of the proposed file format. UCERF3 files are st
 
 The [UCERF3](https://wgcep.org/UCERF3) model introduced Fault System Rupture Sets and Solutions as data containers for earthquake rupture forecasts. A [Rupture Set](#fault-system-rupture-set) defines all of the on-fault supra-seismogenic ruptures in a fault system, and their properties (magnitude, rake, etc). A [Solution](#fault-system-solution) defines the annual rate of occurrence of each rupture, and may also supply information about gridded seismicity.
 
-Data are stored in a zip file consisting primarily of JSON, GeoJSON, and CSV files for ease of use. Rupture sets and solutions are stored in the `ruptures` and `solution` sub-directories of the zip file, respectively. OpenSHA codes will include a `modules.json` file at the top level of the zip file that includes information used by OpenSHA to load in the Rupture Set and Solution, but this can be omitted for externally-created files.
+Data are stored in a zip file consisting primarily of JSON, GeoJSON, and CSV files for ease of use. Rupture sets and solutions are stored in the `ruptures` and `solution` subdirectories of the zip file, respectively. OpenSHA codes will include a `modules.json` file at the top level of the zip file that includes information used by OpenSHA to load in the Rupture Set and Solution, but this can be omitted for externally-created files.
 
 Example files presented here are often shortened for brevity, indicated by `...`.
 
@@ -21,7 +21,7 @@ A small but complete Fault System Solution (that, by definition, also contains a
 ## Fault System Rupture Set
 _[(return to top)](#table-of-contents)_
 
-Fault System Rupture Sets define a set of fault sections and supra-seismogenic ruptures (and their properties) on those sections. Their data are stored in the `ruptures` sub-directory of a zip file.
+Fault System Rupture Sets define a set of fault sections and supra-seismogenic ruptures (and their properties) on those sections. Their data are stored in the `ruptures` subdirectory of a zip file.
 
 Here is a summary of files likely to be in a rupture set zip file:
 
@@ -164,9 +164,9 @@ An example is given below with 28 ruptures on the 9 previously defined fault sub
 ## Fault System Solution
 _[(return to top)](#table-of-contents)_
 
-Fault System Solutions define the rate of each rupture from a Rupture Set (called a 'solution' because those rates are usually the result of an inversion). They may optionally also include gridded seismicity data. Their data are stored in the `solution` sub-directory of a zip file.
+Fault System Solutions define the rate of each rupture from a Rupture Set (called a 'solution' because those rates are usually the result of an inversion). They may optionally also include gridded seismicity data. Their data are stored in the `solution` subdirectory of a zip file.
 
-A solution must also contain a rupture set (in the `ruptures` top-level sub-directory). In addition to the standard rupture set files, here is a summary of files likely to be in a solution set zip file:
+A solution must also contain a rupture set (in the `ruptures` top-level subdirectory). In addition to the standard rupture set files, here is a summary of files likely to be in a solution zip file:
 
 | File Name | Required? | Format | Description |
 | --- | --- | --- | --- |
