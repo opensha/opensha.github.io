@@ -6,7 +6,7 @@ Data are stored in a zip file consisting primarily of JSON, GeoJSON, and CSV fil
 
 Example files presented here are often shortened for brevity, indicated by `...`.
 
-A small but complete Fault System Solution (that, by definition, also contains a Rupture Set) can be [downloaded here for testing](https://github.com/opensha/opensha/raw/modular-fault-sys-rup-set2/src/test/resources/org/opensha/sha/earthquake/faultSysSolution/demo_sol.zip).
+A small but complete Fault System Solution (that, by definition, also contains a Rupture Set) can be [downloaded here for testing](https://github.com/opensha/opensha/raw/master/src/test/resources/org/opensha/sha/earthquake/faultSysSolution/demo_sol.zip).
 
 ### Table of Contents
 
