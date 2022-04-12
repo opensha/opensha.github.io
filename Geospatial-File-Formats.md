@@ -79,7 +79,7 @@ The following optional properties will be parsed by OpenSHA (other properties ma
 | `PrimState` | String | 2 letter abbreviation of the primarily associated US state for this fault, if it exists. | _(none)_ |
 | `SecState` | String | 2 letter abbreviation of the secondary associated US state for this fault, if it exists. | _(none)_ |
 | `SlipLastEvent` | Number | Slip in meters of the last event that ruptured this fault. | _(none)_ |
-| `SlipRate` | Number | Average long-term slip rate of this fault in mm/yr. | _(none)_ |
+| `SlipRate` | Number | Average long-term on-plane slip rate of this fault in mm/yr. | _(none)_ |
 | `SlipRateStdDev` | Number | Standard deviation of the average long-term slip rate of this fault in mm/yr. | _(none)_ |
 
 You can optionally supply a polygon geometry that this fault represents. In this case, the `geometry` object must be a `GeometryCollection` that contains both a fault trace (as either a `LineString` or `MultiLineString`) and a polygon as either a `Polygon` or `MultiPolygon`. For example:
