@@ -1,4 +1,4 @@
-_**PREVIEW**: This is a preview of the proposed file format. UCERF3 files are still stored in the [Legacy Fault System Solution](Legacy-Fault-System-Solution) format, and will be converted when this format is finalized._
+_**PREVIEW**: This is a preview of the proposed file format. UCERF3 files are still stored in the [Legacy Fault System Solution](Legacy-Fault-System-Solution) format, but branch averaged solutions in this format are available to download for testing: [FM 3.1](https://opensha.usc.edu/ftp/ucerf3_erf_modular/FM3_1_branch_averaged.zip), [FM 3.2](https://opensha.usc.edu/ftp/ucerf3_erf_modular/FM3_2_branch_averaged.zip), [FMs Combined](https://opensha.usc.edu/ftp/ucerf3_erf_modular/mean_ucerf3_sol.zip)._
 
 The [UCERF3](https://wgcep.org/UCERF3) model introduced Fault System Rupture Sets and Solutions as data containers for earthquake rupture forecasts. A [Rupture Set](#fault-system-rupture-set) defines all of the on-fault supra-seismogenic ruptures in a fault system, and their properties (magnitude, rake, etc). A [Solution](#fault-system-solution) defines the annual rate of occurrence of each rupture, and may also supply information about gridded seismicity.
 
@@ -7,6 +7,8 @@ Data are stored in a zip file consisting primarily of JSON, GeoJSON, and CSV fil
 Example files presented here are often shortened for brevity, indicated by `...`.
 
 A small but complete Fault System Solution (that, by definition, also contains a Rupture Set) can be [downloaded here for testing](https://github.com/opensha/opensha/raw/master/src/test/resources/org/opensha/sha/earthquake/faultSysSolution/demo_sol.zip).
+
+Files in this format can be loaded in [nightly builds of OpenSHA application](Developers#nightly-builds), or via code in OpenSHA via the `load(File)` method on `org.opensha.sha.earthquake.faultSysSolution.FaultSystemSolution` and `org.opensha.sha.earthquake.faultSysSolution.FaultSystemRupSet`.
 
 ### Table of Contents
 
