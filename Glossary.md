@@ -524,7 +524,7 @@ In seismic hazard analysis, the **Shear Wave Velocity** at a [Site](#site) is of
 
 
 
-The average shear-wave velocity between 0 and 30-meters depth. Some [Attenuation Relationships](#attenuation-relationship) require knowing whether a Vs30 value was *Measured* or *Inferred*. More information is available at the [USGS Global Vs30 Map Server](http://earthquake.usgs.gov/hazards/apps/vs30/) site
+The average shear-wave velocity between 0 and 30-meters depth. Some [Attenuation Relationships](#attenuation-relationship) require knowing whether a Vs30 value was *Measured* or *Inferred*. More information is available at the [USGS Global Vs30 Map Server](https://earthquake.usgs.gov/data/vs30/) site
 ### Depth 1.0 km/sec
 
 
