@@ -26,3 +26,7 @@ Please let us know if you encounter any problems with this website, have suggest
 * Kevin Milner: kmilner `at` usgs `dot` gov
 
 If you are having technical issues with software or have questions specifically relating to the OpenSHA codebase, please see the [developer resources page](Developers). If you encounter an issue with our applications, submit a [ticket here](https://github.com/opensha/opensha/issues).
+
+## Accessibility
+
+If you have trouble viewing content on this website, you may try viewing the content on the [Opensha Wiki](https://github.com/opensha/opensha/wiki) instead. This website is a mirror of that wiki page, which may be more accessible. Please [contact us](#contact-us) if we can assist in any way.
