@@ -23,6 +23,6 @@ Much of the development of OpenSHA would not have been possible without dedicate
 Please let us know if you encounter any problems with this website, have suggestions for improving it, or would like to suggest or contribute additional content (e.g., tutorials, publications). You can reach the primary developers via e-mail at:
 
 * Ned Field: field `at` usgs `dot` gov
-* Kevin Milner: kmilner `at` usc `dot` edu
+* Kevin Milner: kmilner `at` usgs `dot` gov
 
 If you are having technical issues with software or have questions specifically relating to the OpenSHA codebase, please see the [developer resources page](Developers). If you encounter an issue with our applications, submit a [ticket here](https://github.com/opensha/opensha/issues).
