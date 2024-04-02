@@ -50,7 +50,7 @@ The following `properties` are required:
 
 | Name | JSON Type | Description |
 | --- | --- | --- |
-| DipDeg | Number | Dip of the fault in decimal degrees, following the right hand rule. See [the glossary](Glossary#strike-dip--rake-focal-mechanism) for more information. |
+| DipDeg | Number | Dip of the fault in decimal degrees, following the right hand rule. See [the glossary](Glossary#strike-dip--rake-focal-mechanism) for more information. Note: this can be omitted for dipping faults if a lower fault trace is supplied. |
 | LowDepth | Number | Lower depth of the fault in kilometers. See [simple fault](Glossary#simple-fault) for more information. |
 | Rake | Number | Rake of the fault in decimal degrees, see [the glossary](Glossary#strike-dip--rake-focal-mechanism) for more information. |
 | UpDepth | Number | Upper depth of the fault in kilometers, not including any aseismicity. See [simple fault](Glossary#simple-fault) for more information. |
@@ -74,6 +74,7 @@ The following optional properties will be parsed by OpenSHA (other properties ma
 | `DateLastEvent` | Number | Date of the last event that ruptured this fault, used in time-dependent forecasts, expressed in epoch milliseconds. | _(none)_ |
 | `FaultID` | Number | Integer ID of this fault. Must supply either this or the `Feature`'s `id` field. | _(none)_ |
 | `FaultName` | String | Name of this fault. | _(none)_ |
+| `LowerTrace` | GeoJSON `Geometry` of type `LineString` | For complex faults, a lower trace can be supplied instead of just projecting down dip. That trace must be supplied as a GeoJSON `Geometry` object of type `LineString`. If supplied, the fault dip can be omitted (the average dip will be calculated). If depths are omitted, locations will be assumed to lie at the lower seismogenic depth. | _(none)_ |
 | `ParentID` | Number | Integer ID of the parent to this fault. This is typically used when subdividing a fault into subsections, and will point to the ID of the original fault section. | _(none)_ |
 | `ParentName` | String | Name of the parent to this fault. This is typically used when subdividing a fault into subsections, and will give the name of the original fault section. | _(none)_ |
 | `PrimState` | String | 2 letter abbreviation of the primarily associated US state for this fault, if it exists. | _(none)_ |
