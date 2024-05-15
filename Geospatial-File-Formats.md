@@ -29,7 +29,7 @@ At a minimum, a GeoJSON fault must contain the **3 following items**:
 #### 1. Fault Trace
 _[(return to top)](#table-of-contents)_
 
-The fault trace must be present in the `geometry` object in the form of a `LineString` or `MultiLineString`. If a `MultiLineString` is encountered and it contains a single `LineString` (GIS softwares may output single lines in this format), it is supported. If a `MultiLineString` is encountered and it contains two `LineString`s, then the second trace is treated as a lower trace; that lower trace must be below the upper trace (it must explicitly specify depths in the coordinate array), and must be in the same general direction as the upper trace.
+The fault trace must be present in the `geometry` object in the form of a `LineString` or `MultiLineString`. If a `MultiLineString` is encountered and it contains a single `LineString` (GIS softwares may output single lines in this format), it is supported. If a `MultiLineString` is encountered and it contains two `LineString`s, then the second trace is treated as a lower trace; that lower trace must be below the upper trace (it must explicitly specify depths in the `coordinates` array), and must be in the same general direction as the upper trace.
 
 Example fault trace as a `LineString` with 2 points:
 
@@ -43,7 +43,7 @@ Example fault trace as a `LineString` with 2 points:
       }
 ```
 
-Example upper and lower fault trace as a `MultiLineString`:
+Example upper and lower fault traces as a `MultiLineString`, each with explicitly stated depths in the `coordinates` array:
 
 ```json
       "geometry": {
