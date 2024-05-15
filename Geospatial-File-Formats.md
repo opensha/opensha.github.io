@@ -1,6 +1,6 @@
 OpenSHA stores geospatial data in [GeoJSON](https://geojson.org/), which is specified in [RFC 7946](https://datatracker.ietf.org/doc/html/rfc7946). OpenSHA code for (de)serializing GeoJSON can be found in the _[org.opensha.commons.geo.json](https://github.com/opensha/opensha/tree/master/src/main/java/org/opensha/commons/geo/json)_ package.
 
-_**Important note on depths/elevations:** OpenSHA stores depth data in km, positive down. For example, a value of `3.0` in the third column of a coordinate array indicates that the given point is 3 km below the local surface. This differs from the [GeoJSON specification](https://datatracker.ietf.org/doc/html/rfc7946), but is in-line with the [USGS Event Web Service](https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson_detail.php) and general treatment of 3D location data in OpenSHA and other PSHA codes. You can load a file that uses a different depth standard with the `buildGson(DepthSerializationType)` method of [FeatureCollection](https://github.com/opensha/opensha/blob/master/src/main/java/org/opensha/commons/geo/json/FeatureCollection.java)._
+_**Important note on depths/elevations:** OpenSHA stores depth data in km, positive down. For example, a value of `3.0` in the third column of a coordinate array indicates that the given point is 3 km below the local surface. This differs from the [GeoJSON specification](https://datatracker.ietf.org/doc/html/rfc7946), but is in-line with the [USGS Event Web Service](https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson_detail.php) and general treatment of 3D location data in OpenSHA and other PSHA codes. You can load a file in code that uses a different depth standard with the `buildGson(DepthSerializationType)` method of [FeatureCollection](https://github.com/opensha/opensha/blob/master/src/main/java/org/opensha/commons/geo/json/FeatureCollection.java)._
 
 ## Table of Contents
 
@@ -29,7 +29,7 @@ At a minimum, a GeoJSON fault must contain the **3 following items**:
 #### 1. Fault Trace
 _[(return to top)](#table-of-contents)_
 
-The fault trace must be present in the `geometry` object in the form of a `LineString` or `MultiLineString`. Although `MultiLineString` is supported for convenience (GIS softwares may output single lines in this format), they should only contain a single `LineString`; if multiple lines are encountered, the code will print a warning and stitch them into a single fault trace.
+The fault trace must be present in the `geometry` object in the form of a `LineString` or `MultiLineString`. If a `MultiLineString` is encountered and it contains a single `LineString` (GIS softwares may output single lines in this format), it is supported. If a `MultiLineString` is encountered and it contains two `LineString`s, then the second trace is treated as a lower trace; that lower trace must be below the upper trace (it must explicitly specify depths in the coordinate array), and must be in the same general direction as the upper trace.
 
 Example fault trace as a `LineString` with 2 points:
 
@@ -43,6 +43,24 @@ Example fault trace as a `LineString` with 2 points:
       }
 ```
 
+Example upper and lower fault trace as a `MultiLineString`:
+
+```json
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [ -117.74953000000001, 35.74054, 0.0 ],
+            [ -117.76365068593667, 35.81037829696144, 0.0 ]
+          ],
+          [
+            [ -117.74953000000001, 35.74054, 10.0 ],
+            [ -117.76365068593667, 35.81037829696144, 10.0 ]
+          ]
+        ]
+      }
+```
+
 #### 2. Required properties
 _[(return to top)](#table-of-contents)_
 
@@ -51,9 +69,9 @@ The following `properties` are required:
 | Name | JSON Type | Description |
 | --- | --- | --- |
 | DipDeg | Number | Dip of the fault in decimal degrees, following the right hand rule. See [the glossary](Glossary#strike-dip--rake-focal-mechanism) for more information. Note: this can be omitted for dipping faults if a lower fault trace is supplied. |
-| LowDepth | Number | Lower depth of the fault in kilometers. See [simple fault](Glossary#simple-fault) for more information. |
+| LowDepth | Number | Lower depth of the fault in kilometers. See [simple fault](Glossary#simple-fault) for more information. Note: this can be omitted for dipping faults if a lower fault trace is supplied. |
 | Rake | Number | Rake of the fault in decimal degrees, see [the glossary](Glossary#strike-dip--rake-focal-mechanism) for more information. |
-| UpDepth | Number | Upper depth of the fault in kilometers, not including any aseismicity. See [simple fault](Glossary#simple-fault) for more information. |
+| UpDepth | Number | Upper depth of the fault in kilometers, not including any aseismicity. See [simple fault](Glossary#simple-fault) for more information. Note: this can be omitted for dipping faults if a lower fault trace is supplied. |
 
 #### 3. Unique ID
 _[(return to top)](#table-of-contents)_
@@ -74,7 +92,6 @@ The following optional properties will be parsed by OpenSHA (other properties ma
 | `DateLastEvent` | Number | Date of the last event that ruptured this fault, used in time-dependent forecasts, expressed in epoch milliseconds. | _(none)_ |
 | `FaultID` | Number | Integer ID of this fault. Must supply either this or the `Feature`'s `id` field. | _(none)_ |
 | `FaultName` | String | Name of this fault. | _(none)_ |
-| `LowerTrace` | GeoJSON `Geometry` of type `LineString` | For complex faults, a lower trace can be supplied instead of just projecting down dip. That trace must be supplied as a GeoJSON `Geometry` object of type `LineString`. If supplied, the fault dip can be omitted (the average dip will be calculated). If depths are omitted, locations will be assumed to lie at the lower seismogenic depth. | _(none)_ |
 | `ParentID` | Number | Integer ID of the parent to this fault. This is typically used when subdividing a fault into subsections, and will point to the ID of the original fault section. | _(none)_ |
 | `ParentName` | String | Name of the parent to this fault. This is typically used when subdividing a fault into subsections, and will give the name of the original fault section. | _(none)_ |
 | `PrimState` | String | 2 letter abbreviation of the primarily associated US state for this fault, if it exists. | _(none)_ |
