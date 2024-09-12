@@ -2,7 +2,9 @@ _**PREVIEW**: This is a preview of the new file format, pending formal release o
 
 The [UCERF3](https://wgcep.org/UCERF3) model introduced Fault System Rupture Sets and Solutions as data containers for earthquake rupture forecasts. A [Rupture Set](#fault-system-rupture-set) defines all of the on-fault supra-seismogenic ruptures in a fault system, and their properties (magnitude, rake, etc). A [Solution](#fault-system-solution) defines the annual rate of occurrence of each rupture, and may also supply information about gridded seismicity.
 
-Data are stored in a zip file consisting primarily of JSON, GeoJSON, and CSV files for ease of use. Rupture sets and solutions are stored in the `ruptures` and `solution` subdirectories of the zip file, respectively. OpenSHA codes will include a `modules.json` file at the top level of the zip file that includes information used by OpenSHA to load in the Rupture Set and Solution, but this can be omitted for externally-created files.
+Data are stored in a zip file consisting primarily of [JSON](https://www.json.org/), [GeoJSON](https://geojson.org/), and [CSV](https://en.wikipedia.org/wiki/Comma-separated_values) files for ease of human and machine readability. Rupture sets and solutions are stored in the `ruptures` and `solution` subdirectories of the zip file, respectively.
+
+Extra information beyond the requirements outlined below may be attached via optional OpenSHA modules; files written with OpenSHA will include optional `modules.json` files that list all attached modules, their associated data files, and Java class name within the [OpenSHA codebase](https://github.com/opensha/opensha). Some common modules are documented below.
 
 Example files presented here are often shortened for brevity, indicated by `...`.
 
