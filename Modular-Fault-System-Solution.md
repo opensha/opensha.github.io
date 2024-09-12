@@ -169,7 +169,7 @@ An example is given below with 28 ruptures on the 9 previously defined fault sub
 ### Optional Rupture Set Modules
 _[(return to top)](#table-of-contents)_
 
-Extra information or data beyond the requirementa outlined above may be attached via optional OpenSHA modules. If present (as will be the case for files written by OpenSHA), the `ruptures/modules.json` file will list all included modules as well as their associated data files and Java class name within the [OpenSHA codebase](https://github.com/opensha/opensha). Some common modules are documented below.
+Extra information or data beyond the requirements outlined above may be attached via optional OpenSHA modules. If present (as will be the case for files written by OpenSHA), the `ruptures/modules.json` file will list all included modules as well as their associated data files and Java class name within the [OpenSHA codebase](https://github.com/opensha/opensha). Some common modules are documented below.
 
 #### Optional Module: Average Slips
 _[(return to top)](#table-of-contents)_
@@ -215,8 +215,8 @@ A solution must also contain a rupture set (in the `ruptures` top-level subdirec
 | `solution/rates.csv` | **YES** | [CSV](#rate-data) | Annual rates for each rupture |
 | `solution/grid_mech_weights.csv` | _(no)_ | [CSV](#gridded-seismicity-focal-mechanism-rates) | Focal mechanism weights for each gridded seismicity location |
 | `solution/grid_region.geojson` | _(no)_ | [GeoJSON](#gridded-seismicity-region) | Gridded seismicity region |
-| `solution/grid_source_locations.csv` | _(no)_ | [CSV](#gridded-source-locations) | Locations and indexes of gridded seismicity sources |
-| `solution/grid_sources.csv` | _(no)_ | [CSV](#gridded-sources) | Gridded seismicity ruptures |
+| `solution/grid_source_locations.csv` | _(no)_ | [CSV](#gridded-seismicity-source-locations) | Locations and indexes of gridded seismicity sources |
+| `solution/grid_sources.csv` | _(no)_ | [CSV](#gridded-seismicity-sources) | Gridded seismicity ruptures |
 | `solution/modules.json` | _(no)_ | JSON | Manifest of Solution modules, used by OpenSHA |
 
 ### Rate Data
@@ -370,3 +370,9 @@ Here is an example file that contains MFDs for some nodes and omits them for oth
 |75        |36      |-119.25  |0.00806943|0.00640978|0.00509147|0.0040443 |...       |0.0       |
 |76        |36      |-119     |0.00807135|0.0064113 |0.00509268|0.00404526|...       |0.0       |
 |80        |36      |-118     |0.0381873 |0.0303332 |0.0240946 |0.019139  |...       |0.0       |
+
+### Optional Solution Modules
+_[(return to top)](#table-of-contents)_
+
+Extra information or data beyond the requirements outlined above may be attached via optional OpenSHA modules. If present (as will be the case for files written by OpenSHA), the `solution/modules.json` file will list all included modules as well as their associated data files and Java class name within the [OpenSHA codebase](https://github.com/opensha/opensha). Some common modules are documented below.
+
