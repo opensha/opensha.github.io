@@ -4,8 +4,6 @@ The [UCERF3](https://wgcep.org/UCERF3) model introduced Fault System Rupture Set
 
 Data are stored in a zip file consisting primarily of [JSON](https://www.json.org/), [GeoJSON](https://geojson.org/), and [CSV](https://en.wikipedia.org/wiki/Comma-separated_values) files for ease of human and machine readability. Rupture sets and solutions are stored in the `ruptures` and `solution` subdirectories of the zip file, respectively.
 
-Extra information beyond the requirements outlined below may be attached via optional OpenSHA modules; files written with OpenSHA will include optional `modules.json` files that list all attached modules, their associated data files, and Java class name within the [OpenSHA codebase](https://github.com/opensha/opensha). Some common modules are documented below.
-
 Example files presented here are often shortened for brevity, indicated by `...`.
 
 A small but complete Fault System Solution (that, by definition, also contains a Rupture Set) can be [downloaded here for testing](https://github.com/opensha/opensha/raw/master/src/test/resources/org/opensha/sha/earthquake/faultSysSolution/demo_sol.zip).
@@ -145,7 +143,7 @@ An example is given below with 28 ruptures on the 9 previously defined fault sub
 ### Rupture Properties
 _[(return to top)](#table-of-contents)_
 
-Rupture properties are stored in `ruptures/properties.csv` which gives the magnitude, rake, area, and length of each rupture. It is stored in a CSV file. The first row of the CSV file shall contain column headings, but the content of the header is not checked and need not exactly match the example given below. Ruptures should then be listed in order, and the first rupture shall be index 0.
+Rupture properties are stored in `ruptures/properties.csv` that gives the magnitude, rake, area, and length of each rupture. It is stored in a CSV file. The first row of the CSV file shall contain column headings, but the content of the header is not checked and need not exactly match the example given below. Ruptures should then be listed in order, and the first rupture shall be index 0.
 
 An example is given below with 28 ruptures on the 9 previously defined fault subsections:
 
@@ -164,6 +162,41 @@ An example is given below with 28 ruptures on the 9 previously defined fault sub
 |10           |6.625    |180.0                 |3.33585E8 |27798.8   |
 |...          |...      |...                   |...       |...       |
 |27           |6.367    |90.0                  |2.43603E8 |14354.5   |
+
+### Optional Rupture Set Modules
+_[(return to top)](#table-of-contents)_
+
+Extra information or data beyond the requirementa outlined above may be attached via optional OpenSHA modules. If present (as will be the case for files written by OpenSHA), the `ruptures/modules.json` file will list all included modules as well as their associated data files and Java class name within the [OpenSHA codebase](https://github.com/opensha/opensha). Some common modules are documented below.
+
+#### Optional Module: Average Slips
+_[(return to top)](#table-of-contents)_
+
+The optional average slips module, if present, includes the average slip for each rupture across the entire rupture surface. When combined with rupture rates, this can be used to compute solution slip rates or moment rates. Average slip data are stored in `ruptures/properties.csv`, a two column CSV file (with a header row) that lists the rupture index and average slip data (in meters) for each rupture. Average slip data must always be listed in order and for every rupture (with 0-based indexing). An example is given below:
+
+| Rupture Index | Average Slip (m)   |
+|---------------|--------------------|
+| 0             | 1.0548371281299187 |
+| 1             | 1.320910307573078  |
+| 2             | 1.5626123127366756 |
+| 3             | 1.7793822328512139 |
+| 4             | 1.0548371281299134 |
+| 5             | 1.320910307573055  |
+| ...           | ...                |
+
+#### Optional Module: Tectonic Regimes
+_[(return to top)](#table-of-contents)_
+
+The optional tectonic regimes module, if present, lists the associated [tectonic regime](Glossary#tectonic-regime) for each rupture. This is most often used in hazard calculations to select the appropriate ground motion models for each rupture. Data are stored in `ruptures/tectonic_regimes.csv`, a two column CSV file (with a header row) that lists the rupture index and [OpenSHA tectonic regime enum constant](Glossary#tectonic-regime). Data must always be listed in order and for every rupture (with 0-based indexing). An example is given below:
+
+| Rupture Index | Tectonic Regime |
+|---------------|-----------------|
+| 0             | ACTIVE_SHALLOW  |
+| 1             | ACTIVE_SHALLOW  |
+| 2             | ACTIVE_SHALLOW  |
+| 3             | ACTIVE_SHALLOW  |
+| 4             | ACTIVE_SHALLOW  |
+| 5             | ACTIVE_SHALLOW  |
+| ...           | ...             |
 
 ## Fault System Solution
 _[(return to top)](#table-of-contents)_
