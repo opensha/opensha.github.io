@@ -29,6 +29,7 @@ The following is a list of terms commonly used in OpenSHA and in seismic hazard 
 * [Standard Deviation](#standard-deviation)
 * [Stirling Fault Surface](#stirling-fault-surface)
 * [Strike, Dip, & Rake (Focal Mechanism)](#strike-dip--rake-focal-mechanism)
+* [Tectonic Regime](#tectonic-regime)
 * [Wills Site Classification](#wills-site-classification)
 
 ## Attenuation Relationship
@@ -151,7 +152,7 @@ A location on a Rupture Surface that marks where earthquake slip nucleates.
 
 
 
-An **Earthquake Rupture** with an associated probability of occurrence. See also [Probabilisitic Earthquake Source](#probabilisitic-earthquake-source).
+An **Earthquake Rupture** with an associated probability of occurrence. See also [Probabilisitic Earthquake Source](#probabilistic-earthquake-source).
 
 ## Earthquake Rupture Forecast (ERF)
 *[(top)](#table-of-contents)*
@@ -696,6 +697,18 @@ Rake is the direction a hanging wall block moves during rupture, as measured on 
 See also the [Wikipedia](http://en.wikipedia.org/wiki/Strike_and_dip) and USGS entries on [strike](http://earthquake.usgs.gov/learn/glossary/?term=strike) and [dip](http://earthquake.usgs.gov/learn/glossary/?term=dip).
 
 
+## Tectonic Regime
+*[(top)](#table-of-contents)*
+
+Earthquakes occur in various tectonic regimes, and models are often tailored to a single regime. [Probabilistic earthquake sources](#probabilistic-earthquake-source) state their tectonic regime, which may be used in hazard calculations to select the appropriate [GMPEs](#ground-motion-prediction-equation-gmpe). Options are:
+
+| Name                 | OpenSHA Enum Constant  |
+|----------------------|------------------------|
+| Active Shallow Crust | `ACTIVE_SHALLOW`       |
+| Stable Shallow Crust | `STABLE_SHALLOW`       |
+| Subduction Interface | `SUBDUCTION_INTERFACE` |
+| Subduction IntraSlab | `SUBDUCTION_SLAB`      |
+| Volcanic             | `VOLCANIC`             |
 
 ## Wills Site Classification
 *[(top)](#table-of-contents)*
