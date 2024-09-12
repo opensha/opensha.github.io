@@ -16,9 +16,11 @@ Files in this format can be loaded in [nightly builds of OpenSHA application](De
   * [Fault Section Data](#fault-section-data)
   * [Rupture Section Indices](#rupture-section-indices)
   * [Rupture Properties](#rupture-properties)
+  * [Optional Additional Modules](#optional-rupture-set-modules)
 * [Fault System Solution](#fault-system-solution)
   * [Rate Data](#rate-data)
   * [Gridded Seismicity Data](#gridded-seismicity-data)
+  * [Optional Additional Modules](#optional-solution-modules)
 
 ## Fault System Rupture Set
 _[(return to top)](#table-of-contents)_
@@ -32,7 +34,8 @@ Here is a summary of files likely to be in a rupture set zip file:
 | `ruptures/fault_sections.geojson` | **YES** | [GeoJSON](#fault-section-data) | Fault section geometries |
 | `ruptures/indices.csv` | **YES** | [CSV](#rupture-section-indices) | Lists of section indices that comprise each rupture |
 | `ruptures/properties.csv` | **YES** | [CSV](#rupture-properties) | Rupture properties (mag, rake, length, area) |
-| `ruptures/average_slips.csv` | _(no)_ | CSV | Average slip information for each rupture |
+| `ruptures/average_slips.csv` | _(no)_ | [CSV](#optional-module-average-slips) | Average slip information for each rupture |
+| `ruptures/tectonic_regimes.csv` | _(no)_ | [CSV](#optional-module-tectonic-regimes) | Tectonic regime information for each rupture |
 | `ruptures/modules.json` | _(no)_ | JSON | Manifest of Rupture Set modules, used by OpenSHA |
 
 ### Fault Section Data
@@ -175,13 +178,14 @@ The optional average slips module, if present, includes the average slip for eac
 
 | Rupture Index | Average Slip (m)   |
 |---------------|--------------------|
-| 0             | 1.0548371281299187 |
-| 1             | 1.320910307573078  |
-| 2             | 1.5626123127366756 |
-| 3             | 1.7793822328512139 |
-| 4             | 1.0548371281299134 |
-| 5             | 1.320910307573055  |
+| 0             | 1.1647160534906944 |
+| 1             | 1.426480989099377  |
+| 2             | 1.4490078253186767 |
+| 3             | 1.57199038614192   |
+| 4             | 1.6860260586392295 |
+| 5             | 1.792822904443835  |
 | ...           | ...                |
+| 27            | 0.8620093923941858 |
 
 #### Optional Module: Tectonic Regimes
 _[(return to top)](#table-of-contents)_
@@ -197,6 +201,7 @@ The optional tectonic regimes module, if present, lists the associated [tectonic
 | 4             | ACTIVE_SHALLOW  |
 | 5             | ACTIVE_SHALLOW  |
 | ...           | ...             |
+| 27            | ACTIVE_SHALLOW  |
 
 ## Fault System Solution
 _[(return to top)](#table-of-contents)_
@@ -210,8 +215,8 @@ A solution must also contain a rupture set (in the `ruptures` top-level subdirec
 | `solution/rates.csv` | **YES** | [CSV](#rate-data) | Annual rates for each rupture |
 | `solution/grid_mech_weights.csv` | _(no)_ | [CSV](#gridded-seismicity-focal-mechanism-rates) | Focal mechanism weights for each gridded seismicity location |
 | `solution/grid_region.geojson` | _(no)_ | [GeoJSON](#gridded-seismicity-region) | Gridded seismicity region |
-| `solution/grid_sub_seis_mfds.csv` | _(no)_ | [CSV](#gridded-seismicity-mfds) | Sub-seismogenic MFDs for gridded seismicity |
-| `solution/grid_unassociated_mfds.csv` | _(no)_ | [CSV](#gridded-seismicity-mfds) | Gridded seismicity MFDs that are not associated with any fault |
+| `solution/grid_source_locations.csv` | _(no)_ | [CSV](#gridded-source-locations) | Locations and indexes of gridded seismicity sources |
+| `solution/grid_sources.csv` | _(no)_ | [CSV](#gridded-sources) | Gridded seismicity ruptures |
 | `solution/modules.json` | _(no)_ | JSON | Manifest of Solution modules, used by OpenSHA |
 
 ### Rate Data
@@ -238,16 +243,86 @@ Solution annual rate data for each rupture is stored in a simple 2-column CSV fi
 ### Gridded Seismicity Data
 _[(return to top)](#table-of-contents)_
 
-Solutions may optionally provided gridded seismicity information. For a fault system solution, gridded seismicity can refer to either off-fault earthquakes (those 'unassociated' with any fault) or sub-seismogenic ruptures on a fault (see UCERF3 reports for additional information). This data is stored in 4 files, each of which is summarized below.
+Solutions may optionally provided gridded seismicity information. For a fault system solution, gridded seismicity can refer to either off-fault earthquakes (those 'unassociated' with any fault) or sub-seismogenic ruptures on a fault but smaller than the ruptures defined in the [rupture set](#fault-system-rupture-set). This data is stored in multiple files, each of which is summarized below.
 
 #### Gridded Seismicity Region
 _[(return to top)](#table-of-contents)_
 
 The gridded region used to define the set of gridded seismicity locations is stored in `solution/grid_region.geojson`. It follows the OpenSHA [Gridded Region File Format](Geospatial-File-Formats#gridded-regions), and is omitted here for brevity, but the region used for the examples below has 81 grid nodes.
 
-This file is optional. If omitted, the region will be inferred from grid nodes supplied in the focal mechanisms CSV file, but note that the grid nodes must be evenly spaced in latitude and longitude and not contain any holes (though it can be irregularly shaped)
+This optional file is for information purposes and easy plotting of the gridded seismicity region. Locations of gridded seismicity sources are found in the [Gridded Seismicity Source Locations](#gridded-seismicity-source-locations) file.
 
-#### Gridded Seismicity Focal Mechanism Rates
+#### Gridded Seismicity Source Locations
+_[(return to top)](#table-of-contents)_
+
+The `solution/grid_source_locations.csv` CSV file lists the indexes and locations of each gridded seismicity source. The first row of the CSV file shall contain column headings, but the content of the header is not checked and need not exactly match the example given below. Grid nodes should then be listed in order, and the first node shall be index 0.
+
+| rid Index | Latitude | Longitude |
+|-----------|----------|-----------|
+| 0         | 34       | -120      |
+| 1         | 34       | -119.75   |
+| 2         | 34       | -119.5    |
+| 3         | 34       | -119.25   |
+| 4         | 34       | -119      |
+| 5         | 34       | -118.75   |
+| 6         | 34       | -118.5    |
+| 7         | 34       | -118.25   |
+| 8         | 34       | -118      |
+| 9         | 34.25    | -120      |
+| 10        | 34.25    | -119.75   |
+| ...       | ...      | ...       |
+| 80        | 36       | -118      |
+
+#### Gridded Seismicity Sources
+_[(return to top)](#table-of-contents)_
+
+The `solution/grid_sources.csv` CSV file lists properties and rates of each gridded seismicity source. The first row of the CSV file shall contain column headings, but the content of the header is not checked and need not exactly match the example given below. The columns are:
+
+| _Column Name_              | _Description_ |
+|----------------------------|---------------|
+| Grid Index                 | Grid node index from the `grid_source_locations.csv` file |
+| Magnitude                  | Gridded rupture magnitude |
+| Annual Rate                | Gridded rupture annual rate of occurrence |
+| Rake                       | Gridded rupture rake angle (degrees) |
+| Dip                        | Gridded rupture dip angle (degrees) |
+| Strike                     | Gridded rupture strike angle (degrees), if known, otherwise blank |
+| Upper Depth (km)           | Upper depth of the rupture (kilometers) |
+| Lower Depth (km)           | Lower depth of the rupture (kilometers) |
+| Length (km)                | Length of the rupture (kilometers) |
+| Hypocentral Depth (km)     | Hypocentral depth of the rupture (kilometers). This is used when building finite surfaces if (and only if) the strike angle is also supplied. If omitted (blank), the hypocentral depth is assumed to be halfway between the upper and lower depth. See TODO. |
+| Hypocentral DAS (km)       | Hypocentral distance along strike (DAS) of the rupture (kilometers). This is used when building finite surfaces if (and only if) the strike angle is also supplied. If omitted (blank), the hypocentral DAS is assumed to be halfway along the rupture (half of the length). See TODO. |
+| Tectonic Regime            | Tectonic regime for this rupture; one of the OpenSHA enum constants [listed here](Glossary#tectonic-regime) |
+| Associated Section Index 1 | Optional: section index from the rupture set for which this gridded rupture is associated. The fraction of that association is given in the following column, and additional sections will be listed as additional column pairs. |
+| Fraction Associated 1      | Optional: fractional association of the fault section index supplied in the previous column |
+
+Here is an example, showing both associated and unassociated ruptures:
+
+| Grid Index | Magnitude | Annual Rate | Rake | Dip | Strike | Upper Depth (km) | Lower Depth (km) | Length (km) | Hypocentral Depth (km) | Hypocentral DAS (km) | Tectonic Regime | Associated Section Index 1 | Fraction Associated 1 | Associated Section Index N | Fraction Associated N |   |          |   |          |
+|------------|-----------|-------------|------|-----|--------|------------------|------------------|-------------|------------------------|----------------------|-----------------|----------------------------|-----------------------|----------------------------|-----------------------|---|----------|---|----------|
+| 0          | 5.05      | 0.00514342  | 0    | 90  |        | 5                | 6.23             | 1.84        |                        |                      | ACTIVE_SHALLOW  |                            |                       |                            |                       |   |          |   |          |
+| 0          | 5.05      | 0.00257171  | 90   | 50  |        | 5                | 5.94             | 1.84        |                        |                      | ACTIVE_SHALLOW  |                            |                       |                            |                       |   |          |   |          |
+| 0          | 5.05      | 0.00257171  | −90  | 50  |        | 5                | 5.94             | 1.84        |                        |                      | ACTIVE_SHALLOW  |                            |                       |                            |                       |   |          |   |          |
+| 0          | 5.15      | 0.00408556  | 0    | 90  |        | 5                | 6.44             | 2.16        |                        |                      | ACTIVE_SHALLOW  |                            |                       |                            |                       |   |          |   |          |
+| 0          | 5.15      | 0.00204278  | 90   | 50  |        | 5                | 6.1              | 2.16        |                        |                      | ACTIVE_SHALLOW  |                            |                       |                            |                       |   |          |   |          |
+| 0          | 5.15      | 0.00204278  | −90  | 50  |        | 5                | 6.1              | 2.16        |                        |                      | ACTIVE_SHALLOW  |                            |                       |                            |                       |   |          |   |          |
+| 0          | 5.25      | 0.00324528  | 0    | 90  |        | 5                | 6.68             | 2.53        |                        |                      | ACTIVE_SHALLOW  |                            |                       |                            |                       |   |          |   |          |
+| 0          | 5.25      | 0.00162264  | 90   | 50  |        | 5                | 6.29             | 2.53        |                        |                      | ACTIVE_SHALLOW  |                            |                       |                            |                       |   |          |   |          |
+| 0          | 5.25      | 0.00162264  | −90  | 50  |        | 5                | 6.29             | 2.53        |                        |                      | ACTIVE_SHALLOW  |                            |                       |                            |                       |   |          |   |          |
+| ...        | ...       | ...         | ...  | ... | ...    | ...              | ...              | ...         | ...                    | ...                  | ...             |                            |                       |                            |                       |   |          |   |          |
+| 35         | 5.05      | 0.0240135   | 0    | 90  |        | 5                | 6.23             | 1.84        |                        |                      | ACTIVE_SHALLOW  | 3                          | 0.224517              | 4                          | 0.224517              | 5 | 0.224517 | 6 | 0.112259 |
+| 35         | 5.05      | 0.0120067   | 90   | 50  |        | 5                | 5.94             | 1.84        |                        |                      | ACTIVE_SHALLOW  | 3                          | 0.224517              | 4                          | 0.224517              | 5 | 0.224517 | 6 | 0.112259 |
+| 35         | 5.05      | 0.0120067   | −90  | 50  |        | 5                | 5.94             | 1.84        |                        |                      | ACTIVE_SHALLOW  | 3                          | 0.224517              | 4                          | 0.224517              | 5 | 0.224517 | 6 | 0.112259 |
+| 35         | 5.15      | 0.0190746   | 0    | 90  |        | 5                | 6.44             | 2.16        |                        |                      | ACTIVE_SHALLOW  | 3                          | 0.224517              | 4                          | 0.224517              | 5 | 0.224517 | 6 | 0.112259 |
+| 35         | 5.15      | 0.00953728  | 90   | 50  |        | 5                | 6.1              | 2.16        |                        |                      | ACTIVE_SHALLOW  | 3                          | 0.224517              | 4                          | 0.224517              | 5 | 0.224517 | 6 | 0.112259 |
+| 35         | 5.15      | 0.00953728  | −90  | 50  |        | 5                | 6.1              | 2.16        |                        |                      | ACTIVE_SHALLOW  | 3                          | 0.224517              | 4                          | 0.224517              | 5 | 0.224517 | 6 | 0.112259 |
+| ...        | ...       | ...         | ...  | ... | ...    | ...              | ...              | ...         | ...                    | ...                  | ...             |                            |                       |                            |                       |   |          |   |          |
+
+#### Legacy (MFD-Based) Gridded Seismicity Data files
+_[(return to top)](#table-of-contents)_
+
+An earlier version of this file format gave gridded seismicity data by specifying magnitude-frequency distributions at each grid node. Although conceptually simple, that format didn't supply enough information about how to implement the gridded seismicity sources in hazard calculations and has been deprecated. Its format is archived below for posterity.
+
+##### Legacy Gridded Seismicity Focal Mechanism Rates
 _[(return to top)](#table-of-contents)_
 
 Each gridded seismicity node can have ruptures of various focal mechanisms: strike-slip, normal, and reverse. This file gives the fraction of seismicity associated with each node that corresponds to each of those focal mechanisms. This data is stored in `solution/grid_mech_weights.csv` and the format is given below. The first row of the CSV file shall contain column headings, but the content of the header is not checked and need not exactly match the example given below. Grid nodes should then be listed in order, and the first node shall be index 0.
@@ -268,7 +343,7 @@ Each gridded seismicity node can have ruptures of various focal mechanisms: stri
 |...|...|...|...|...|...|
 |80        |36.0              |-118.0   |0.5                 |0.25            |0.25           |
 
-#### Gridded Seismicity MFDs
+##### Legacy Gridded Seismicity MFDs
 _[(return to top)](#table-of-contents)_
 
 Magnitude-Frequency distributions (MFDs) for each grid node are stored in a CSV file format. Each grid node can have 2 MFDs, one for sub-seismogenic ruptures associated with a fault (`solution/grid_sub_seis_mfds.csv`), and another for ruptures unassociated with any fault (`solution/grid_unassociated_mfds.csv`), but many grid nodes will only have 1 of those types.
