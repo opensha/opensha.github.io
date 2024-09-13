@@ -380,3 +380,44 @@ _[(return to top)](#table-of-contents)_
 
 Extra information or data beyond the requirements outlined above may be attached via optional OpenSHA modules. If present (as will be the case for files written by OpenSHA), the `solution/modules.json` file will list all included modules as well as their associated data files and Java class name within the [OpenSHA codebase](https://github.com/opensha/opensha). Some common modules are documented below.
 
+## Solution Logic Tree
+_[(return to top)](#table-of-contents)_
+
+Unlike a regular Fault System Solution, Solution Logic Trees contain information for multiple solutions across multiple logic tree branches. Individual files that make up a solution are often only affected by some logic tree branching levels. For example, fault section data (`fault_sections.geojson`) is often affected by fault and deformation model branching levels, but not scaling relationships nor rate model branches. We store information efficiently for each branch by not duplicating those files that are constant across multiple branches.
+
+All relevant files are stored in the 'solution_logic_tree' directory. Solution and rupture set files will be stored in branch-specific subdirectories and follow the same formats described previously. Information on the logic tree branches available and their file mapping structure are available in the following files:
+
+| File Name | Required? | Format | Description |
+| --- | --- | --- | --- |
+| `solution_logic_tree/logic_tree.json` | **YES** | JSON | Logic Tree JSON file listing all logic tree branches, weights, and details of the branch levels. Most users will probably want to read the [simpler mappings file](#logic-tree-mappings) instead. |
+| `solution_logic_tree/logic_tree_mappings.json` | _(no)_ | [JSON](#logic-tree-mappings) | File name mappings and weights for each logic tree branch. This file is not used by OpenSHA, but is written to help external users quickly identify the location of each solution or rupture set file for individual logic tree branches. |
+| `solution_logic_tree/solution_processor.json` | _(no)_ | [GeoJSON](#gridded-seismicity-region) | The Solution Logic Tree file format does not support all optional modules that can be attached to a solution or rupture set. Instead, a solution processor class in OpenSHA can be used to provide additional modules as a function of logic tree branch. This file, if present, gives the class name in OpenSHA of that processor. |
+
+### Logic Tree Mappings
+_[(return to top)](#table-of-contents)_
+
+This file gives list all branches of the logic tree, their weights, and the file name mappings needed to reconstruct the rupture set and solution file. Here is an example with just a single branch listed:
+
+```json
+[
+  {
+    "branch": [
+      "WUS_FM_v3",
+      "GEOLOGIC",
+      "LogA_C4p3",
+      "SupraB0.0",
+      "EvenFitPaleo",
+      "None"
+    ],
+    "weight": 1.0,
+    "mappings": {
+      "fault_sections.geojson": "solution_logic_tree/WUS_FM_v3/GEOLOGIC/fault_sections.geojson",
+      "indices.csv": "solution_logic_tree/WUS_FM_v3/indices.csv",
+      "properties.csv": "solution_logic_tree/WUS_FM_v3/GEOLOGIC/LogA_C4p3/properties.csv",
+      "rates.csv": "solution_logic_tree/WUS_FM_v3/GEOLOGIC/LogA_C4p3/SupraB0.0/EvenFitPaleo/None/rates.csv"
+    }
+  }
+]
+```
+
+The `branch` element lists names of each choice on the given logic tree branch. The `weight` element gives the weight of that branch in the logic tree. The `mappings` element gives a mapping from rupture set/solution file names (e.g., `rates.csv`) to the location of that file for the given branch (e.g., `solution_logic_tree/WUS_FM_v3/GEOLOGIC/LogA_C4p3/SupraB0.0/EvenFitPaleo/None/rates.csv`). Note that a single file may be used by multiple branches, as is unusually the case for fault section data and rupture indices.
