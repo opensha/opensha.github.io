@@ -295,7 +295,7 @@ The `solution/grid_sources.csv` CSV file lists properties and rates of each grid
 | Associated Section Index 1 | Optional: section index from the rupture set for which this gridded rupture is associated. The fraction of that association is given in the following column, and additional sections will be listed as additional column pairs. |
 | Fraction Associated 1      | Optional: fractional association of the fault section index supplied in the previous column |
 
-Below is a schematic diagram showing each column visually for the case where a rupture strike has been assigned. If the strike is not assigned, various point-source approximations exist to approximate finite fault effects and average source-to-site distances.
+Below is a schematic diagram showing each column visually for the case where a rupture strike has been assigned. If the strike is not assigned, various point-source approximations exist to approximate finite fault effects and average source-to-site distances. If a true point source is desired, set the length to 0, the upper and lower depths to the same value, and leave the strike field blank.
 
 ![Gridded rupture schematic](resources/gridded_seismicity_surface_figure.png)
 
