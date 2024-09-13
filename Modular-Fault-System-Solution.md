@@ -21,6 +21,8 @@ Files in this format can be loaded in [nightly builds of OpenSHA application](De
   * [Rate Data](#rate-data)
   * [Gridded Seismicity Data](#gridded-seismicity-data)
   * [Optional Additional Modules](#optional-solution-modules)
+* [Solution Logic Tree](#solution-logic-tree)
+  * [Logic Tree Mappings](#logic-tree-mappings)
 
 ## Fault System Rupture Set
 _[(return to top)](#table-of-contents)_
@@ -391,7 +393,7 @@ All relevant files are stored in the 'solution_logic_tree' directory. Solution a
 | --- | --- | --- | --- |
 | `solution_logic_tree/logic_tree.json` | **YES** | JSON | Logic Tree JSON file listing all logic tree branches, weights, and details of the branch levels. Most users will probably want to read the [simpler mappings file](#logic-tree-mappings) instead. |
 | `solution_logic_tree/logic_tree_mappings.json` | _(no)_ | [JSON](#logic-tree-mappings) | File name mappings and weights for each logic tree branch. This file is not used by OpenSHA, but is written to help external users quickly identify the location of each solution or rupture set file for individual logic tree branches. |
-| `solution_logic_tree/solution_processor.json` | _(no)_ | [GeoJSON](#gridded-seismicity-region) | The Solution Logic Tree file format does not support all optional modules that can be attached to a solution or rupture set. Instead, a solution processor class in OpenSHA can be used to provide additional modules as a function of logic tree branch. This file, if present, gives the class name in OpenSHA of that processor. |
+| `solution_logic_tree/solution_processor.json` | _(no)_ | JSON | The Solution Logic Tree file format does not support all optional modules that can be attached to a solution or rupture set. Instead, a solution processor class in OpenSHA can be used to provide additional modules as a function of logic tree branch. This file, if present, gives the class name in OpenSHA of that processor. |
 
 ### Logic Tree Mappings
 _[(return to top)](#table-of-contents)_
