@@ -140,6 +140,7 @@ In OpenSHA, an **Earthquake Rupture** refers to an event that generates seismic 
 -   [Magnitude(M<sub>W</sub>)](http://en.wikipedia.org/wiki/Moment_magnitude_scale)
 -   Average [Rake](#rake)
 -   [Rupture Surface](#rupture-surface)
+-   [Tectonic Regime](#tectonic-regime)
 -   Hypocenter (optional)
 
 
