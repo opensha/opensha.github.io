@@ -285,15 +285,19 @@ The `solution/grid_sources.csv` CSV file lists properties and rates of each grid
 | Annual Rate                | Gridded rupture annual rate of occurrence |
 | Rake                       | Gridded rupture rake angle (degrees) |
 | Dip                        | Gridded rupture dip angle (degrees) |
-| Strike                     | Gridded rupture strike angle (degrees), if known, otherwise blank |
+| Strike                     | Gridded rupture strike angle (degrees), or blank for unknown |
 | Upper Depth (km)           | Upper depth of the rupture (kilometers) |
 | Lower Depth (km)           | Lower depth of the rupture (kilometers) |
 | Length (km)                | Length of the rupture (kilometers) |
-| Hypocentral Depth (km)     | Hypocentral depth of the rupture (kilometers). This is used when building finite surfaces if (and only if) the strike angle is also supplied. If omitted (blank), the hypocentral depth is assumed to be halfway between the upper and lower depth. See TODO. |
-| Hypocentral DAS (km)       | Hypocentral distance along strike (DAS) of the rupture (kilometers). This is used when building finite surfaces if (and only if) the strike angle is also supplied. If omitted (blank), the hypocentral DAS is assumed to be halfway along the rupture (half of the length). See TODO. |
+| Hypocentral Depth (km)     | Hypocentral depth of the rupture (kilometers). This will typically only be used if the strike angle is also supplied (or if random-strike ruptures are built in hazard calculations). If omitted (blank), the hypocentral depth is assumed to be halfway between the upper and lower depth. See schematic below. |
+| Hypocentral DAS (km)       | Hypocentral distance along strike (DAS) of the rupture (kilometers). This will typically only be used if the strike angle is also supplied (or if random-strike ruptures are built in hazard calculations). If omitted (blank), the hypocentral DAS is assumed to be halfway along the rupture (half of the length). See schematic below. |
 | Tectonic Regime            | Tectonic regime for this rupture; one of the OpenSHA enum constants [listed here](Glossary#tectonic-regime) |
 | Associated Section Index 1 | Optional: section index from the rupture set for which this gridded rupture is associated. The fraction of that association is given in the following column, and additional sections will be listed as additional column pairs. |
 | Fraction Associated 1      | Optional: fractional association of the fault section index supplied in the previous column |
+
+Below is a schematic diagram showing each column visually for the case where a rupture strike has been assigned. If the strike is not assigned, various point-source approximations exist to approximate finite fault effects and average source-to-site distances.
+
+![Gridded rupture schematic](resources/gridded_seismicity_surface_figure.png)
 
 Here is an example, showing both associated and unassociated ruptures:
 
