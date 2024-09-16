@@ -219,6 +219,7 @@ A solution must also contain a rupture set (in the `ruptures` top-level subdirec
 | `solution/grid_region.geojson` | _(no)_ | [GeoJSON](#gridded-seismicity-region) | Gridded seismicity region |
 | `solution/grid_source_locations.csv` | _(no)_ | [CSV](#gridded-seismicity-source-locations) | Locations and indexes of gridded seismicity sources |
 | `solution/grid_sources.csv` | _(no)_ | [CSV](#gridded-seismicity-sources) | Gridded seismicity ruptures |
+| `solution/rup_mfds.csv` | _(no)_ | [JSON](#rupture-magnitude-frequency-distributions-mfds) | Magnitude-frequency distributions for each rupture, often generated when computing branch-averaged solutions. |
 | `solution/modules.json` | _(no)_ | JSON | Manifest of Solution modules, used by OpenSHA |
 
 ### Rate Data
