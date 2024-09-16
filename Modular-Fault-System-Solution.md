@@ -382,6 +382,31 @@ _[(return to top)](#table-of-contents)_
 
 Extra information or data beyond the requirements outlined above may be attached via optional OpenSHA modules. If present (as will be the case for files written by OpenSHA), the `solution/modules.json` file will list all included modules as well as their associated data files and Java class name within the [OpenSHA codebase](https://github.com/opensha/opensha). Some common modules are documented below.
 
+#### Rupture Magnitude-Frequency Distributions (MFDs)
+_[(return to top)](#table-of-contents)_
+
+Rupture magnitudes often vary across branches of a logic tree. When building a single branch-averaged solution, properties including magnitude are weight-averaged. The optional rupture MFDs module keeps track of all of the original magnitudes for each rupture and their respective rates (scaled by their weight in the logic tree). Using this file instead of the average magnitudes and rates (in `ruptures/properties.csv` and `solution/rates.csv`) can allow users to get closer to the true mean hazard (i.e., where hazard is computed separately for each logic tree branch and then averaged, rather than a single hazard calculation on a branch-averaged model).
+
+Rupture MFD data are stored in `solution/rup_mfds.csv` and their format is as follows:
+
+| Rupture Index | Magnitude          | Rate                  |
+|---------------|--------------------|-----------------------|
+| 0             | 6.443793444390055  | 2.8601638487926432E-5 |
+| 0             | 6.563793444390054  | 1.2366670242578025E-5 |
+| 0             | 6.663793444390055  | 2.130396212441838E-5  |
+| 0             | 6.763793444390054  | 6.257225498340316E-6  |
+| 1             | 6.638621409592868  | 2.6865976599265078E-5 |
+| 1             | 6.739884703445732  | 9.167346095156307E-6  |
+| 1             | 6.8398847034457315 | 1.5714092387296576E-5 |
+| 1             | 6.939884703445731  | 4.595274483987466E-6  |
+| 2             | 6.805206391737252  | 1.033716992838189E-5  |
+| 2             | 6.864823440054019  | 2.112632478161733E-6  |
+| 2             | 6.96482344005402   | 3.6153856845827895E-6 |
+| 2             | 7.0648234400540195 | 1.0536393332833122E-6 |
+| ...           | ...                | ...                   |
+
+If a rupture is missing from this file, it either has a zero rate in all logic tree branches, or had the same magnitude on all branches. Note that branch-averaging usually only considers branch weights and not the rate of individual ruptures on those branches, so calculating a rate-averaged magnitude from this file will not match the magnitudes listed in `ruptures/properties.csv`.
+
 ## Solution Logic Tree
 _[(return to top)](#table-of-contents)_
 
