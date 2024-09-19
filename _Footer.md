@@ -1,2 +1,2 @@
-Copyright &copy;2022 University of Southern California.
+Copyright &copy;2024 University of Southern California.
 All rights reserved. [License&mdash;Disclaimer](License-Disclaimer)
