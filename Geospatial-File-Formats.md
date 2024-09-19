@@ -208,7 +208,7 @@ Here is an example `FeatureCollection` that contains a single fault, represented
 ## Regions
 _[(return to top)](#table-of-contents)_
 
-OpenSHA [Region's](https://github.com/opensha/opensha/blob/master/src/main/java/org/opensha/commons/geo/Region.java) are stored as GeoJSON `Feature` elements that include a `Polygon` or `MultiPolygon`. `MultiPolygon`'s are supported to increase compatibility, but must consist of a single `Polygon`.
+OpenSHA [Regions](https://github.com/opensha/opensha/blob/master/src/main/java/org/opensha/commons/geo/Region.java) are stored as GeoJSON `Feature` elements that include a `Polygon` or `MultiPolygon`. `MultiPolygon`'s are supported to increase compatibility, but must consist of a single `Polygon`.
 
 A Region can have a name, which is stored in the `id` field of the `Feature` as a JSON string.
 
@@ -274,7 +274,7 @@ Here is an example region that is a rectangle with minLat=34, maxLat=36, minLon=
 ## Gridded Regions
 _[(return to top)](#table-of-contents)_
 
-OpenSHA [Gridded Region's](https://github.com/opensha/opensha/blob/master/src/main/java/org/opensha/commons/geo/GriddedRegion.java) are stored as GeoJSON `Feature` elements that include a `Polygon` or `MultiPolygon` to specify the region boundary, and a `PointCollection` to specify grid nodes. Grid node locations must be evenly discretized in latitude in longitude, though the latitude and longitude spacing can be different. They can be irregular for non-rectangular regions.
+OpenSHA [Gridded Regions](https://github.com/opensha/opensha/blob/master/src/main/java/org/opensha/commons/geo/GriddedRegion.java) are stored as GeoJSON `Feature` elements that include a `Polygon` or `MultiPolygon` to specify the region boundary, and a `PointCollection` to specify grid nodes. Grid node locations must be evenly discretized in latitude in longitude, though the latitude and longitude spacing can be different. They can be irregular for non-rectangular regions.
 
 Like a Region, a Gridded Region can have a name, which is stored in the `id` field of the `Feature` as a JSON string.
 
