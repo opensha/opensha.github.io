@@ -43,7 +43,7 @@ Here is a summary of files likely to be in a rupture set zip file:
 ### Fault Section Data
 _[(return to top)](#table-of-contents)_
 
-Rupture sets usually contain a large number of fault _subsections_, which are small equal-length subdivisions of each parent fault section (typically with length approximately equal to half the siesmogenic thickness of the fault). Those _subsections_ are stored in the [Fault Section GeoJSON format](Geospatial-File-Formats#fault-data) with the added requirement that each section be listed in order of their `id`s, starting with `id=0` and ending with `id=(numSections-1)`. The GeoJSON will be stored in `ruptures/fault_sections.geojson`.
+Rupture sets usually contain a large number of fault _subsections_, which are small equal-length subdivisions of each parent fault section (typically with length approximately equal to half the seismogenic thickness of the fault). Those _subsections_ are stored in the [Fault Section GeoJSON format](Geospatial-File-Formats#fault-data) with the added requirement that each section be listed in order of their `id`s, starting with `id=0` and ending with `id=(numSections-1)`. The GeoJSON will be stored in `ruptures/fault_sections.geojson`.
 
 Here is an example fault section data file with 9 subsections spanning two faults:
 
@@ -260,7 +260,7 @@ _[(return to top)](#table-of-contents)_
 
 The `solution/grid_source_locations.csv` CSV file lists the indexes and locations of each gridded seismicity source. The first row of the CSV file shall contain column headings, but the content of the header is not checked and need not exactly match the example given below. Grid nodes should then be listed in order, and the first node shall be index 0.
 
-| rid Index | Latitude | Longitude |
+| Grid Index | Latitude | Longitude |
 |-----------|----------|-----------|
 | 0         | 34       | -120      |
 | 1         | 34       | -119.75   |
