@@ -5,7 +5,7 @@
   .small-table table {
     font-size: 50%;
   }
-</style>
+</style> 
 
 _**PREVIEW**: This is a preview of the new file format, pending formal release on [ScienceBase](https://www.sciencebase.gov/). Preview solutions for the 2023 National Seismic Hazard Model (NSHM23) are available upon request. UCERF3 files are still stored in the [Legacy Fault System Solution](Legacy-Fault-System-Solution) format, but branch averaged solutions in this format are available to download for testing: [FM 3.1](https://opensha.usc.edu/ftp/ucerf3_erf_modular/FM3_1_branch_averaged.zip), [FM 3.2](https://opensha.usc.edu/ftp/ucerf3_erf_modular/FM3_2_branch_averaged.zip), [FMs Combined](https://opensha.usc.edu/ftp/ucerf3_erf_modular/mean_ucerf3_sol.zip)._
 
