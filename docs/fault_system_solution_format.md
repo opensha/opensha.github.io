@@ -1,4 +1,11 @@
 <style>
+  @page {
+    size: landscape;
+  }
+  body {
+    max-width: 25cm;
+    margin: 0 auto;
+  }
   table {
     font-size: 80%;
   }
@@ -7,10 +14,6 @@
   }
 </style>
 
-_**PREVIEW**: This is a preview of the new file format, pending formal release on [ScienceBase](https://www.sciencebase.gov/). Preview solutions for the 2023 National Seismic Hazard Model (NSHM23) are available upon request. UCERF3 files are still stored in the [Legacy Fault System Solution](Legacy-Fault-System-Solution) format, but branch averaged solutions in this format are available to download for testing: [FM 3.1](https://opensha.usc.edu/ftp/ucerf3_erf_modular/FM3_1_branch_averaged.zip), [FM 3.2](https://opensha.usc.edu/ftp/ucerf3_erf_modular/FM3_2_branch_averaged.zip), [FMs Combined](https://opensha.usc.edu/ftp/ucerf3_erf_modular/mean_ucerf3_sol.zip)._
-
-[Download a PDF of this documentation here](docs/fault_system_solution_format.pdf)
-
 The [UCERF3](https://wgcep.org/UCERF3) model introduced Fault System Rupture Sets and Solutions as data containers for earthquake rupture forecasts. A [Rupture Set](#fault-system-rupture-set) defines all of the on-fault supra-seismogenic ruptures in a fault system, and their properties (magnitude, rake, etc). A [Solution](#fault-system-solution) defines the annual rate of occurrence of each rupture, and may also supply information about gridded seismicity.
 
 Data are stored in a zip file consisting primarily of [JSON](https://www.json.org/), [GeoJSON](https://geojson.org/), and [CSV](https://en.wikipedia.org/wiki/Comma-separated_values) files for ease of human and machine readability. Rupture sets and solutions are stored in the `ruptures` and `solution` subdirectories of the zip file, respectively.
@@ -18,8 +21,6 @@ Data are stored in a zip file consisting primarily of [JSON](https://www.json.or
 Example files presented here are often shortened for brevity, indicated by `...`.
 
 A small but complete Fault System Solution (that, by definition, also contains a Rupture Set) can be [downloaded here for testing](https://github.com/opensha/opensha/raw/master/src/test/resources/org/opensha/sha/earthquake/faultSysSolution/demo_sol.zip).
-
-Files in this format can be loaded in [nightly builds of OpenSHA application](Developers#nightly-builds), or via code in OpenSHA via the `load(File)` method on `org.opensha.sha.earthquake.faultSysSolution.FaultSystemSolution` and `org.opensha.sha.earthquake.faultSysSolution.FaultSystemRupSet`. You can build your own fault system rupture sets and solutions with [OpenSHA Fault-System Tools](https://github.com/opensha/opensha-fault-sys-tools).
 
 ### Table of Contents
 
@@ -54,7 +55,7 @@ Here is a summary of files likely to be in a rupture set zip file:
 ### Fault Section Data
 _[(return to top)](#table-of-contents)_
 
-Rupture sets usually contain a large number of fault _subsections_, which are small equal-length subdivisions of each parent fault section (typically with length approximately equal to half the seismogenic thickness of the fault). Those _subsections_ are stored in the [Fault Section GeoJSON format](Geospatial-File-Formats#fault-data) with the added requirement that each section be listed in order of their `id`s, starting with `id=0` and ending with `id=(numSections-1)`. The GeoJSON will be stored in `ruptures/fault_sections.geojson`.
+Rupture sets usually contain a large number of fault _subsections_, which are small equal-length subdivisions of each parent fault section (typically with length approximately equal to half the seismogenic thickness of the fault). Those _subsections_ are stored in the Fault Section GeoJSON format (see `geospatial_file_formats.pdf`) with the added requirement that each section be listed in order of their `id`s, starting with `id=0` and ending with `id=(numSections-1)`. The GeoJSON will be stored in `ruptures/fault_sections.geojson`.
 
 Here is an example fault section data file with 9 subsections spanning two faults:
 
@@ -203,7 +204,7 @@ The optional average slips module, if present, includes the average slip for eac
 #### Optional Module: Tectonic Regimes
 _[(return to top)](#table-of-contents)_
 
-The optional tectonic regimes module, if present, lists the associated [tectonic regime](Glossary#tectonic-regime) for each rupture. This is most often used in hazard calculations to select the appropriate ground motion models for each rupture. Data are stored in `ruptures/tectonic_regimes.csv`, a two column CSV file (with a header row) that lists the rupture index and [OpenSHA tectonic regime enum constant](Glossary#tectonic-regime). Data must always be listed in order and for every rupture (with 0-based indexing). An example is given below:
+The optional tectonic regimes module, if present, lists the associated tectonic regime for each rupture. This is most often used in hazard calculations to select the appropriate ground motion models for each rupture. Data are stored in `ruptures/tectonic_regimes.csv`, a two column CSV file (with a header row) that lists the rupture index and [OpenSHA tectonic regime enum constant](https://opensha.org/Glossary#tectonic-regime). Data must always be listed in order and for every rupture (with 0-based indexing). An example is given below:
 
 | Rupture Index | Tectonic Regime |
 |---------------|-----------------|
@@ -261,7 +262,7 @@ Solutions may optionally provided gridded seismicity information. For a fault sy
 #### Gridded Seismicity Region
 _[(return to top)](#table-of-contents)_
 
-The gridded region used to define the set of gridded seismicity locations is stored in `solution/grid_region.geojson`. It follows the OpenSHA [Gridded Region File Format](Geospatial-File-Formats#gridded-regions), and is omitted here for brevity, but the region used for the examples below has 81 grid nodes.
+The gridded region used to define the set of gridded seismicity locations is stored in `solution/grid_region.geojson`. It follows the OpenSHA Gridded Region File Format (see `geospatial_file_formats.pdf`), and is omitted here for brevity, but the region used for the examples below has 81 grid nodes.
 
 This optional file is for information purposes and easy plotting of the gridded seismicity region. Locations of gridded seismicity sources are found in the [Gridded Seismicity Source Locations](#gridded-seismicity-source-locations) file.
 
@@ -304,15 +305,17 @@ The `solution/grid_sources.csv` CSV file lists properties and rates of each grid
 | Length (km)                | Length of the rupture (kilometers)                                                                                                                                                                                                                                                                                                        |
 | Hypocentral Depth (km)     | Hypocentral depth of the rupture (kilometers). This will typically only be used if the strike angle is also supplied (or if random-strike ruptures are built in hazard calculations). If omitted (blank), the hypocentral depth is assumed to be halfway between the upper and lower depth. See schematic below.                          |
 | Hypocentral DAS (km)       | Hypocentral distance along strike (DAS) of the rupture (kilometers). This will typically only be used if the strike angle is also supplied (or if random-strike ruptures are built in hazard calculations). If omitted (blank), the hypocentral DAS is assumed to be halfway along the rupture (half of the length). See schematic below. |
-| Tectonic Regime            | Tectonic regime for this rupture; one of the OpenSHA enum constants [listed here](Glossary#tectonic-regime)                                                                                                                                                                                                                               |
+| Tectonic Regime            | Tectonic regime for this rupture; one of the OpenSHA enum constants [listed here](https://opensha.org/Glossary#tectonic-regime)                                                                                                                                                                                                                               |
 | Associated Section Index 1 | Optional: section index from the rupture set for which this gridded rupture is associated. The fraction of that association is given in the following column, and additional sections will be listed as additional column pairs.                                                                                                          |
 | Fraction Associated 1      | Optional: fractional association of the fault section index supplied in the previous column                                                                                                                                                                                                                                               |
 
 Below is a schematic diagram showing each column visually for the case where a rupture strike has been assigned. If the strike is not assigned, various point-source approximations exist to approximate finite fault effects and average source-to-site distances. If a true point source is desired, set the length to 0, the upper and lower depths to the same value, and leave the strike field blank.
 
-![Gridded rupture schematic](resources/gridded_seismicity_surface_figure.png)
+![](../resources/gridded_seismicity_surface_figure.png){ width=60% }
 
 Here is an example, showing both associated and unassociated ruptures:
+
+<div class="small-table">
 
 | Grid Index | Magnitude | Annual Rate | Rake | Dip | Strike | Upper Depth (km) | Lower Depth (km) | Length (km) | Hypocentral Depth (km) | Hypocentral DAS (km) | Tectonic Regime | Associated Section Index 1 | Fraction Associated 1 | Associated Section Index N | Fraction Associated N |   |          |   |          |
 |------------|-----------|-------------|------|-----|--------|------------------|------------------|-------------|------------------------|----------------------|-----------------|----------------------------|-----------------------|----------------------------|-----------------------|---|----------|---|----------|
@@ -333,6 +336,8 @@ Here is an example, showing both associated and unassociated ruptures:
 | 35         | 5.15      | 0.00953728  | 90   | 50  |        | 5                | 6.1              | 2.16        |                        |                      | ACTIVE_SHALLOW  | 3                          | 0.224517              | 4                          | 0.224517              | 5 | 0.224517 | 6 | 0.112259 |
 | 35         | 5.15      | 0.00953728  | -90  | 50  |        | 5                | 6.1              | 2.16        |                        |                      | ACTIVE_SHALLOW  | 3                          | 0.224517              | 4                          | 0.224517              | 5 | 0.224517 | 6 | 0.112259 |
 | ...        | ...       | ...         | ...  | ... | ...    | ...              | ...              | ...         | ...                    | ...                  | ...             |                            |                       |                            |                       |   |          |   |          |
+
+</div>
 
 #### Legacy (MFD-Based) Gridded Seismicity Data files
 _[(return to top)](#table-of-contents)_
