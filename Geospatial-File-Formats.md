@@ -85,22 +85,22 @@ _[(return to top)](#table-of-contents)_
 
 The following optional properties will be parsed by OpenSHA (other properties may be present and will be ignored):
 
-| Name | JSON Type | Description | Default Value |
-| --- | --- | --- | --- |
-| `AseismicSlipFactor` | Number | Fraction (value in the range `[0,1)`) of the fault area that is aseismic, typically applied by increasing the upper depth of the fault such that the area is reduced by this fraction. | `0.0` |
-| `Connector` | Boolean | Boolean indicating that this fault is a Connector (currently unused). | _(none)_ |
-| `CouplingCoeff` | Number | Fraction (value in the range `[0,1]`) of the slip rate of this fault that is released seismically. | `1.0` |
-| `DipDir` | Number | Dip direction of this fault, see [the glossary](Glossary#strike-dip--rake-focal-mechanism) for more information. | Average trace strike direction + 90 degrees |
-| `DateLastEvent` | Number | Date of the last event that ruptured this fault, used in time-dependent forecasts, expressed in epoch milliseconds. | _(none)_ |
-| `FaultID` | Number | Integer ID of this fault. Must supply either this or the `Feature`'s `id` field. | _(none)_ |
-| `FaultName` | String | Name of this fault. | _(none)_ |
-| `ParentID` | Number | Integer ID of the parent to this fault. This is typically used when subdividing a fault into subsections, and will point to the ID of the original fault section. | _(none)_ |
-| `ParentName` | String | Name of the parent to this fault. This is typically used when subdividing a fault into subsections, and will give the name of the original fault section. | _(none)_ |
-| `PrimState` | String | 2 letter abbreviation of the primarily associated US state for this fault, if it exists. | _(none)_ |
-| `SecState` | String | 2 letter abbreviation of the secondary associated US state for this fault, if it exists. | _(none)_ |
-| `SlipLastEvent` | Number | Slip in meters of the last event that ruptured this fault. | _(none)_ |
-| `SlipRate` | Number | Average long-term on-plane slip rate of this fault in mm/yr. | _(none)_ |
-| `SlipRateStdDev` | Number | Standard deviation of the average long-term slip rate of this fault in mm/yr. | _(none)_ |
+| Name                 | JSON Type | Description                                                                                                                                                                            | Default Value                               |
+|----------------------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------|
+| `AseismicSlipFactor` | Number    | Fraction (value in the range `[0,1)`) of the fault area that is aseismic, typically applied by increasing the upper depth of the fault such that the area is reduced by this fraction. | `0.0`                                       |
+| `Connector`          | Boolean   | Boolean indicating that this fault is a Connector (currently unused).                                                                                                                  | _(none)_                                    |
+| `CouplingCoeff`      | Number    | Fraction (value in the range `[0,1]`) of the slip rate of this fault that is released seismically.                                                                                     | `1.0`                                       |
+| `DipDir`             | Number    | Dip direction of this fault, see [the glossary](Glossary#strike-dip--rake-focal-mechanism) for more information.                                                                       | Average trace strike direction + 90 degrees |
+| `DateLastEvent`      | Number    | Date of the last event that ruptured this fault, used in time-dependent forecasts, expressed in epoch milliseconds.                                                                    | _(none)_                                    |
+| `FaultID`            | Number    | Integer ID of this fault. Must supply either this or the `Feature`'s `id` field.                                                                                                       | _(none)_                                    |
+| `FaultName`          | String    | Name of this fault.                                                                                                                                                                    | _(none)_                                    |
+| `ParentID`           | Number    | Integer ID of the parent to this fault. This is typically used when subdividing a fault into subsections, and will point to the ID of the original fault section.                      | _(none)_                                    |
+| `ParentName`         | String    | Name of the parent to this fault. This is typically used when subdividing a fault into subsections, and will give the name of the original fault section.                              | _(none)_                                    |
+| `PrimState`          | String    | 2 letter abbreviation of the primarily associated US state for this fault, if it exists.                                                                                               | _(none)_                                    |
+| `SecState`           | String    | 2 letter abbreviation of the secondary associated US state for this fault, if it exists.                                                                                               | _(none)_                                    |
+| `SlipLastEvent`      | Number    | Slip in meters of the last event that ruptured this fault.                                                                                                                             | _(none)_                                    |
+| `SlipRate`           | Number    | Average long-term on-plane slip rate of this fault in mm/yr.                                                                                                                           | _(none)_                                    |
+| `SlipRateStdDev`     | Number    | Standard deviation of the average long-term slip rate of this fault in mm/yr.                                                                                                          | _(none)_                                    |
 
 You can optionally supply a polygon geometry that this fault represents. In this case, the `geometry` object must be a `GeometryCollection` that contains both a fault trace (as either a `LineString` or `MultiLineString`) and a polygon as either a `Polygon` or `MultiPolygon`. For example:
 
@@ -285,13 +285,13 @@ _[(return to top)](#table-of-contents)_
 
 The following are optional properties, used primarily for OpenSHA bookkeeping, and can be safely omitted so long as the Gridded Region does not contain any holes. If omitted, they will be inferred from the supplied grid nodes.
 
-| Name | JSON Type | Description |
-| --- | --- | --- |
-| `Anchor` | Array of Number | Lon,Lat of the anchor (lower left) point of the grid |
-| `LatNodes` | Array of Number | List of unique grid node latitudes in increasing order |
-| `LatSpacing` | Number | Latitude grid spacing in decimal degrees |
-| `LonNodes` | Array of Number | List of unique grid node longitudes in increasing order |
-| `LonSpacing` | Number | Longitude grid spacing in decimal degrees |
+| Name         | JSON Type       | Description                                             |
+|--------------|-----------------|---------------------------------------------------------|
+| `Anchor`     | Array of Number | Lon,Lat of the anchor (lower left) point of the grid    |
+| `LatNodes`   | Array of Number | List of unique grid node latitudes in increasing order  |
+| `LatSpacing` | Number          | Latitude grid spacing in decimal degrees                |
+| `LonNodes`   | Array of Number | List of unique grid node longitudes in increasing order |
+| `LonSpacing` | Number          | Longitude grid spacing in decimal degrees               |
 
 ### Gridded Region Example
 _[(return to top)](#table-of-contents)_

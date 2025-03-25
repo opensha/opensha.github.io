@@ -24,6 +24,7 @@ Please let us know if you encounter any problems with this website, have suggest
 
 * Ned Field: field `at` usgs `dot` gov
 * Kevin Milner: kmilner `at` usgs `dot` gov
+* Akash Bhatthal: bhatthal `at` usc `dot` edu
 
 If you are having technical issues with software or have questions specifically relating to the OpenSHA codebase, please see the [developer resources page](Developers). If you encounter an issue with our applications, submit a [ticket here](https://github.com/opensha/opensha/issues).
 

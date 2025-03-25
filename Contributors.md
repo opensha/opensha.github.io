@@ -5,8 +5,8 @@ OpenSHA was originally conceived by Ned Field and is a work in progress that kee
 | Contributor | Affiliation |
 | --- | --- |
 | Ned Field (Project Lead) | USGS, Golden |
-| Kevin Milner | SCEC, USC |
-| Peter Powers | USGS, Golden |
+| Kevin Milner | USGS |
+| Akash Bhatthal | SCEC |
 
 ## Scientific and Technical Advisors
 
@@ -23,6 +23,7 @@ OpenSHA was originally conceived by Ned Field and is a work in progress that kee
 
 | Contributor | Affiliation |
 | --- | --- |
+| Peter Powers | USGS, Golden |
 | Marco Pagani | GEM Foundation |
 | Damiano Monelli | GEM Foundation |
 | Brendon Bradley | Univ. of Canterbury, NZ |

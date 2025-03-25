@@ -18,7 +18,7 @@ Some features (e.g., ShakeMap, Disaggregation, site data web services) require a
 
 Our apps are written in [Java](https://www.oracle.com/java/technologies/) and are cross-platform. The OpenSHA developers use Linux and Mac OSX, but apps should run on Windows as well. Basic requirements are as follows:
 
-* Java 8 (aka 1.8) or above *(NOTE: The next OpenSHA release will require Java 11 or greater, consider upgrading now)*
+* Java 11 or above ([Download here](https://adoptium.net/))
 * 64-bit version of Java
 * At least 4 GB of RAM (8 GB or greater recommended)
 

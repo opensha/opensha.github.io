@@ -26,3 +26,10 @@ You can submit a ticket on the [Issues page of the OpenSHA project](https://gith
 ### Nightly Builds
 
 The latest nightly builds of OpenSHA applications and libray jar files can be downloaded [here](http://opensha.usc.edu/apps/opensha/nightlies/latest). These versions are less stable and may also include models which are under development in applications. Prior nightly builds can be found [here](http://opensha.usc.edu/apps/opensha/nightlies).
+
+### Beta Testing
+
+Prior to a stable release, there is a beta testing period. OpenSHA beta applications are distributed [here](https://strike.scec.org/scecpedia/OpenSHA_Beta_Testing).
+These applications are unstable, but unlike nightly builds, have a defined cutoff point and curated feature-set. These should generally be much more stable
+to use than our nightly builds, but won't necessarily have all the latest features under development.
+
