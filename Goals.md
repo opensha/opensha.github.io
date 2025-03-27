@@ -1,3 +1,5 @@
+**Note: These goals are outdated and will be updated as soon as possible.**
+
 This is a list, in no particular order, of desired targets for the project. Please note that this is more than can be acheived in the near term, so priorities will be set according to funding and developer availability.
 
 For those interested in specific code development targets, technical enhancements, and bug-fixes etc., please see the [developer resources](Developers) page
