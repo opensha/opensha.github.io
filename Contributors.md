@@ -8,7 +8,7 @@ OpenSHA was originally conceived by Ned Field and is a work in progress that kee
 | Kevin Milner | USGS |
 | Akash Bhatthal | SCEC |
 
-## Scientific and Technical Advisors
+## Original Scientific and Technical Advisors
 
 | Contributor | Affiliation |
 | --- | --- |
