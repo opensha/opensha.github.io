@@ -8,6 +8,7 @@ The following is a list of terms commonly used in OpenSHA and in seismic hazard 
 * [Epsilon](#epsilon)
 * [Fault](#fault)
 * [Frankel Fault Surface](#frankel-fault-surface)
+* [GCIM](#gcim)
 * [Gridded Surface](#gridded-surface)
 * [Ground Motion Prediction Equation (GMPE)](#ground-motion-prediction-equation-gmpe)
 * [Hanging Wall & Foot Wall](#hanging-wall--foot-wall)
@@ -207,6 +208,11 @@ These other fault types may also be [gridded](#gridded-surface).
 
 A **Frankel Fault Surface** is one representation of a [Gridded Surface](#gridded-surface) that was created by Arthur Frankel for use in the 1996 and 2002 [USGS National Seismic Hazard Maps](http://earthquake.usgs.gov/hazards/). See also [Earthquake Rupture](#earthquake-rupture). In OpenSHA, the trace and average dip of a [Simple Fault](#simple-fault) are used to create rectangular surfaces where the dip direction of each rectangle is perpendicular to the strike of its local segment. The resulting surface is then gridded (discretized) according to whatever interval is specified. Compare to a [Stirling Fault Surface](#stirling-fault-surface).
 
+
+## GCIM
+*[(top)](#table-of-contents)*
+
+The **Generalized Conditional Intensity Measure** (GCIM) provides a multi-variate distribution of ground motion intensity measures conditional on a specific value of a single intensity measure. A ground motion selection algorithm can automatically select ground motions based on the GCIM distributions. GCIM distributions can be calculated in the OpenSHA HazardCurve application. See [Ground motion selection by Brendon A. Bradley](https://sites.google.com/site/brendonabradley/research/ground-motion-selection) to learn more.
 
 
 

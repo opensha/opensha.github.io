@@ -1,6 +1,8 @@
 # OpenSHA is an open-source, Java-based platform for conducting Seismic Hazard Analysis (SHA)
 
-As an object-oriented framework, OpenSHA can accomodate arbitrarily complex (e.g., physics based) earthquake rupture forecasts (ERFs), ground-motion models, and engineering-response models, which narrows the gap between cutting-edge geophysics and state-of-the-art hazard and risk evaluations.
+As an object-oriented framework, OpenSHA can accommodate arbitrarily complex (e.g., physics based) earthquake rupture forecasts (ERFs), ground-motion models, and engineering-response models, which narrows the gap between cutting-edge geophysics and state-of-the-art hazard and risk evaluations.
+
+[![Download](resources/download_button.png)](https://github.com/opensha/opensha/releases)
 
 ## Getting Started
 
@@ -27,6 +29,13 @@ Please let us know if you encounter any problems with this website, have suggest
 * Akash Bhatthal: bhatthal `at` usc `dot` edu
 
 If you are having technical issues with software or have questions specifically relating to the OpenSHA codebase, please see the [developer resources page](Developers). If you encounter an issue with our applications, submit a [ticket here](https://github.com/opensha/opensha/issues).
+
+## Mail List
+[✉ Subscribe to the SCEC OpenSHA Mail List](mailto:listserv@maillist.usc.edu?body=subscribe%20SCEC-OPENSHA-L%20First%20Last)
+
+_**Note:** When subscribing with the link above, replace `First Last` in the email body with your actual first and last name before sending._
+
+Subscribe to the SCEC OpenSHA Mail List to receive announcements about the latest OpenSHA software updates, webinars and tutorials, or any other OpenSHA news.
 
 ## Accessibility
 

@@ -1,4 +1,8 @@
-OpenSHA desktop applications are available [at the opensha release page HERE](https://github.com/opensha/opensha/releases). Information on nightly development builds, which may include additional models and features, can be found [here](Developers#nightly-builds).
+Download the latest OpenSHA desktop applications here.
+
+[![Download](resources/download_button.png)](https://github.com/opensha/opensha/releases)
+
+Information on nightly development builds, which may include additional models and features, can be found [here](Developers#nightly-builds).
 
 Please use the following citation when publishing results generated using OpenSHA:
 
