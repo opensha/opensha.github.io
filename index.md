@@ -2,7 +2,7 @@
 
 As an object-oriented framework, OpenSHA can accommodate arbitrarily complex (e.g., physics based) earthquake rupture forecasts (ERFs), ground-motion models, and engineering-response models, which narrows the gap between cutting-edge geophysics and state-of-the-art hazard and risk evaluations.
 
-[![Download](resources/download_button.png)](https://github.com/opensha/opensha/releases)
+[![Download](resources/download_button.svg)](https://github.com/opensha/opensha/releases)
 
 ## Getting Started
 
