@@ -31,9 +31,11 @@ Please let us know if you encounter any problems with this website, have suggest
 If you are having technical issues with software or have questions specifically relating to the OpenSHA codebase, please see the [developer resources page](Developers). If you encounter an issue with our applications, submit a [ticket here](https://github.com/opensha/opensha/issues).
 
 ## Mail List
-[✉ Subscribe to the SCEC OpenSHA Mail List](mailto:listserv@maillist.usc.edu?body=subscribe%20SCEC-OPENSHA-L%20First%20Last)
+[🔔 Subscribe to the SCEC OpenSHA Mail List](mailto:listserv@maillist.usc.edu?body=subscribe%20SCEC-OPENSHA-L%20First%20Last)
 
 _**Note:** When subscribing with the link above, replace `First Last` in the email body with your actual first and last name before sending._
+
+_**Broken Link?** Subscribe with an email to `listserv@maillist.usc.edu` with no subject and a single body line, `subscribe SCEC-OPENSHA-L First Last`._
 
 Subscribe to the SCEC OpenSHA Mail List to receive announcements about the latest OpenSHA software updates, webinars and tutorials, or any other OpenSHA news.
 
