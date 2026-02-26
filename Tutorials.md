@@ -187,12 +187,12 @@ prevents your changes from being overwritten.
   <li>Removing IMRs may also result in the removal of site data parameters from
     existing sites. A warning will appear when doing so. This practice is
     strongly discouraged.</li>
-  <li>Alternatively, you can import sites from a file (See `demo-imesc-inputs`)</li>
+  <li>Alternatively, you can import sites from a file (See <a href="/docs/demo-imesc-inputs.zip">demo-imesc-inputs.zip</a>)</li>
     <ul>
         <li>Select "Import Sites From File"</li>
         <li>Select site data type, "Vs30", and click "Add Site Data Column".</li>
         <li>Repeat for "Depth to Vs = 1.0 km/sec" and "Depth to Vs = 2.5km/sec"</li>
-        <li>Click "Browse" and find the file at `demo-imesc-inputs/sites-data.txt`</li>
+        <li>Click "Browse" and find the file at <code>demo-imesc-inputs/sites-data.txt</code></li>
         <li>Navigate into each imported site and set other parameters manually as needed</li>
     </ul>
 </ul>
