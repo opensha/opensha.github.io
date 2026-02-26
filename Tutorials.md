@@ -93,9 +93,8 @@ The IM Event Set Calculator GUI application consists of three navigation tabs
 You can switch through these panes in any order, but using these in sequence
 prevents your changes from being overwritten.
 
-<ol start="1">
-<li>Select your IMRs</li>
-</ol>
+
+### 1. Select your IMRs
 
 | ![Figure 4](resources/Figure_04.png) | 
 |:--:| 
@@ -122,9 +121,8 @@ prevents your changes from being overwritten.
     the "Remove" button.</li>
 </ul>
 
-<ol start="2">
-<li>Select your IMTs</li>
-</ol>
+
+### 2. Select your IMTs
 
 | ![Figure 5](resources/Figure_05.png) | 
 |:--:| 
@@ -148,9 +146,7 @@ prevents your changes from being overwritten.
     warning and confirmation if they would like to proceed with IMR removal.</li>
 </ul>
 
-<ol start="3">
-<li>Select your Sites</li>
-</ol>
+### 3. Select your Sites
 
 | ![Figure 6](resources/Figure_06.png) | 
 |:--:| 
@@ -197,9 +193,7 @@ prevents your changes from being overwritten.
     </ul>
 </ul>
 
-<ol start="4">
-<li>Select your ERF</li>
-</ol>
+### 4. Select your ERF
 
 | ![Figure 7](resources/Figure_07.png) | 
 |:--:| 
@@ -215,9 +209,7 @@ prevents your changes from being overwritten.
     the scroll-wheel on the right to set all parameters as desired.</li>
 </ul>
 
-<ol start="5">
-<li>Optional: Select your Site Data Providers</li>
-</ol>
+### 5. Optional: Select your Site Data Providers
 
 | ![Figure 8](resources/Figure_08.png) | 
 |:--:| 
@@ -244,9 +236,7 @@ prevents your changes from being overwritten.
     "Help" button inside the "Site Data Providers" panel.</li>
 </ul>
 
-<ol start="6">
-<li>Compute Results</li>
-</ol>
+### 6. Compute Results
 
 | ![Figure 9](resources/Figure_09.png) | 
 |:--:| 
@@ -265,9 +255,7 @@ prevents your changes from being overwritten.
     will indiciate the status of the calculation as either "Calculating" or "Done".</li>
 </ul>
 
-<ol start="7">
-<li>View Results</li>
-</ol>
+### 7. View Results
 
 | ![Figure 10](resources/Figure_10.png) | 
 |:--:| 
