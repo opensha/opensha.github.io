@@ -44,7 +44,7 @@ Note that there is an active bug (<a href="https://github.com/opensha/opensha/is
 </ol>
 The window you now see represents the screenshot shown in Figure 1.
 
-| ![Figure 1](resources/Figure_1.png) | 
+| ![Figure 1](resources/Figure_01.png) | 
 |:--:| 
 | *Figure 1: Plots with all scaling relationships for the UCERF3 Epistemic List ERF* |
 
@@ -62,7 +62,7 @@ The window you now see represents the screenshot shown in Figure 1.
 <li>Increase the size of the lines to 2.0 (by clicking "Plot Prefs"). Change the axis range (by clicking "Set Axis") such that "Min X" = 0.01, "Max X" = 0.2, and "Min Y" = 0.5. You have now reproduced Figure 2. Note that you can save a png version of the image by selecting the "Save" option in the "File" menu at the upper left corner of the application or by clicking on the save icon symbol at the top left of the application</li>
 </ol>
 
-| ![Figure 2](resources/Figure_2.png) | 
+| ![Figure 2](resources/Figure_02.png) | 
 |:--:| 
 | *Figure 2: NSHM23-WUS ERF plotted with different IMRs* |
 
@@ -78,9 +78,206 @@ The window you now see represents the screenshot shown in Figure 1.
 <li>After increasing the size of the lines to 2.0, except the black line to set to 4.0 (by clicking "Plot Prefs"), and changing the axis range (by clicking "Set Axis") like in step (10), you have now reproduced Figure 3</li>
 </ol>
 
-| ![Figure 3](resources/Figure_3.png) | 
+| ![Figure 3](resources/Figure_03.png) | 
 |:--:| 
 | *Figure 3: NSHM23-WUS ERF plotted over different time spans* |
+
+## IM EventSet Calculator GUI
+Brief tutorial on usage of IMEventSetCalculatorGUI.
+
+The IM Event Set Calculator GUI application consists of three navigation tabs
+  * IMRs/IMTs (First pane, you should be here initially)
+  * Sites/ERFs
+  * Site Data Providers
+
+You can switch through these panes in any order, but using these in sequence
+prevents your changes from being overwritten.
+
+<ol start="1">
+<li>Select your IMRs</li>
+</ol>
+
+| ![Figure 4](resources/Figure_04.png) | 
+|:--:| 
+| *Figure 4: Select IMR* |
+
+<ul>
+  <li>For this demo, select the following IMRs with default IMR Params:</li>
+    <ul>
+        <li>Abrahamson & Silva (1997)</li>
+        <li>Campbell & Bozorgnia (2008)</li>
+        <li>Chiou & Youngs (2008)</li>
+    </ul>
+  <li>You should first navigate to the drop-down menu under "Set IMR" on the
+    left-side of the first pane.</li>
+  <li>After clicking on your desired IMR, navigate directly below to "IMR
+    Params" and set as desired.</li>
+  <li>After satisfied, click "Add" above "Set IMR" to add the selected IMR to
+    the set of "Selected IMR(s)".</li>
+  <li>Repeat until all desired IMRs have been selected. No other changes
+    throughout this application should impact your selected IMRs or IMR
+    parameters.</li>
+  <li>Note that it's possible that the combination of selected IMRs does not
+    allow for the selection of IMTs. If this happens, you can remove IMRs with
+    the "Remove" button.</li>
+</ul>
+
+<ol start="2">
+<li>Select your IMTs</li>
+</ol>
+
+| ![Figure 5](resources/Figure_05.png) | 
+|:--:| 
+| *Figure 5: Select IMT* |
+
+<ul>
+  <li>For this demo, select the following IMTs:</li>
+    <ul>
+        <li>PGA</li>
+        <li>SA 1.0</li>
+        <li>SA 2.0</li>
+    </ul>
+  <li>On the right side of the page you should see "Set IMT". The same process
+    applies here to select your desired IMTs. IMTs available for selection are
+    determined by selected IMRs.</li>
+  <li>Click "Add" above "Set IMT" for each desired IMT until satisfied.</li>
+  <li>Note that for the "SA" IMT, you can add this multiple times if you vary
+    the SA Period. SA Periods available also vary depending on selected IMRs.</li>
+  <li>You can add more IMRs, but removing selected IMRs may result in selected
+    IMTs to be invalidated. Attempting to do so will prompt the user with a
+    warning and confirmation if they would like to proceed with IMR removal.</li>
+</ul>
+
+<ol start="3">
+<li>Select your Sites</li>
+</ol>
+
+| ![Figure 6](resources/Figure_06.png) | 
+|:--:| 
+| *Figure 6: Select Sites* |
+
+<ul>
+  <li>For this demo, select the following Sites with params:</li>
+    <ul>
+        <li>(34.0,-110.5): {AS Site Type:Deep Soil; Vs30:760.0; Depth 2.5 km/sec:1.0; Vs30 Type:Inferred; Depth 1.0 km/sec:100.0}</li>
+        <li>(35.0,-118.0): Set Params from Web Services {AS Site Type:Rock/Shallow-Soil; Vs30:710.1; Depth 2.5 km/sec:0.0; Vs30 Type:Inferred; Depth 1.0 km/sec:0.0}</li>
+        <li>(34.0,-118.0): {AS Site Type:Deep-Soil; Vs30:260.0; Depth 2.5 km/sec:0.0; Vs30 Type:Measured; Depth 1.0 km/sec:100.0}</li>
+    </ul>
+  <li>Select the "Sites/ERFs" tab at the top of the application window.</li>
+  <li>On the left side of the new pane, select the "Add Site" button.</li>
+  <li>A popup window should appear called "Add Site".</li>
+  <li>Enter desired latitude and longitude coordinates for this site.</li>
+  <li>There should also be a list of Site Params you can set. They are populated
+    with default values. Change these values as desired.</li>
+  <li>You can also retrieve values from Site Data Providers (internet required)</li>
+  <li>By default, all Site Data Providers are enabled. To change the selected
+    providers, see Step 5, "Optional: Select your Site Data Providers"</li>
+  <li>After satisfied with the site configuration, click "OK" to close the pop-up
+    window and add the site to our list of Sites.</li>
+  <li>You can continue to add sites by clicking "Add Site" again. You must use a
+    unique set of coordinates for each site, otherwise the pop-up will not close
+    when clicking "OK".</li>
+  <li>You can edit any site by selecting it from the "Sites" list and then
+    clicking "Edit Site".</li>
+  <li>Select any site or a collection of sites by holding shift and click
+    "Remove Site" to remove the selected site(s).</li>
+  <li>Note that the available site data parameters are generated from the selected
+    IMRs. Adding new IMRs means existing sites won't have all eligible params
+    configured. You can edit each site individually to see any new parameters.</li>
+  <li>Removing IMRs may also result in the removal of site data parameters from
+    existing sites. A warning will appear when doing so. This practice is
+    strongly discouraged.</li>
+  <li>Alternatively, you can import sites from a file (See `demo-imesc-inputs`)</li>
+    <ul>
+        <li>Select "Import Sites From File"</li>
+        <li>Select site data type, "Vs30", and click "Add Site Data Column".</li>
+        <li>Repeat for "Depth to Vs = 1.0 km/sec" and "Depth to Vs = 2.5km/sec"</li>
+        <li>Click "Browse" and find the file at `demo-imesc-inputs/sites-data.txt`</li>
+        <li>Navigate into each imported site and set other parameters manually as needed</li>
+    </ul>
+</ul>
+
+<ol start="4">
+<li>Select your ERF</li>
+</ol>
+
+| ![Figure 7](resources/Figure_07.png) | 
+|:--:| 
+| *Figure 7: Select ERF* |
+
+<ul>
+  <li>For this demo, select the "Mean UCERF3" Eqk Rup Forecast.</li>
+  <li>On the right side of the current pane (Sites/ERF) you should see "Set Forecast".</li>
+  <li>Click on the drop-down menu for "Eqk Rup Forecast" and select the desired ERF.</li>
+  <li>You may have to wait for the selected ERF to download if not already cached.</li>
+  <li>Some ERFs may defer data retrieval until computation.</li>
+  <li>ERF Parameters will populate below and can be selected. You may need to use
+    the scroll-wheel on the right to set all parameters as desired.</li>
+</ul>
+
+<ol start="5">
+<li>Optional: Select your Site Data Providers</li>
+</ol>
+
+| ![Figure 8](resources/Figure_08.png) | 
+|:--:| 
+| *Figure 8: Select Site Data Providers* |
+
+<ul>
+  <li>For this demo, you do not need to manually set Site Data Providers.</li>
+  <li>Navigate to the "Site Data Providers" tab at the top of the application.</li>
+  <li>Select desired providers and click "Enable" or "Disable" to toggle.</li>
+  <li>After setting providers, navigate back to "Sites/ERF" and add/edit sites
+    and click "Set Params from Web Services" to use the new providers.</li>
+  <li>These selected Site Data Providers can be configured differently for each
+    site by repeating this process, or the same providers can be used. </li>
+  <li>Note that any site values previously set with "Set Params from Web
+    Services" will only consider which Site Data Providers were enabled at that
+    time for that site.</li>
+  <li>The state of selected Site Data Providers at execution
+    time does not impact the computation, as retrieval only occurs when users
+    explicitly click the "Set Params from Web Services" button.</li>
+  <li>For any individual provider inside the "Site Data Providers" panel, the
+    applicable regions are specified in the paragraph at the bottom. Consider
+    these regions to see if a site could be affected by the provider.</li>
+  <li>Learn more about toggling and shifting provider priorities by clicking the
+    "Help" button inside the "Site Data Providers" panel.</li>
+</ul>
+
+<ol start="6">
+<li>Compute Results</li>
+</ol>
+
+| ![Figure 9](resources/Figure_09.png) | 
+|:--:| 
+| *Figure 9: Calculating* |
+
+<ul>
+  <li>For this demo, write with "OpenSHA Format Writer". Takes roughly 1 min.</li>
+  <li>At the bottom of the application, there is a drop-down menu with two options:</li>
+    <ul>
+        <li>OpenSHA Format Writer"</li>
+        <li>HAZ01 Format Writer"</li>
+    </ul>
+  <li>Choose your desired output format and click "Compute".</li>
+  <li>A pop-up window will appear asking where you want to write these results.</li>
+  <li>After selecting an output directory, the pop-up will close and a progress bar
+    will indiciate the status of the calculation as either "Calculating" or "Done".</li>
+</ul>
+
+<ol start="7">
+<li>View Results</li>
+</ol>
+
+| ![Figure 10](resources/Figure_10.png) | 
+|:--:| 
+| *Figure 10: Expected Output Files* |
+
+<ul>
+  <li>Navigate to the output directory you specified and you should see
+    several output files.</li>
+  <li>For our demo, compare your outputs against the files found at <a href="/docs/demo-imesc-outputs.zip">demo-imesc-outputs.zip</a>.</li>
+</ul>
 
 
 ## Attenuation Relationship Plotter
