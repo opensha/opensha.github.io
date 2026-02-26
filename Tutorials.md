@@ -82,8 +82,8 @@ The window you now see represents the screenshot shown in Figure 1.
 |:--:| 
 | *Figure 3: NSHM23-WUS ERF plotted over different time spans* |
 
-## IM EventSet Calculator GUI
-Brief tutorial on usage of IMEventSetCalculatorGUI.
+## IM Event Set Calculator GUI
+This tutorial demonstrates how to generate the same <a href="/docs/demo-imesc-outputs.zip">outputs</a> for the Intensity Measure Event Set Calculator GUI application.
 
 The IM Event Set Calculator GUI application consists of three navigation tabs
   * IMRs/IMTs (First pane, you should be here initially)
