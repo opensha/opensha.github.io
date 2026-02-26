@@ -243,7 +243,7 @@ prevents your changes from being overwritten.
 | *Figure 9: Calculating* |
 
 <ul>
-  <li>For this demo, write with "OpenSHA Format Writer". Takes roughly 1 min.</li>
+  <li>For this demo, write with "OpenSHA CSV Format Writer". Takes roughly 1 min.</li>
   <li>At the bottom of the application, there is a drop-down menu with two options:</li>
     <ul>
         <li>OpenSHA Format Writer"</li>
