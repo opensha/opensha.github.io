@@ -14,7 +14,7 @@ Field, E.H., T.H. Jordan, and C.A. Cornell (2003), OpenSHA: A Developing Communi
 
 If you encounter an issue with our applications, please submit a [ticket here](https://github.com/opensha/opensha/issues).
 
-Some features (e.g., ShakeMap, Disaggregation, site data web services) require an internet connection; make sure that your firewall allows connections to ports `80` and `8080` on `opensha.usc.edu`. We run an automated test every 6 hours to ensure that our server is up and working, current results of that test can be seen below. If the badge below says "failing" then we have already been notified and will correct the issue as soon as possible, in which case please try again later.
+Some features (e.g., ShakeMap, Disaggregation, site data web services) require an internet connection; make sure that your firewall allows connections to port `443` on `data.opensha.org`. Allow connections to ports `80` and `8080` for older versions. We run an automated test every 6 hours to ensure that our server is up and working, current results of that test can be seen below. If the badge below says "failing" then we have already been notified and will correct the issue as soon as possible, in which case please try again later.
 
 ![Server Status](https://github.com/opensha/opensha/actions/workflows/operational_tests.yml/badge.svg)
 
@@ -34,13 +34,13 @@ First download the jar file[s] of interest [from the latest release](https://git
 
 `java -jar /path/to/jarFile.jar`
 
-For example, if I'm in a directory containing `HazardCurveGUI-1.5.0.jar` and want to run it:
+For example, if I'm in a directory containing `HazardCurveGUI-26.1.0.jar` and want to run it:
 
-`java -jar HazardCurveGUI-1.5.0.jar`
+`java -jar HazardCurveGUI-26.1.0.jar`
 
 If you see any error messages related to "OutOfMemoryException" or java "heap size", **or the app stalls when loading a large model (e.g., UCERF3)**, you'll need to allocate more memory to java. You can do this most easily with the `-Xmx` argument, or search for ['increase java heap space'](https://www.google.com/search?q=increase+java+heap+space) for more information and alternative methods. For example, to run with 4 GB of memory:
 
-`java -Xmx4G -jar HazardCurveGUI-1.5.0.jar`
+`java -Xmx4G -jar HazardCurveGUI-26.1.0.jar`
 
 ## Application Descriptions
 
