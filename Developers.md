@@ -25,7 +25,7 @@ You can submit a ticket on the [Issues page of the OpenSHA project](https://gith
 
 ### Nightly Builds
 
-The latest nightly builds of OpenSHA applications and libray jar files can be downloaded [here](http://opensha.usc.edu/apps/opensha/nightlies/latest). These versions are less stable and may also include models which are under development in applications. Prior nightly builds can be found [here](http://opensha.usc.edu/apps/opensha/nightlies).
+The latest nightly builds of OpenSHA applications and libray jar files can be downloaded [here](https://data.opensha.org/apps/opensha/nightlies/latest). These versions are less stable and may also include models which are under development in applications. Prior nightly builds can be found [here](https://data.opensha.org/apps/opensha/nightlies).
 
 ### Beta Testing
 
