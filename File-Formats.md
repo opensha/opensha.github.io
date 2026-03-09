@@ -2,7 +2,7 @@ This page describes various file formats used by OpenSHA.
 
 ## Geospatial file formats
 
-As of 2021, OpenSHA can save and load fault section data, regions, and gridded regions from GeoJSON. View information on those [file formats here](Geospatial-File-Formats).
+OpenSHA generally stores and reads geospatial data (including fault section data, regions, and gridded regions) in the GeoJSON format. View information on those [file formats here](Geospatial-File-Formats).
 
 ## Fault System Rupture Sets & Solutions
 
