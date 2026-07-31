@@ -22,7 +22,7 @@ Some features (e.g., ShakeMap, Disaggregation, site data web services) require a
 
 Our apps are written in [Java](https://www.oracle.com/java/technologies/) and are cross-platform. The OpenSHA developers use Linux and Mac OSX, but apps should run on Windows as well. Basic requirements are as follows:
 
-* Java 11 or above ([Download here](https://adoptium.net/))
+* Java 21 or above ([Download here](https://adoptium.net/))
 * 64-bit version of Java
 * At least 4 GB of RAM (8 GB or greater recommended)
 
@@ -34,13 +34,63 @@ First download the jar file[s] of interest [from the latest release](https://git
 
 `java -jar /path/to/jarFile.jar`
 
-For example, if I'm in a directory containing `HazardCurveGUI-26.1.0.jar` and want to run it:
+For example, if I'm in a directory containing `HazardCurveGUI-26.8.0.jar` and want to run it:
 
-`java -jar HazardCurveGUI-26.1.0.jar`
+`java -jar HazardCurveGUI-26.8.0.jar`
 
 If you see any error messages related to "OutOfMemoryException" or java "heap size", **or the app stalls when loading a large model (e.g., UCERF3)**, you'll need to allocate more memory to java. You can do this most easily with the `-Xmx` argument, or search for ['increase java heap space'](https://www.google.com/search?q=increase+java+heap+space) for more information and alternative methods. For example, to run with 4 GB of memory:
 
-`java -Xmx4G -jar HazardCurveGUI-26.1.0.jar`
+`java -Xmx4G -jar HazardCurveGUI-26.8.0.jar`
+
+## Updating applications
+
+All OpenSHA Java applications are available to download from the GitHub releases page. As new software releases are announced, the latest versions of OpenSHA applications can be downloaded bringing important updates for security, performance, bug fixes and new features. See our [mailing list](/Home#mail-list) for announcements.
+All applications after v26.8.0 will prompt the user to update as new stable releases are available.
+
+| ![OpenSHA Application Update Prompt](resources/opensha-update-prompt.png) | 
+|:--:| 
+| *OpenSHA Application Update Prompt* |
+
+
+<table style="width:100%">
+  <tr>
+    <th style="width: 40%">"Update and restart now"</th>
+    <td>Downloads the latest available stable version of the OpenSHA Application JAR to the same location as the currently running application. After the download is complete, the new application will launch and you will be prompted if you want to delete any old versions of this application found in the current directory. You may choose to keep multiple versions of OpenSHA installed, but keep in mind older releases will eventually stop receiving support and web services may break.</td>
+  </tr>
+  <tr>
+    <th style="width: 40%">"Remind me later"</th>
+    <td>This option will defer prompts to update this specific application by 7 days.</td>
+  </tr>
+  <tr>
+    <th style="width: 40%">"Skip this version"</th>
+    <td>If a version is skipped, you will no longer be prompted to update this specific application until the next stable release comes. There is a new stable release 1-2x per year.</td>
+  </tr>
+</table>
+
+
+Prompts to update OpenSHA applications and cleanup outdated files can be disabled for all applications for all future software releases by creating the following config file.
+
+| macOS / Linux | Windows (CMD) |
+| `$HOME/.opensha/config.json` | `%USERPROFILE%\.opensha\config.json` |
+
+```bash
+
+{
+  "disableUpdatePrompts": false
+}
+
+```
+
+If you ever want to reenable update prompts again, you can simply delete the config file or toggle `disableUpdatePrompts` to `true`.
+
+If you are not seeing update prompts and expect to see one, confirm that all of the following conditions are true.
+* You are running a stable (not beta/alpha) release of an OpenSHA application
+* There is a newer stable release available for download on the OpenSHA GitHub releases page
+* You have a stable internet connection and are able to download the release
+* You have file permissions to download the new file
+* You have not globally disabled update prompts in the `.opensha/config.json` file
+* You have not previously defered updates for this application in the past 7 days
+* You have not skipped the current release for this application
 
 ## Application Descriptions
 
