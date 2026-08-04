@@ -3,6 +3,7 @@
 **Open**-Source **S**eismic **H**azard **A**nalysis (**OpenSHA**)
 
 * **[Applications](Applications)**
+  * **[Release Notes](Release-Notes)**
 * **Documentation**
   * **[What is SHA?](Overview)**
   * **[Tutorials & Guides](Tutorials)**
