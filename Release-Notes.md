@@ -7,7 +7,7 @@ This section lists current changes that have been merged into the `master` branc
 * Updates to fault-system-solution ERFs to support multiple tectonic regimes, allowing for TRT-specific IMR assignment in OpenSHA GUI applications. See [#206](https://github.com/opensha/opensha/pull/206).
 * Point-source optimizations to speed up point-source calculations with ergodic IMRs. This dramatically speeds up calculation time for hazard calculations involving many point sources by pre-computing exceedance probabilities for many distances and interpolating between them. See [#208](https://github.com/opensha/opensha/pull/208).
   * This is enabled by default, and can be disabled by deselecting the "Enable point source optimizations?" checkbox in the Calculation Settings control panel.
-* Additional grid source settings to control the number of finite surfaces when the finite rupture (virtual faults) option is selected. [#208](https://github.com/opensha/opensha/pull/208).
+* Additional grid source settings to control the number of finite surfaces when the finite rupture (virtual faults) option is selected. See [#208](https://github.com/opensha/opensha/pull/208).
 * New `RectangularSurface` implementation to more efficiently compute distances to simple planar surfaces (e.g., virtual faults). See [#208](https://github.com/opensha/opensha/pull/208).
 * Removed `DistanceSeis` calculation which used a hardcoded depth and was only used by legacy IMRs. See [#208](https://github.com/opensha/opensha/pull/208).
 * Revamped `CompoundSurface` implementation for multifault ruptures, now supporting models with multiple subsections down-dip. See [#215](https://github.com/opensha/opensha/pull/215).
