@@ -1,8 +1,24 @@
-OpenSHA is actively developed and regular releases are posted on the [GitHub release page](https://github.com/opensha/opensha/releases). This page contains release notes for prior versions, as well as a running list of changes that will be included in the next release.
+OpenSHA is actively developed and regular releases are posted on the [GitHub release page](https://github.com/opensha/opensha/releases). This page contains release notes for each version, as well as a running list of changes that will be included in the next release.
 
 ## Current changes
 
 This section lists current changes that have been merged into the `master` branch on the [OpenSHA Git repository](https://github.com/opensha/opensha), but have not yet been included in a release.
+
+* Updates to fault-system-solution ERFs to support multiple tectonic regimes, allowing for TRT-specific IMR assignment in OpenSHA GUI applications. See [#206](https://github.com/opensha/opensha/pull/206).
+* Point-source optimizations to speed up point-source calculations with ergodic IMRs. This dramatically speeds up calculation time for hazard calculations involving many point sources by pre-computing exceedance probabilities for many distances and interpolating between them. See [#208](https://github.com/opensha/opensha/pull/208).
+  * This is enabled by default, and can be disabled by deselecting the "Enable point source optimizations?" checkbox in the Calculation Settings control panel.
+* Additional grid source settings to control the number of finite surfaces when the finite rupture (virtual faults) option is selected. [#208](https://github.com/opensha/opensha/pull/208).
+* New `RectangularSurface` implementation to more efficiently compute distances to simple planar surfaces (e.g., virtual faults). See [#208](https://github.com/opensha/opensha/pull/208).
+* Removed `DistanceSeis` calculation which used a hardcoded depth and was only used by legacy IMRs. See [#208](https://github.com/opensha/opensha/pull/208).
+* Revamped `CompoundSurface` implementation for multifault ruptures, now supporting models with multiple subsections down-dip. See [#215](https://github.com/opensha/opensha/pull/215).
+* New site data provider for Conterminous U.S. Models (2023 and 2018). Supplies basin depth and sediment thickness data. See [#228](https://github.com/opensha/opensha/pull/228).
+* New site data provider basin depths from the Multi-Scale California (MUSCAL) velocity model. See [#233](https://github.com/opensha/opensha/pull/233).
+* New OpenSHA application updater subsystem to notify users of available updates, including an option to update directly. See [#237](https://github.com/opensha/opensha/pull/237).
+* Updated dip and IMR hypocentral depth updates for multifault ruptures (`CompoundSurface`). Now parameterizes IMRs with area-weighted average dips rather than orientation-relative average dips. Also improves default hypocentral depth calculation (for ruptures without defined hypocenters) to use the average of the upper and lower depths, rather than projecting from the upper depth and average dip. See [#239](https://github.com/opensha/opensha/pull/239).
+* Updated to Java 21. See [#238](https://github.com/opensha/opensha/issues/238).
+* Update default source filters (maximum source-site distance in hazard calcs) to tectonic-regime-dependent defaults. See [#245](https://github.com/opensha/opensha/pull/245).
+  * This replaces the previous default of 200 km with TRT-specific defaults ranging from 300 to 1000 km.
+  * Cutoff distances are adjustable via the "Calculation Settings" control panel in GUI applications
 
 ## Released Versions
 
@@ -19,7 +35,8 @@ This section lists current changes that have been merged into the `master` branc
 
 * New applications: IMEventSetCalculator GUI and CLT
   * IMEventSetCalculator allows for mean and sigma intensity measure (IM) calculations across multiple sites with selected IM relationships (IMRs) and types (IMTs).
-  * In the graphical user interface (GUI), users interactively select IMRs, choose IMTs, add their sites of interest, and select the earthquake rupture forecast (ERF).       * The GUI supports setting site data (e.g., Vs30, Z2.5, etc) from web services or entering it manually, and adjusting parameters of the IMRs and ERF.
+  * In the graphical user interface (GUI), users interactively select IMRs, choose IMTs, add their sites of interest, and select the earthquake rupture forecast (ERF).
+    * The GUI supports setting site data (e.g., Vs30, Z2.5, etc) from web services or entering it manually, and adjusting parameters of the IMRs and ERF.
   * The command line tool (CLT) is simpler in its design with limited options for adjusting site data or model parameters, but easier to run in batch-processing workflows.
   * See IMEventSetCalculatorCLT-26.1.0/README.txt for CLT usage
   * GUI tutorial available at https://opensha.org/Tutorials
