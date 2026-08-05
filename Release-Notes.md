@@ -11,8 +11,8 @@ This section lists current changes that have been merged into the `master` branc
 * New `RectangularSurface` implementation to more efficiently compute distances to simple planar surfaces (e.g., virtual faults). See [#208](https://github.com/opensha/opensha/pull/208).
 * Removed `DistanceSeis` calculation which used a hardcoded depth and was only used by legacy IMRs. See [#208](https://github.com/opensha/opensha/pull/208).
 * Revamped `CompoundSurface` implementation for multifault ruptures, now supporting models with multiple subsections down-dip. See [#215](https://github.com/opensha/opensha/pull/215).
-* New site data provider for Conterminous U.S. Models (2023 and 2018). Supplies basin depth and sediment thickness data. See [#228](https://github.com/opensha/opensha/pull/228).
-* New site data provider basin depths from the Multi-Scale California (MUSCAL) velocity model. See [#233](https://github.com/opensha/opensha/pull/233).
+* New site data provider for USGS Conterminous U.S. NSHMs (2023 and 2018). Supplies basin depth and sediment thickness data. See [#228](https://github.com/opensha/opensha/pull/228).
+* New basin depth site data provider from the Multi-Scale California (MUSCAL) velocity model. See [#233](https://github.com/opensha/opensha/pull/233).
 * New OpenSHA application updater subsystem to notify users of available updates, including an option to update directly. See [#237](https://github.com/opensha/opensha/pull/237).
 * Updated dip and IMR hypocentral depth updates for multifault ruptures (`CompoundSurface`). Now parameterizes IMRs with area-weighted average dips rather than orientation-relative average dips. Also improves default hypocentral depth calculation (for ruptures without defined hypocenters) to use the average of the upper and lower depths, rather than projecting from the upper depth and average dip. See [#239](https://github.com/opensha/opensha/pull/239).
 * Updated to Java 21. See [#238](https://github.com/opensha/opensha/issues/238).
