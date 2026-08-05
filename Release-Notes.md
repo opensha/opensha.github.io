@@ -2,7 +2,7 @@ OpenSHA is actively developed and regular releases are posted on the [GitHub rel
 
 ## Current changes
 
-This section lists current changes that have been merged into the `master` branch on the [OpenSHA Git repository](https://github.com/opensha/opensha), but have not yet been included in a release.
+This section lists current changes that have been merged into the `master` branch on the [OpenSHA Git repository](https://github.com/opensha/opensha) and are available in [nightly builds](Developers#nightly-builds), but have not yet been included in a release.
 
 * Updates to fault-system-solution ERFs to support multiple tectonic regimes, allowing for TRT-specific IMR assignment in OpenSHA GUI applications. See [#206](https://github.com/opensha/opensha/pull/206).
 * Point-source optimizations to speed up point-source calculations with ergodic IMRs. This dramatically speeds up calculation time for hazard calculations involving many point sources by pre-computing exceedance probabilities for many distances and interpolating between them. See [#208](https://github.com/opensha/opensha/pull/208).
