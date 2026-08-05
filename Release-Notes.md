@@ -19,6 +19,11 @@ This section lists current changes that have been merged into the `master` branc
 * Update default source filters (maximum source-site distance in hazard calcs) to tectonic-regime-dependent defaults. See [#245](https://github.com/opensha/opensha/pull/245).
   * This replaces the previous default of 200 km with TRT-specific defaults ranging from 300 to 1000 km.
   * Cutoff distances are adjustable via the "Calculation Settings" control panel in GUI applications
+* Support for multiple NSHM23 ERF model versions, including WUS revision 2. See [#241](https://github.com/opensha/opensha/pull/241).
+  * NSHM23 ERF now defaults to WUS-R2, but allows for reproducibility of R1 results.
+  * Added model information view in the ERF parameter editor to explain the differences between each version.
+  * This will allow for future addition of Alaska, Cascadia, and CEUS ERFs. Stay tuned for updates.
+* Updated/standardized ERF names and sorting in the application ERF lists. See [#243](https://github.com/opensha/opensha/pull/243).
 
 ## Released Versions
 
