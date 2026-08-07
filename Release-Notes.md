@@ -24,6 +24,7 @@ This section lists current changes that have been merged into the `master` branc
   * Added model information view in the ERF parameter editor to explain the differences between each version.
   * This will allow for future addition of Alaska, Cascadia, and CEUS ERFs. Stay tuned for updates.
 * Updated/standardized ERF names and sorting in the application ERF lists. See [#243](https://github.com/opensha/opensha/pull/243).
+* Updated many dependencies (java libraries that we use) and removed those no longer needed. See [#249](https://github.com/opensha/opensha/pull/249).
 
 ## Released Versions
 
