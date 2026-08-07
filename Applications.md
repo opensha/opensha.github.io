@@ -117,3 +117,7 @@ Use this application to compute and plot Scenario ShakeMaps for a chosen IMR , E
 ### Site Data Viewer/Plotter
 
 Download and plot data and maps for site related data such as Vs30 and Basin Depth.
+
+### IM Event Set Calculator
+
+Use the desktop graphical user interface to interactively configure and compute Intensity Measure (IM) values for a set of earthquake ruptures across specified sites (see the [tutorial here](Tutorials#im-event-set-calculator-gui)). For large-scale or automated computations, utilize the Command Line Tool (CLT) version and refer to the README file included in the CLT zip archive for detailed usage instructions.
