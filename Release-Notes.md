@@ -26,6 +26,7 @@ This section lists current changes that have been merged into the `master` branc
 * Updated/standardized ERF names and sorting in the application ERF lists. See [#243](https://github.com/opensha/opensha/pull/243).
 * Updated many dependencies (java libraries that we use) and removed those no longer needed. See [#249](https://github.com/opensha/opensha/pull/249) and [#247](https://github.com/opensha/opensha/pull/247).
 * Add the final 2025 USGS NSHM for Puerto Rico and the U.S. Virgin Islands (both ERF and IMRs) to our production applications.
+* [#264](https://github.com/opensha/opensha/pull/264) Fix the broken "Get Info" button for models in the Attenuation Relationship Plotter app
 
 ## Released Versions
 
