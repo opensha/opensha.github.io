@@ -4,6 +4,14 @@ OpenSHA is actively developed and regular releases are posted on the [GitHub rel
 
 This section lists current changes that have been merged into the `master` branch on the [OpenSHA Git repository](https://github.com/opensha/opensha) and are available in [nightly builds](Developers#nightly-builds), but have not yet been included in a release.
 
+-- Nothing yet, just released v26.8.0 on Aug 24 2026! 🎉 --
+
+## Released Versions
+
+### Version 26.8.0
+
+[View release](https://github.com/opensha/opensha/releases#release-v26.8.0)
+
 * Updates to fault-system-solution ERFs to support multiple tectonic regimes, allowing for TRT-specific IMR assignment in OpenSHA GUI applications. See [#206](https://github.com/opensha/opensha/pull/206).
 * Point-source optimizations to speed up point-source calculations with ergodic IMRs. This dramatically speeds up calculation time for hazard calculations involving many point sources by pre-computing exceedance probabilities for many distances and interpolating between them. See [#208](https://github.com/opensha/opensha/pull/208).
   * This is enabled by default, and can be disabled by deselecting the "Enable point source optimizations?" checkbox in the Calculation Settings control panel.
@@ -27,8 +35,6 @@ This section lists current changes that have been merged into the `master` branc
 * Updated many dependencies (java libraries that we use) and removed those no longer needed. See [#249](https://github.com/opensha/opensha/pull/249) and [#247](https://github.com/opensha/opensha/pull/247).
 * Add the final 2025 USGS NSHM for Puerto Rico and the U.S. Virgin Islands (both ERF and IMRs) to our production applications.
 * [#264](https://github.com/opensha/opensha/pull/264) Fix the broken "Get Info" button for models in the Attenuation Relationship Plotter app
-
-## Released Versions
 
 ### Version 26.1.1
 
