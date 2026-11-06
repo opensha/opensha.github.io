@@ -4,7 +4,7 @@ OpenSHA is actively developed and regular releases are posted on the [GitHub rel
 
 This section lists current changes that have been merged into the `master` branch on the [OpenSHA Git repository](https://github.com/opensha/opensha) and are available in [nightly builds](Developers#nightly-builds), but have not yet been included in a release.
 
-* NSHMP GMM regionalization support: NSHM23 active crustal, interface, and intraslab GMMs now automatically defer to their regional variants for SF/LA/Seattle if a location is supplied within those regions. The old SF/LA specific GMMs have been removed. See [#206](https://github.com/opensha/opensha/pull/273).
+* NSHMP GMM regionalization support: NSHM23 active crustal, interface, and intraslab GMMs now automatically defer to their regional variants for SF/LA/Seattle if a location is supplied within those regions. The old SF/LA specific GMMs have been removed. See [#273](https://github.com/opensha/opensha/pull/273).
 
 ## Released Versions
 
